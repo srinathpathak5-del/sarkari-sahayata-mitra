@@ -7,6 +7,8 @@ import schemesData from '../../data/schemes.json'
 const NAV_LINKS = [
   { href: '/',               label: '🏠 होम' },
   { href: '/yojanaen',       label: '📋 योजनाएं' },
+  { href: '/loan',           label: '🏦 लोन' },
+  { href: '/insurance',      label: '🛡️ बीमा' },
   { href: '/patrata-janch',  label: '✅ पात्रता जांच' },
   { href: '/dastavej',       label: '📄 दस्तावेज' },
   { href: '/about',          label: 'ℹ️ हमारे बारे में' },
@@ -21,7 +23,6 @@ export default function Navbar() {
   const router = useRouter()
   const ref    = useRef<HTMLDivElement>(null)
 
-  // Search logic
   useEffect(() => {
     if (search.trim().length < 1) { setResults([]); return }
     const q = search.toLowerCase()
@@ -33,7 +34,6 @@ export default function Navbar() {
     setResults(filtered)
   }, [search])
 
-  // Close on outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
@@ -58,7 +58,6 @@ export default function Navbar() {
     <nav className="bg-blue-800 text-white shadow-lg sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
 
-        {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <span className="text-2xl">🇮🇳</span>
           <div>
@@ -67,7 +66,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Search bar — desktop */}
+        {/* Search bar desktop */}
         <div ref={ref} className="relative hidden md:block flex-1 max-w-xs">
           <div className="flex items-center bg-blue-700 rounded-xl px-3 py-2 gap-2">
             <span className="text-blue-300">🔍</span>
@@ -80,9 +79,7 @@ export default function Navbar() {
             />
             {search && (
               <button onClick={() => { setSearch(''); setResults([]) }}
-                className="text-blue-300 hover:text-white text-lg leading-none">
-                ✕
-              </button>
+                className="text-blue-300 hover:text-white text-lg leading-none">✕</button>
             )}
           </div>
           {showSearch && results.length > 0 && (
@@ -106,11 +103,11 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Desktop nav links */}
-        <div className="hidden lg:flex items-center gap-1 text-sm shrink-0">
+        {/* Desktop nav */}
+        <div className="hidden xl:flex items-center gap-1 text-xs shrink-0">
           {NAV_LINKS.map(({ href, label }) => (
             <Link key={href} href={href}
-              className={`px-3 py-1.5 rounded-lg transition whitespace-nowrap ${
+              className={`px-2 py-1.5 rounded-lg transition whitespace-nowrap ${
                 path === href ? 'bg-white text-blue-800 font-bold' : 'hover:bg-blue-700'
               }`}>
               {label}
@@ -118,8 +115,8 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile: search icon + hamburger */}
-        <div className="flex items-center gap-2 lg:hidden">
+        {/* Mobile icons */}
+        <div className="flex items-center gap-2 xl:hidden">
           <button onClick={() => { setShowSearch(s => !s); setOpen(false) }}
             className="text-xl bg-blue-700 px-3 py-1.5 rounded-lg hover:bg-blue-600 transition">
             🔍
@@ -131,18 +128,14 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile search bar */}
+      {/* Mobile search */}
       {showSearch && (
-        <div className="lg:hidden px-4 pb-3" ref={ref}>
+        <div className="xl:hidden px-4 pb-3" ref={ref}>
           <div className="flex items-center bg-blue-700 rounded-xl px-3 py-2 gap-2">
             <span className="text-blue-300">🔍</span>
-            <input
-              autoFocus
-              value={search}
-              onChange={e => setSearch(e.target.value)}
+            <input autoFocus value={search} onChange={e => setSearch(e.target.value)}
               placeholder="योजना खोजें..."
-              className="bg-transparent text-white placeholder-blue-300 text-sm focus:outline-none w-full"
-            />
+              className="bg-transparent text-white placeholder-blue-300 text-sm focus:outline-none w-full" />
             {search && (
               <button onClick={() => { setSearch(''); setResults([]) }}
                 className="text-blue-300 hover:text-white text-lg">✕</button>
@@ -172,7 +165,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-blue-900 px-4 pb-4 grid grid-cols-2 gap-2">
+        <div className="xl:hidden bg-blue-900 px-4 pb-4 grid grid-cols-2 gap-2">
           {NAV_LINKS.map(({ href, label }) => (
             <Link key={href} href={href} onClick={() => setOpen(false)}
               className={`px-3 py-2 rounded-lg text-sm ${
