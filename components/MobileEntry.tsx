@@ -8,38 +8,22 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
   const [agreed, setAgreed]   = useState(false)
   const [error, setError]     = useState('')
   const [entered, setEntered] = useState(false)
-  const [loading, setLoading] = useState(true)
   const [saving, setSaving]   = useState(false)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => { setMounted(true) }, [])
+  const [ready, setReady]     = useState(false)
 
   useEffect(() => {
-    if (!mounted) return
+    // Check localStorage and set ready in one effect
     try {
       const saved = localStorage.getItem('ssm_mobile')
       if (saved) setEntered(true)
     } catch {}
-    setLoading(false)
-  }, [mounted])
+    setReady(true)
+  }, [])
 
   async function saveToSheet(mobileNum: string) {
     try {
       const url = `${SHEET_URL}?mobile=${mobileNum}&date=${encodeURIComponent(new Date().toLocaleDateString('en-IN'))}`
       await fetch(url, { method: 'GET', mode: 'no-cors' })
-    } catch {}
-
-    try {
-      await fetch(SHEET_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          mobile: mobileNum,
-          date: new Date().toLocaleDateString('en-IN'),
-          time: new Date().toLocaleTimeString('en-IN'),
-        }),
-      })
     } catch {}
   }
 
@@ -64,19 +48,23 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
     setTimeout(() => {
       setSaving(false)
       setEntered(true)
-    }, 1000)
+    }, 800)
   }
 
-  if (!mounted) return null
-
-  if (loading) return (
+  // Show nothing until ready (avoids flash)
+  if (!ready) return (
     <div className="min-h-screen bg-blue-800 flex items-center justify-center">
-      <div className="text-white text-xl animate-pulse">🇮🇳 लोड हो रहा है...</div>
+      <div className="text-center">
+        <div className="text-5xl mb-3">🇮🇳</div>
+        <div className="text-white text-lg font-bold">सरकारी सहायता मित्र</div>
+      </div>
     </div>
   )
 
+  // Already entered — show full website
   if (entered) return <>{children}</>
 
+  // Mobile entry screen
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center px-4 py-8">
       <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden">
