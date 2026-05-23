@@ -1,12 +1,15 @@
 'use client'
 import { useState, useEffect } from 'react'
 
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyjC8QDnyuJHt3JMhzdlvLI3HXHSo7o91UCOIfdfMd-6Slyd8ZqOzMn0MZuQ6h4JGc1Mw/exec'
+
 export default function MobileEntry({ children }: { children: React.ReactNode }) {
   const [mobile, setMobile]   = useState('')
   const [agreed, setAgreed]   = useState(false)
   const [error, setError]     = useState('')
   const [entered, setEntered] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [saving, setSaving]   = useState(false)
 
   useEffect(() => {
     const saved = localStorage.getItem('ssm_mobile')
@@ -14,7 +17,7 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
     setLoading(false)
   }, [])
 
-  function handleSubmit() {
+  async function handleSubmit() {
     if (mobile.trim().length !== 10 || isNaN(Number(mobile))) {
       setError('कृपया सही 10 अंकों का मोबाइल नंबर डालें।')
       return
@@ -23,8 +26,27 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
       setError('आगे बढ़ने के लिए नियम और शर्तें स्वीकार करें।')
       return
     }
+
+    setSaving(true)
+
+    try {
+      fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mobile: mobile,
+          date: new Date().toLocaleDateString('en-IN'),
+          time: new Date().toLocaleTimeString('en-IN'),
+        }),
+        mode: 'no-cors'
+      })
+    } catch {
+      // Silent fail
+    }
+
     localStorage.setItem('ssm_mobile', mobile)
     localStorage.setItem('ssm_joined', new Date().toISOString())
+    setSaving(false)
     setEntered(true)
   }
 
@@ -49,9 +71,12 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
         </div>
 
         <div className="px-6 py-7">
-          <h2 className="text-lg font-bold text-gray-800 text-center mb-1">स्वागत है! 🙏</h2>
+          <h2 className="text-lg font-bold text-gray-800 text-center mb-1">
+            स्वागत है! 🙏
+          </h2>
           <p className="text-sm text-gray-500 text-center mb-6">
-            सरकारी योजनाओं की जानकारी पाने के लिए<br />अपना मोबाइल नंबर डालें
+            सरकारी योजनाओं की जानकारी पाने के लिए<br />
+            अपना मोबाइल नंबर डालें
           </p>
 
           <div className="mb-4">
@@ -74,6 +99,9 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
                 placeholder="10 अंकों का नंबर"
                 className="flex-1 px-3 py-3 text-gray-800 text-base focus:outline-none bg-white"
               />
+              {mobile.length === 10 && (
+                <span className="px-3 text-green-500 text-xl">✓</span>
+              )}
             </div>
           </div>
 
@@ -92,22 +120,26 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
             />
             <span className="text-xs text-gray-600 leading-relaxed">
               मैं{' '}
-              <a href="/privacy-policy" target="_blank" className="text-blue-600 underline font-medium">
+              <a href="/privacy-policy" target="_blank"
+                className="text-blue-600 underline font-medium">
                 गोपनीयता नीति
               </a>{' '}
               और{' '}
-              <a href="/terms" target="_blank" className="text-blue-600 underline font-medium">
+              <a href="/terms" target="_blank"
+                className="text-blue-600 underline font-medium">
                 नियम एवं शर्तें
               </a>{' '}
-              से सहमत हूँ। मेरा मोबाइल नंबर मार्केटिंग उद्देश्यों के लिए उपयोग किया जा सकता है।
+              से सहमत हूँ। मेरा मोबाइल नंबर मार्केटिंग
+              उद्देश्यों के लिए उपयोग किया जा सकता है।
             </span>
           </label>
 
           <button
             onClick={handleSubmit}
-            className="w-full bg-blue-700 hover:bg-blue-800 active:scale-95 text-white font-bold py-4 rounded-2xl transition-all shadow-lg text-base"
+            disabled={saving}
+            className="w-full bg-blue-700 hover:bg-blue-800 active:scale-95 text-white font-bold py-4 rounded-2xl transition-all shadow-lg text-base disabled:opacity-70"
           >
-            आगे बढ़ें →
+            {saving ? '⏳ जमा हो रहा है...' : 'आगे बढ़ें →'}
           </button>
 
           <p className="text-center text-xs text-gray-400 mt-4">
