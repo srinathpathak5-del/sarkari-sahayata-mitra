@@ -22,7 +22,7 @@
         { "name": "आधार कार्ड", "mandatory": true },
         { "name": "खसरा / खतौनी", "mandatory": true },
         { "name": "बैंक पासबुक", "mandatory": true },
-        { "name": "मोबाइल नंबर", "mandatory": true },
+        { "name": "मोबाइल नंबर (आधार से जुड़ा)", "mandatory": true },
         { "name": "पासपोर्ट साइज फोटो", "mandatory": false }
       ],
       "benefits": ["₹2000 की तीन किस्तें", "राशि सीधे बैंक खाते में", "कोई बिचौलिया नहीं"],
@@ -122,6 +122,223 @@
       "youtubeVideos": [{ "title": "E-Shram Card Kaise Banaye", "videoId": "dQw4w9WgXcQ" }],
       "lastUpdated": "2026-05-01",
       "active": true
+    },
+    {
+      "id": "pm-awas",
+      "slug": "pm-awas-yojana",
+      "name": "PM Awas Yojana",
+      "nameEn": "Pradhan Mantri Awas Yojana",
+      "icon": "🏠",
+      "category": ["housing", "bpl"],
+      "tag": "आवास",
+      "benefit": "₹1.20 लाख सहायता",
+      "ministry": "आवास एवं शहरी कार्य मंत्रालय",
+      "launchYear": 2015,
+      "officialUrl": "https://pmaymis.gov.in",
+      "metaTitle": "PM Awas Yojana 2026 - मुफ्त घर के लिए आवेदन करें",
+      "metaDesc": "PM Awas Yojana में पक्का घर पाएं। ग्रामीण और शहरी दोनों के लिए।",
+      "shortDesc": "गरीब और मध्यम वर्ग के परिवारों को पक्का घर बनाने के लिए आर्थिक सहायता दी जाती है।",
+      "fullDesc": "प्रधानमंत्री आवास योजना के तहत ग्रामीण क्षेत्रों में ₹1.20 लाख और पहाड़ी क्षेत्रों में ₹1.30 लाख की सहायता दी जाती है। शहरी क्षेत्रों में ब्याज सब्सिडी मिलती है।",
+      "eligibility": ["BPL परिवार", "कच्चे मकान में रहने वाले", "पहले से पक्का घर न हो", "EWS/LIG/MIG श्रेणी"],
+      "notEligible": ["पहले से पक्का घर वाले", "आयकर दाता परिवार"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "राशन कार्ड", "mandatory": true },
+        { "name": "आय प्रमाण पत्र", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "जमीन के कागज", "mandatory": false }
+      ],
+      "benefits": ["₹1.20 लाख तक सहायता", "ब्याज सब्सिडी", "पक्का मकान", "शौचालय निर्माण सहायता"],
+      "applicationSteps": [
+        { "step": 1, "title": "वेबसाइट खोलें", "desc": "pmaymis.gov.in पर जाएं" },
+        { "step": 2, "title": "Citizen Assessment", "desc": "Citizen Assessment पर क्लिक करें" },
+        { "step": 3, "title": "आधार डालें", "desc": "आधार नंबर वेरिफाई करें" },
+        { "step": 4, "title": "फॉर्म भरें", "desc": "परिवार और आय की जानकारी भरें" },
+        { "step": 5, "title": "Submit करें", "desc": "Application नंबर नोट करें" }
+      ],
+      "commonMistakes": ["गलत आय प्रमाण देना", "पहले से पक्के घर का होना छुपाना", "बैंक अकाउंट गलत भरना"],
+      "faq": [
+        { "q": "शहरी और ग्रामीण दोनों के लिए है?", "a": "हाँ, PMAY-U शहरी और PMAY-G ग्रामीण के लिए अलग है।" },
+        { "q": "कितनी राशि मिलती है?", "a": "ग्रामीण में ₹1.20 लाख, शहरी में ब्याज सब्सिडी।" }
+      ],
+      "helplineNumber": "1800-11-6163",
+      "youtubeVideos": [{ "title": "PM Awas Yojana Apply Online 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "widow-pension",
+      "slug": "vidhwa-pension-yojana",
+      "name": "विधवा पेंशन योजना",
+      "nameEn": "Widow Pension Yojana",
+      "icon": "👩",
+      "category": ["female", "pension", "bpl"],
+      "tag": "महिला",
+      "benefit": "₹300-1500/माह",
+      "ministry": "सामाजिक न्याय एवं अधिकारिता मंत्रालय",
+      "launchYear": 1995,
+      "officialUrl": "https://nsap.nic.in",
+      "metaTitle": "Vidhwa Pension Yojana 2026 - विधवा महिलाओं के लिए पेंशन",
+      "metaDesc": "विधवा पेंशन योजना में हर महीने पेंशन पाएं। पूरी जानकारी हिंदी में।",
+      "shortDesc": "विधवा महिलाओं को राज्य सरकार द्वारा मासिक पेंशन प्रदान की जाती है।",
+      "fullDesc": "इंदिरा गांधी राष्ट्रीय विधवा पेंशन योजना के तहत 40-79 वर्ष की विधवा महिलाओं को ₹300 प्रति माह और 80 वर्ष से अधिक को ₹500 प्रति माह केंद्र सरकार देती है। राज्य सरकार अतिरिक्त राशि देती है।",
+      "eligibility": ["18-79 वर्ष आयु विधवा महिला", "BPL परिवार", "पुनर्विवाह न किया हो", "राज्य की स्थायी निवासी"],
+      "notEligible": ["पुनर्विवाहित महिलाएं", "सरकारी पेंशन पाने वाली"],
+      "documents": [
+        { "name": "पति का मृत्यु प्रमाण पत्र", "mandatory": true },
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "आय प्रमाण पत्र", "mandatory": true },
+        { "name": "निवास प्रमाण पत्र", "mandatory": true },
+        { "name": "पासपोर्ट साइज फोटो", "mandatory": true }
+      ],
+      "benefits": ["₹300-1500 प्रति माह पेंशन", "DBT से सीधे बैंक में", "राज्य की अतिरिक्त सहायता"],
+      "applicationSteps": [
+        { "step": 1, "title": "तहसील/ब्लॉक जाएं", "desc": "नजदीकी तहसील या ब्लॉक कार्यालय जाएं" },
+        { "step": 2, "title": "फॉर्म लें", "desc": "विधवा पेंशन फॉर्म लें और भरें" },
+        { "step": 3, "title": "दस्तावेज लगाएं", "desc": "सभी जरूरी दस्तावेज संलग्न करें" },
+        { "step": 4, "title": "जमा करें", "desc": "भरा हुआ फॉर्म कार्यालय में जमा करें" },
+        { "step": 5, "title": "पेंशन शुरू", "desc": "वेरिफिकेशन के बाद पेंशन बैंक में आने लगेगी" }
+      ],
+      "commonMistakes": ["मृत्यु प्रमाण पत्र न होना", "बैंक अकाउंट महिला के नाम न होना", "आय प्रमाण पुराना होना"],
+      "faq": [
+        { "q": "कितना मिलता है?", "a": "राज्य के अनुसार ₹300 से ₹1500 प्रति माह।" },
+        { "q": "आवेदन कहाँ होगा?", "a": "नजदीकी तहसील, ब्लॉक या CSC केंद्र पर।" }
+      ],
+      "helplineNumber": "1800-111-555",
+      "youtubeVideos": [{ "title": "Vidhwa Pension Yojana 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "scholarship",
+      "slug": "post-matric-scholarship",
+      "name": "Post Matric Scholarship",
+      "nameEn": "National Scholarship Portal",
+      "icon": "🎓",
+      "category": ["student"],
+      "tag": "छात्रवृत्ति",
+      "benefit": "₹3000-25000/वर्ष",
+      "ministry": "सामाजिक न्याय एवं अधिकारिता मंत्रालय",
+      "launchYear": 2013,
+      "officialUrl": "https://scholarships.gov.in",
+      "metaTitle": "Post Matric Scholarship 2026 - SC ST OBC छात्रों के लिए",
+      "metaDesc": "Post Matric Scholarship में हर साल ₹25000 तक पाएं। SC/ST/OBC छात्रों के लिए।",
+      "shortDesc": "SC/ST/OBC और अल्पसंख्यक वर्ग के छात्रों को उच्च शिक्षा के लिए छात्रवृत्ति दी जाती है।",
+      "fullDesc": "National Scholarship Portal पर SC, ST, OBC, Minority और EWS वर्ग के छात्र 10वीं के बाद छात्रवृत्ति के लिए आवेदन कर सकते हैं। राशि कोर्स और वर्ग के अनुसार अलग होती है।",
+      "eligibility": ["10वीं पास छात्र", "SC/ST/OBC/Minority/EWS", "पारिवारिक आय ₹2.5 लाख से कम", "मान्यता प्राप्त संस्था में दाखिला"],
+      "notEligible": ["एक से अधिक छात्रवृत्ति लेने वाले", "आय सीमा से अधिक परिवार"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "जाति प्रमाण पत्र", "mandatory": true },
+        { "name": "आय प्रमाण पत्र", "mandatory": true },
+        { "name": "मार्कशीट (पिछली कक्षा)", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "एडमिशन लेटर", "mandatory": true }
+      ],
+      "benefits": ["₹3000 से ₹25000 वार्षिक", "ट्यूशन फीस कवर", "रखरखाव भत्ता", "पुस्तक भत्ता"],
+      "applicationSteps": [
+        { "step": 1, "title": "वेबसाइट खोलें", "desc": "scholarships.gov.in पर जाएं" },
+        { "step": 2, "title": "Registration करें", "desc": "New Registration पर क्लिक करें" },
+        { "step": 3, "title": "श्रेणी चुनें", "desc": "SC/ST/OBC/Minority में से चुनें" },
+        { "step": 4, "title": "जानकारी भरें", "desc": "कोर्स और संस्था की जानकारी भरें" },
+        { "step": 5, "title": "दस्तावेज अपलोड करें", "desc": "सभी दस्तावेज अपलोड करें" },
+        { "step": 6, "title": "Submit करें", "desc": "Application ID नोट करें" }
+      ],
+      "commonMistakes": ["लास्ट डेट के बाद आवेदन", "जाति प्रमाण पत्र पुराना होना", "गलत बैंक अकाउंट"],
+      "faq": [
+        { "q": "Last Date कब है?", "a": "हर साल अक्टूबर-नवंबर में। scholarships.gov.in पर चेक करें।" },
+        { "q": "कहाँ आवेदन करें?", "a": "scholarships.gov.in पर ऑनलाइन आवेदन करें।" }
+      ],
+      "helplineNumber": "0120-6619540",
+      "youtubeVideos": [{ "title": "Scholarship Apply Online 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "pm-ujjwala",
+      "slug": "pm-ujjwala-yojana",
+      "name": "PM Ujjwala Yojana",
+      "nameEn": "Pradhan Mantri Ujjwala Yojana",
+      "icon": "🔥",
+      "category": ["female", "bpl"],
+      "tag": "महिला",
+      "benefit": "मुफ्त LPG कनेक्शन",
+      "ministry": "पेट्रोलियम एवं प्राकृतिक गैस मंत्रालय",
+      "launchYear": 2016,
+      "officialUrl": "https://pmuy.gov.in",
+      "metaTitle": "PM Ujjwala Yojana 2026 - मुफ्त गैस कनेक्शन",
+      "metaDesc": "PM Ujjwala Yojana में मुफ्त LPG गैस कनेक्शन पाएं। BPL महिलाओं के लिए।",
+      "shortDesc": "BPL परिवारों की महिलाओं को मुफ्त LPG गैस कनेक्शन और पहला सिलेंडर मुफ्त दिया जाता है।",
+      "fullDesc": "प्रधानमंत्री उज्ज्वला योजना के तहत BPL परिवारों की महिला मुखिया को मुफ्त LPG कनेक्शन, पहला सिलेंडर और चूल्हा मुफ्त दिया जाता है।",
+      "eligibility": ["BPL परिवार की महिला", "18 वर्ष से अधिक आयु", "पहले से LPG कनेक्शन न हो", "SECC-2011 में नाम हो"],
+      "notEligible": ["पहले से LPG कनेक्शन वाले", "APL परिवार"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "BPL राशन कार्ड", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "पासपोर्ट साइज फोटो", "mandatory": true }
+      ],
+      "benefits": ["मुफ्त LPG कनेक्शन", "पहला सिलेंडर मुफ्त", "चूल्हा मुफ्त", "सब्सिडी पर रिफिल"],
+      "applicationSteps": [
+        { "step": 1, "title": "गैस एजेंसी जाएं", "desc": "नजदीकी LPG गैस एजेंसी पर जाएं" },
+        { "step": 2, "title": "फॉर्म लें", "desc": "Ujjwala Yojana का KYC फॉर्म लें" },
+        { "step": 3, "title": "फॉर्म भरें", "desc": "महिला के नाम से फॉर्म भरें" },
+        { "step": 4, "title": "दस्तावेज दें", "desc": "आधार और राशन कार्ड की कॉपी दें" },
+        { "step": 5, "title": "कनेक्शन लें", "desc": "वेरिफिकेशन के बाद कनेक्शन मिलेगा" }
+      ],
+      "commonMistakes": ["पुरुष के नाम से आवेदन करना", "पहले से कनेक्शन होने पर आवेदन"],
+      "faq": [
+        { "q": "कनेक्शन किसके नाम होगा?", "a": "परिवार की महिला मुखिया के नाम पर।" },
+        { "q": "कहाँ आवेदन करें?", "a": "नजदीकी गैस एजेंसी या pmuy.gov.in पर।" }
+      ],
+      "helplineNumber": "1800-233-3555",
+      "youtubeVideos": [{ "title": "PM Ujjwala Yojana Apply 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "ration-card",
+      "slug": "ration-card-kaise-banaye",
+      "name": "Ration Card (राशन कार्ड)",
+      "nameEn": "Ration Card",
+      "icon": "🛒",
+      "category": ["bpl"],
+      "tag": "राशन",
+      "benefit": "मुफ्त/सस्ता अनाज",
+      "ministry": "खाद्य एवं सार्वजनिक वितरण मंत्रालय",
+      "launchYear": 1997,
+      "officialUrl": "https://nfsa.gov.in",
+      "metaTitle": "Ration Card Kaise Banaye 2026 - नया राशन कार्ड",
+      "metaDesc": "राशन कार्ड कैसे बनाएं? नया राशन कार्ड बनाने की पूरी जानकारी हिंदी में।",
+      "shortDesc": "राशन कार्ड से हर महीने सस्ते दर पर गेहूं, चावल और अन्य खाद्य सामग्री मिलती है।",
+      "fullDesc": "राष्ट्रीय खाद्य सुरक्षा अधिनियम के तहत BPL परिवारों को प्रति व्यक्ति 5 किलो अनाज ₹1-3 प्रति किलो की दर से मिलता है। अंत्योदय परिवारों को 35 किलो प्रति माह मिलता है।",
+      "eligibility": ["भारतीय नागरिक", "राज्य का स्थायी निवासी", "BPL/AAY/PHH श्रेणी", "पहले से राशन कार्ड न हो"],
+      "notEligible": ["आयकर दाता परिवार", "सरकारी कर्मचारी (APL)"],
+      "documents": [
+        { "name": "आधार कार्ड (परिवार के सभी सदस्यों का)", "mandatory": true },
+        { "name": "निवास प्रमाण पत्र", "mandatory": true },
+        { "name": "आय प्रमाण पत्र", "mandatory": true },
+        { "name": "पासपोर्ट साइज फोटो", "mandatory": true },
+        { "name": "परिवार के सदस्यों की जानकारी", "mandatory": true }
+      ],
+      "benefits": ["₹1-3/किलो में अनाज", "5 किलो प्रति व्यक्ति प्रति माह", "मुफ्त अनाज (PM GKAY)", "अन्य योजनाओं में मान्यता"],
+      "applicationSteps": [
+        { "step": 1, "title": "खाद्य विभाग जाएं", "desc": "नजदीकी खाद्य एवं रसद विभाग कार्यालय जाएं" },
+        { "step": 2, "title": "फॉर्म लें", "desc": "नया राशन कार्ड फॉर्म लें" },
+        { "step": 3, "title": "फॉर्म भरें", "desc": "परिवार के सभी सदस्यों की जानकारी भरें" },
+        { "step": 4, "title": "दस्तावेज लगाएं", "desc": "सभी दस्तावेजों की फोटोकॉपी लगाएं" },
+        { "step": 5, "title": "जमा करें", "desc": "फॉर्म जमा करें और रसीद लें" }
+      ],
+      "commonMistakes": ["परिवार के किसी सदस्य का नाम छूटना", "पुराना निवास प्रमाण देना"],
+      "faq": [
+        { "q": "राशन कार्ड कितने प्रकार के होते हैं?", "a": "APL, BPL और अंत्योदय (AAY) तीन प्रकार के होते हैं।" },
+        { "q": "नया नाम कैसे जुड़वाएं?", "a": "खाद्य विभाग में जाकर नाम जोड़ने का फॉर्म भरें।" }
+      ],
+      "helplineNumber": "1967",
+      "youtubeVideos": [{ "title": "Ration Card Kaise Banaye 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
     }
   ],
   "categories": [
@@ -130,6 +347,8 @@
     { "id": "labour", "label": "मजदूर योजना", "icon": "👷" },
     { "id": "student", "label": "छात्र योजना", "icon": "🎓" },
     { "id": "female", "label": "महिला योजना", "icon": "👩" },
+    { "id": "pension", "label": "पेंशन योजना", "icon": "🧓" },
+    { "id": "housing", "label": "आवास योजना", "icon": "🏠" },
     { "id": "bpl", "label": "BPL योजना", "icon": "📋" }
   ]
 }
