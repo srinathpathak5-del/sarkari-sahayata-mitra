@@ -135,10 +135,10 @@
       "ministry": "आवास एवं शहरी कार्य मंत्रालय",
       "launchYear": 2015,
       "officialUrl": "https://pmaymis.gov.in",
-      "metaTitle": "PM Awas Yojana 2026 - मुफ्त घर के लिए आवेदन करें",
-      "metaDesc": "PM Awas Yojana में पक्का घर पाएं। ग्रामीण और शहरी दोनों के लिए।",
-      "shortDesc": "गरीब और मध्यम वर्ग के परिवारों को पक्का घर बनाने के लिए आर्थिक सहायता दी जाती है।",
-      "fullDesc": "प्रधानमंत्री आवास योजना के तहत ग्रामीण क्षेत्रों में ₹1.20 लाख और पहाड़ी क्षेत्रों में ₹1.30 लाख की सहायता दी जाती है। शहरी क्षेत्रों में ब्याज सब्सिडी मिलती है।",
+      "metaTitle": "PM Awas Yojana 2026",
+      "metaDesc": "PM Awas Yojana में पक्का घर पाएं।",
+      "shortDesc": "गरीब परिवारों को पक्का घर बनाने के लिए ₹1.20 लाख की आर्थिक सहायता दी जाती है।",
+      "fullDesc": "प्रधानमंत्री आवास योजना के तहत ग्रामीण क्षेत्रों में ₹1.20 लाख और पहाड़ी क्षेत्रों में ₹1.30 लाख की सहायता दी जाती है।",
       "eligibility": ["BPL परिवार", "कच्चे मकान में रहने वाले", "पहले से पक्का घर न हो", "EWS/LIG/MIG श्रेणी"],
       "notEligible": ["पहले से पक्का घर वाले", "आयकर दाता परिवार"],
       "documents": [
@@ -156,13 +156,13 @@
         { "step": 4, "title": "फॉर्म भरें", "desc": "परिवार और आय की जानकारी भरें" },
         { "step": 5, "title": "Submit करें", "desc": "Application नंबर नोट करें" }
       ],
-      "commonMistakes": ["गलत आय प्रमाण देना", "पहले से पक्के घर का होना छुपाना", "बैंक अकाउंट गलत भरना"],
+      "commonMistakes": ["गलत आय प्रमाण देना", "पहले से पक्के घर का होना छुपाना"],
       "faq": [
         { "q": "शहरी और ग्रामीण दोनों के लिए है?", "a": "हाँ, PMAY-U शहरी और PMAY-G ग्रामीण के लिए अलग है।" },
         { "q": "कितनी राशि मिलती है?", "a": "ग्रामीण में ₹1.20 लाख, शहरी में ब्याज सब्सिडी।" }
       ],
       "helplineNumber": "1800-11-6163",
-      "youtubeVideos": [{ "title": "PM Awas Yojana Apply Online 2026", "videoId": "dQw4w9WgXcQ" }],
+      "youtubeVideos": [{ "title": "PM Awas Yojana Apply 2026", "videoId": "dQw4w9WgXcQ" }],
       "lastUpdated": "2026-05-01",
       "active": true
     },
@@ -178,10 +178,10 @@
       "ministry": "सामाजिक न्याय एवं अधिकारिता मंत्रालय",
       "launchYear": 1995,
       "officialUrl": "https://nsap.nic.in",
-      "metaTitle": "Vidhwa Pension Yojana 2026 - विधवा महिलाओं के लिए पेंशन",
-      "metaDesc": "विधवा पेंशन योजना में हर महीने पेंशन पाएं। पूरी जानकारी हिंदी में।",
+      "metaTitle": "Vidhwa Pension Yojana 2026",
+      "metaDesc": "विधवा पेंशन योजना में हर महीने पेंशन पाएं।",
       "shortDesc": "विधवा महिलाओं को राज्य सरकार द्वारा मासिक पेंशन प्रदान की जाती है।",
-      "fullDesc": "इंदिरा गांधी राष्ट्रीय विधवा पेंशन योजना के तहत 40-79 वर्ष की विधवा महिलाओं को ₹300 प्रति माह और 80 वर्ष से अधिक को ₹500 प्रति माह केंद्र सरकार देती है। राज्य सरकार अतिरिक्त राशि देती है।",
+      "fullDesc": "इंदिरा गांधी राष्ट्रीय विधवा पेंशन योजना के तहत विधवा महिलाओं को ₹300-500 प्रति माह केंद्र सरकार और अतिरिक्त राज्य सरकार देती है।",
       "eligibility": ["18-79 वर्ष आयु विधवा महिला", "BPL परिवार", "पुनर्विवाह न किया हो", "राज्य की स्थायी निवासी"],
       "notEligible": ["पुनर्विवाहित महिलाएं", "सरकारी पेंशन पाने वाली"],
       "documents": [
@@ -189,21 +189,20 @@
         { "name": "आधार कार्ड", "mandatory": true },
         { "name": "बैंक पासबुक", "mandatory": true },
         { "name": "आय प्रमाण पत्र", "mandatory": true },
-        { "name": "निवास प्रमाण पत्र", "mandatory": true },
-        { "name": "पासपोर्ट साइज फोटो", "mandatory": true }
+        { "name": "निवास प्रमाण पत्र", "mandatory": true }
       ],
       "benefits": ["₹300-1500 प्रति माह पेंशन", "DBT से सीधे बैंक में", "राज्य की अतिरिक्त सहायता"],
       "applicationSteps": [
         { "step": 1, "title": "तहसील/ब्लॉक जाएं", "desc": "नजदीकी तहसील या ब्लॉक कार्यालय जाएं" },
         { "step": 2, "title": "फॉर्म लें", "desc": "विधवा पेंशन फॉर्म लें और भरें" },
         { "step": 3, "title": "दस्तावेज लगाएं", "desc": "सभी जरूरी दस्तावेज संलग्न करें" },
-        { "step": 4, "title": "जमा करें", "desc": "भरा हुआ फॉर्म कार्यालय में जमा करें" },
+        { "step": 4, "title": "जमा करें", "desc": "भरा हुआ फॉर्म जमा करें" },
         { "step": 5, "title": "पेंशन शुरू", "desc": "वेरिफिकेशन के बाद पेंशन बैंक में आने लगेगी" }
       ],
-      "commonMistakes": ["मृत्यु प्रमाण पत्र न होना", "बैंक अकाउंट महिला के नाम न होना", "आय प्रमाण पुराना होना"],
+      "commonMistakes": ["मृत्यु प्रमाण पत्र न होना", "बैंक अकाउंट महिला के नाम न होना"],
       "faq": [
         { "q": "कितना मिलता है?", "a": "राज्य के अनुसार ₹300 से ₹1500 प्रति माह।" },
-        { "q": "आवेदन कहाँ होगा?", "a": "नजदीकी तहसील, ब्लॉक या CSC केंद्र पर।" }
+        { "q": "आवेदन कहाँ होगा?", "a": "नजदीकी तहसील या CSC केंद्र पर।" }
       ],
       "helplineNumber": "1800-111-555",
       "youtubeVideos": [{ "title": "Vidhwa Pension Yojana 2026", "videoId": "dQw4w9WgXcQ" }],
@@ -222,36 +221,35 @@
       "ministry": "सामाजिक न्याय एवं अधिकारिता मंत्रालय",
       "launchYear": 2013,
       "officialUrl": "https://scholarships.gov.in",
-      "metaTitle": "Post Matric Scholarship 2026 - SC ST OBC छात्रों के लिए",
-      "metaDesc": "Post Matric Scholarship में हर साल ₹25000 तक पाएं। SC/ST/OBC छात्रों के लिए।",
+      "metaTitle": "Post Matric Scholarship 2026",
+      "metaDesc": "SC/ST/OBC छात्रों को ₹25000 तक छात्रवृत्ति पाएं।",
       "shortDesc": "SC/ST/OBC और अल्पसंख्यक वर्ग के छात्रों को उच्च शिक्षा के लिए छात्रवृत्ति दी जाती है।",
-      "fullDesc": "National Scholarship Portal पर SC, ST, OBC, Minority और EWS वर्ग के छात्र 10वीं के बाद छात्रवृत्ति के लिए आवेदन कर सकते हैं। राशि कोर्स और वर्ग के अनुसार अलग होती है।",
+      "fullDesc": "National Scholarship Portal पर SC, ST, OBC, Minority वर्ग के छात्र 10वीं के बाद छात्रवृत्ति के लिए आवेदन कर सकते हैं।",
       "eligibility": ["10वीं पास छात्र", "SC/ST/OBC/Minority/EWS", "पारिवारिक आय ₹2.5 लाख से कम", "मान्यता प्राप्त संस्था में दाखिला"],
       "notEligible": ["एक से अधिक छात्रवृत्ति लेने वाले", "आय सीमा से अधिक परिवार"],
       "documents": [
         { "name": "आधार कार्ड", "mandatory": true },
         { "name": "जाति प्रमाण पत्र", "mandatory": true },
         { "name": "आय प्रमाण पत्र", "mandatory": true },
-        { "name": "मार्कशीट (पिछली कक्षा)", "mandatory": true },
+        { "name": "मार्कशीट", "mandatory": true },
         { "name": "बैंक पासबुक", "mandatory": true },
         { "name": "एडमिशन लेटर", "mandatory": true }
       ],
-      "benefits": ["₹3000 से ₹25000 वार्षिक", "ट्यूशन फीस कवर", "रखरखाव भत्ता", "पुस्तक भत्ता"],
+      "benefits": ["₹3000 से ₹25000 वार्षिक", "ट्यूशन फीस कवर", "रखरखाव भत्ता"],
       "applicationSteps": [
         { "step": 1, "title": "वेबसाइट खोलें", "desc": "scholarships.gov.in पर जाएं" },
         { "step": 2, "title": "Registration करें", "desc": "New Registration पर क्लिक करें" },
         { "step": 3, "title": "श्रेणी चुनें", "desc": "SC/ST/OBC/Minority में से चुनें" },
-        { "step": 4, "title": "जानकारी भरें", "desc": "कोर्स और संस्था की जानकारी भरें" },
-        { "step": 5, "title": "दस्तावेज अपलोड करें", "desc": "सभी दस्तावेज अपलोड करें" },
-        { "step": 6, "title": "Submit करें", "desc": "Application ID नोट करें" }
+        { "step": 4, "title": "दस्तावेज अपलोड करें", "desc": "सभी दस्तावेज अपलोड करें" },
+        { "step": 5, "title": "Submit करें", "desc": "Application ID नोट करें" }
       ],
-      "commonMistakes": ["लास्ट डेट के बाद आवेदन", "जाति प्रमाण पत्र पुराना होना", "गलत बैंक अकाउंट"],
+      "commonMistakes": ["लास्ट डेट के बाद आवेदन", "जाति प्रमाण पत्र पुराना होना"],
       "faq": [
-        { "q": "Last Date कब है?", "a": "हर साल अक्टूबर-नवंबर में। scholarships.gov.in पर चेक करें।" },
-        { "q": "कहाँ आवेदन करें?", "a": "scholarships.gov.in पर ऑनलाइन आवेदन करें।" }
+        { "q": "Last Date कब है?", "a": "हर साल अक्टूबर-नवंबर में।" },
+        { "q": "कहाँ आवेदन करें?", "a": "scholarships.gov.in पर ऑनलाइन।" }
       ],
       "helplineNumber": "0120-6619540",
-      "youtubeVideos": [{ "title": "Scholarship Apply Online 2026", "videoId": "dQw4w9WgXcQ" }],
+      "youtubeVideos": [{ "title": "Scholarship Apply 2026", "videoId": "dQw4w9WgXcQ" }],
       "lastUpdated": "2026-05-01",
       "active": true
     },
@@ -268,10 +266,10 @@
       "launchYear": 2016,
       "officialUrl": "https://pmuy.gov.in",
       "metaTitle": "PM Ujjwala Yojana 2026 - मुफ्त गैस कनेक्शन",
-      "metaDesc": "PM Ujjwala Yojana में मुफ्त LPG गैस कनेक्शन पाएं। BPL महिलाओं के लिए।",
-      "shortDesc": "BPL परिवारों की महिलाओं को मुफ्त LPG गैस कनेक्शन और पहला सिलेंडर मुफ्त दिया जाता है।",
-      "fullDesc": "प्रधानमंत्री उज्ज्वला योजना के तहत BPL परिवारों की महिला मुखिया को मुफ्त LPG कनेक्शन, पहला सिलेंडर और चूल्हा मुफ्त दिया जाता है।",
-      "eligibility": ["BPL परिवार की महिला", "18 वर्ष से अधिक आयु", "पहले से LPG कनेक्शन न हो", "SECC-2011 में नाम हो"],
+      "metaDesc": "PM Ujjwala Yojana में मुफ्त LPG गैस कनेक्शन पाएं।",
+      "shortDesc": "BPL परिवारों की महिलाओं को मुफ्त LPG गैस कनेक्शन और पहला सिलेंडर मुफ्त।",
+      "fullDesc": "प्रधानमंत्री उज्ज्वला योजना के तहत BPL महिलाओं को मुफ्त LPG कनेक्शन, पहला सिलेंडर और चूल्हा मुफ्त दिया जाता है।",
+      "eligibility": ["BPL परिवार की महिला", "18 वर्ष से अधिक", "पहले से LPG कनेक्शन न हो"],
       "notEligible": ["पहले से LPG कनेक्शन वाले", "APL परिवार"],
       "documents": [
         { "name": "आधार कार्ड", "mandatory": true },
@@ -279,10 +277,10 @@
         { "name": "बैंक पासबुक", "mandatory": true },
         { "name": "पासपोर्ट साइज फोटो", "mandatory": true }
       ],
-      "benefits": ["मुफ्त LPG कनेक्शन", "पहला सिलेंडर मुफ्त", "चूल्हा मुफ्त", "सब्सिडी पर रिफिल"],
+      "benefits": ["मुफ्त LPG कनेक्शन", "पहला सिलेंडर मुफ्त", "चूल्हा मुफ्त"],
       "applicationSteps": [
         { "step": 1, "title": "गैस एजेंसी जाएं", "desc": "नजदीकी LPG गैस एजेंसी पर जाएं" },
-        { "step": 2, "title": "फॉर्म लें", "desc": "Ujjwala Yojana का KYC फॉर्म लें" },
+        { "step": 2, "title": "फॉर्म लें", "desc": "Ujjwala Yojana KYC फॉर्म लें" },
         { "step": 3, "title": "फॉर्म भरें", "desc": "महिला के नाम से फॉर्म भरें" },
         { "step": 4, "title": "दस्तावेज दें", "desc": "आधार और राशन कार्ड की कॉपी दें" },
         { "step": 5, "title": "कनेक्शन लें", "desc": "वेरिफिकेशन के बाद कनेक्शन मिलेगा" }
@@ -293,14 +291,14 @@
         { "q": "कहाँ आवेदन करें?", "a": "नजदीकी गैस एजेंसी या pmuy.gov.in पर।" }
       ],
       "helplineNumber": "1800-233-3555",
-      "youtubeVideos": [{ "title": "PM Ujjwala Yojana Apply 2026", "videoId": "dQw4w9WgXcQ" }],
+      "youtubeVideos": [{ "title": "PM Ujjwala Yojana 2026", "videoId": "dQw4w9WgXcQ" }],
       "lastUpdated": "2026-05-01",
       "active": true
     },
     {
       "id": "ration-card",
       "slug": "ration-card-kaise-banaye",
-      "name": "Ration Card (राशन कार्ड)",
+      "name": "Ration Card",
       "nameEn": "Ration Card",
       "icon": "🛒",
       "category": ["bpl"],
@@ -309,34 +307,452 @@
       "ministry": "खाद्य एवं सार्वजनिक वितरण मंत्रालय",
       "launchYear": 1997,
       "officialUrl": "https://nfsa.gov.in",
-      "metaTitle": "Ration Card Kaise Banaye 2026 - नया राशन कार्ड",
-      "metaDesc": "राशन कार्ड कैसे बनाएं? नया राशन कार्ड बनाने की पूरी जानकारी हिंदी में।",
+      "metaTitle": "Ration Card Kaise Banaye 2026",
+      "metaDesc": "नया राशन कार्ड बनाने की पूरी जानकारी हिंदी में।",
       "shortDesc": "राशन कार्ड से हर महीने सस्ते दर पर गेहूं, चावल और अन्य खाद्य सामग्री मिलती है।",
-      "fullDesc": "राष्ट्रीय खाद्य सुरक्षा अधिनियम के तहत BPL परिवारों को प्रति व्यक्ति 5 किलो अनाज ₹1-3 प्रति किलो की दर से मिलता है। अंत्योदय परिवारों को 35 किलो प्रति माह मिलता है।",
-      "eligibility": ["भारतीय नागरिक", "राज्य का स्थायी निवासी", "BPL/AAY/PHH श्रेणी", "पहले से राशन कार्ड न हो"],
+      "fullDesc": "राष्ट्रीय खाद्य सुरक्षा अधिनियम के तहत BPL परिवारों को प्रति व्यक्ति 5 किलो अनाज ₹1-3 प्रति किलो की दर से मिलता है।",
+      "eligibility": ["भारतीय नागरिक", "राज्य का स्थायी निवासी", "BPL/AAY/PHH श्रेणी"],
       "notEligible": ["आयकर दाता परिवार", "सरकारी कर्मचारी (APL)"],
       "documents": [
-        { "name": "आधार कार्ड (परिवार के सभी सदस्यों का)", "mandatory": true },
+        { "name": "आधार कार्ड (सभी सदस्यों का)", "mandatory": true },
         { "name": "निवास प्रमाण पत्र", "mandatory": true },
         { "name": "आय प्रमाण पत्र", "mandatory": true },
-        { "name": "पासपोर्ट साइज फोटो", "mandatory": true },
-        { "name": "परिवार के सदस्यों की जानकारी", "mandatory": true }
+        { "name": "पासपोर्ट साइज फोटो", "mandatory": true }
       ],
-      "benefits": ["₹1-3/किलो में अनाज", "5 किलो प्रति व्यक्ति प्रति माह", "मुफ्त अनाज (PM GKAY)", "अन्य योजनाओं में मान्यता"],
+      "benefits": ["₹1-3/किलो में अनाज", "5 किलो प्रति व्यक्ति", "मुफ्त अनाज PM GKAY के तहत"],
       "applicationSteps": [
-        { "step": 1, "title": "खाद्य विभाग जाएं", "desc": "नजदीकी खाद्य एवं रसद विभाग कार्यालय जाएं" },
+        { "step": 1, "title": "खाद्य विभाग जाएं", "desc": "नजदीकी खाद्य विभाग कार्यालय जाएं" },
         { "step": 2, "title": "फॉर्म लें", "desc": "नया राशन कार्ड फॉर्म लें" },
-        { "step": 3, "title": "फॉर्म भरें", "desc": "परिवार के सभी सदस्यों की जानकारी भरें" },
-        { "step": 4, "title": "दस्तावेज लगाएं", "desc": "सभी दस्तावेजों की फोटोकॉपी लगाएं" },
-        { "step": 5, "title": "जमा करें", "desc": "फॉर्म जमा करें और रसीद लें" }
+        { "step": 3, "title": "फॉर्म भरें", "desc": "सभी सदस्यों की जानकारी भरें" },
+        { "step": 4, "title": "जमा करें", "desc": "फॉर्म जमा करें और रसीद लें" }
       ],
       "commonMistakes": ["परिवार के किसी सदस्य का नाम छूटना", "पुराना निवास प्रमाण देना"],
       "faq": [
-        { "q": "राशन कार्ड कितने प्रकार के होते हैं?", "a": "APL, BPL और अंत्योदय (AAY) तीन प्रकार के होते हैं।" },
+        { "q": "राशन कार्ड कितने प्रकार के होते हैं?", "a": "APL, BPL और अंत्योदय (AAY) तीन प्रकार के।" },
         { "q": "नया नाम कैसे जुड़वाएं?", "a": "खाद्य विभाग में जाकर नाम जोड़ने का फॉर्म भरें।" }
       ],
       "helplineNumber": "1967",
       "youtubeVideos": [{ "title": "Ration Card Kaise Banaye 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "pm-mudra",
+      "slug": "pm-mudra-yojana",
+      "name": "PM Mudra Yojana",
+      "nameEn": "Pradhan Mantri MUDRA Yojana",
+      "icon": "💰",
+      "category": ["labour", "farmer"],
+      "tag": "व्यवसाय",
+      "benefit": "₹50,000 - ₹10 लाख लोन",
+      "ministry": "वित्त मंत्रालय",
+      "launchYear": 2015,
+      "officialUrl": "https://mudra.org.in",
+      "metaTitle": "PM Mudra Yojana 2026 - बिना गारंटी लोन",
+      "metaDesc": "PM Mudra Yojana में ₹10 लाख तक का बिना गारंटी लोन पाएं। छोटे व्यवसाय के लिए।",
+      "shortDesc": "छोटे और सूक्ष्म उद्यमियों को बिना गारंटी के ₹10 लाख तक का लोन मिलता है।",
+      "fullDesc": "प्रधानमंत्री मुद्रा योजना के तहत शिशु (₹50,000 तक), किशोर (₹5 लाख तक) और तरुण (₹10 लाख तक) तीन श्रेणियों में लोन मिलता है। कोई गारंटी नहीं चाहिए।",
+      "eligibility": ["18 वर्ष से अधिक आयु", "छोटा व्यवसाय हो या शुरू करना हो", "भारतीय नागरिक", "बैंक में डिफॉल्टर न हो"],
+      "notEligible": ["बड़े उद्योगपति", "बैंक डिफॉल्टर"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "पैन कार्ड", "mandatory": true },
+        { "name": "व्यवसाय का प्रमाण", "mandatory": true },
+        { "name": "बैंक स्टेटमेंट (6 माह)", "mandatory": true },
+        { "name": "पासपोर्ट साइज फोटो", "mandatory": true }
+      ],
+      "benefits": ["₹50,000 से ₹10 लाख तक लोन", "कोई गारंटी नहीं", "कम ब्याज दर", "आसान किस्तें"],
+      "applicationSteps": [
+        { "step": 1, "title": "बैंक जाएं", "desc": "नजदीकी बैंक या mudra.org.in पर जाएं" },
+        { "step": 2, "title": "श्रेणी चुनें", "desc": "शिशु/किशोर/तरुण में से चुनें" },
+        { "step": 3, "title": "फॉर्म भरें", "desc": "लोन आवेदन फॉर्म भरें" },
+        { "step": 4, "title": "दस्तावेज दें", "desc": "सभी दस्तावेज जमा करें" },
+        { "step": 5, "title": "लोन पाएं", "desc": "अप्रूवल के बाद लोन बैंक में आएगा" }
+      ],
+      "commonMistakes": ["व्यवसाय का प्रमाण न होना", "बैंक स्टेटमेंट पुराना होना"],
+      "faq": [
+        { "q": "Mudra Loan के लिए क्या चाहिए?", "a": "छोटा व्यवसाय और बेसिक दस्तावेज।" },
+        { "q": "ब्याज दर क्या होगी?", "a": "बैंक के अनुसार 8-12% प्रति वर्ष।" }
+      ],
+      "helplineNumber": "1800-180-1111",
+      "youtubeVideos": [{ "title": "Mudra Loan Apply 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "sukanya-samriddhi",
+      "slug": "sukanya-samriddhi-yojana",
+      "name": "सुकन्या समृद्धि योजना",
+      "nameEn": "Sukanya Samriddhi Yojana",
+      "icon": "👧",
+      "category": ["female", "student"],
+      "tag": "बालिका",
+      "benefit": "8.2% ब्याज दर",
+      "ministry": "वित्त मंत्रालय",
+      "launchYear": 2015,
+      "officialUrl": "https://www.indiapost.gov.in",
+      "metaTitle": "Sukanya Samriddhi Yojana 2026 - बेटी के लिए बचत",
+      "metaDesc": "सुकन्या समृद्धि योजना में बेटी के लिए 8.2% ब्याज पर बचत करें।",
+      "shortDesc": "10 साल से कम उम्र की बेटियों के लिए उच्च ब्याज दर वाली बचत योजना।",
+      "fullDesc": "सुकन्या समृद्धि योजना में 10 साल से कम उम्र की बेटी के नाम खाता खुलता है। 8.2% ब्याज दर के साथ 21 साल में परिपक्व होता है। शादी या पढ़ाई के लिए उपयोग।",
+      "eligibility": ["10 साल से कम उम्र की बेटी", "भारतीय नागरिक", "एक परिवार में अधिकतम 2 बेटियां"],
+      "notEligible": ["10 साल से अधिक उम्र की बेटी", "तीसरी बेटी (कुछ अपवाद)"],
+      "documents": [
+        { "name": "बेटी का जन्म प्रमाण पत्र", "mandatory": true },
+        { "name": "माता-पिता का आधार कार्ड", "mandatory": true },
+        { "name": "पासपोर्ट साइज फोटो", "mandatory": true },
+        { "name": "निवास प्रमाण पत्र", "mandatory": true }
+      ],
+      "benefits": ["8.2% वार्षिक ब्याज दर", "टैक्स छूट (80C)", "21 साल में परिपक्व", "न्यूनतम ₹250/वर्ष जमा"],
+      "applicationSteps": [
+        { "step": 1, "title": "बैंक या डाकघर जाएं", "desc": "नजदीकी बैंक या पोस्ट ऑफिस जाएं" },
+        { "step": 2, "title": "फॉर्म लें", "desc": "SSY खाता खोलने का फॉर्म लें" },
+        { "step": 3, "title": "फॉर्म भरें", "desc": "बेटी और माता-पिता की जानकारी भरें" },
+        { "step": 4, "title": "पहली जमा करें", "desc": "न्यूनतम ₹250 जमा करें" },
+        { "step": 5, "title": "पासबुक लें", "desc": "SSY पासबुक प्राप्त करें" }
+      ],
+      "commonMistakes": ["बेटी की उम्र 10 साल से अधिक होना", "सालाना जमा न करना"],
+      "faq": [
+        { "q": "कितना जमा कर सकते हैं?", "a": "न्यूनतम ₹250 और अधिकतम ₹1.5 लाख प्रति वर्ष।" },
+        { "q": "पैसे कब निकाल सकते हैं?", "a": "18 साल पर 50% और 21 साल पर पूरा।" }
+      ],
+      "helplineNumber": "1800-266-6868",
+      "youtubeVideos": [{ "title": "Sukanya Samriddhi Yojana 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "pm-jeevan-jyoti",
+      "slug": "pm-jeevan-jyoti-bima",
+      "name": "PM Jeevan Jyoti Bima",
+      "nameEn": "Pradhan Mantri Jeevan Jyoti Bima Yojana",
+      "icon": "🛡️",
+      "category": ["labour", "bpl"],
+      "tag": "बीमा",
+      "benefit": "₹2 लाख जीवन बीमा",
+      "ministry": "वित्त मंत्रालय",
+      "launchYear": 2015,
+      "officialUrl": "https://jansuraksha.gov.in",
+      "metaTitle": "PM Jeevan Jyoti Bima 2026 - ₹2 लाख जीवन बीमा",
+      "metaDesc": "सिर्फ ₹436/वर्ष में ₹2 लाख का जीवन बीमा पाएं।",
+      "shortDesc": "मात्र ₹436 प्रति वर्ष प्रीमियम पर ₹2 लाख का जीवन बीमा कवर मिलता है।",
+      "fullDesc": "प्रधानमंत्री जीवन ज्योति बीमा योजना में 18-50 वर्ष के लोग सिर्फ ₹436/वर्ष में ₹2 लाख का जीवन बीमा ले सकते हैं। मृत्यु पर परिवार को ₹2 लाख मिलते हैं।",
+      "eligibility": ["18-50 वर्ष आयु", "बैंक अकाउंट हो", "आधार से बैंक लिंक हो"],
+      "notEligible": ["50 वर्ष से अधिक आयु (नए आवेदन)"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "मोबाइल नंबर", "mandatory": true }
+      ],
+      "benefits": ["₹2 लाख जीवन बीमा", "मात्र ₹436/वर्ष प्रीमियम", "बैंक से ऑटो डेबिट", "परिवार को सुरक्षा"],
+      "applicationSteps": [
+        { "step": 1, "title": "बैंक जाएं", "desc": "अपने बैंक में जाएं या नेटबैंकिंग खोलें" },
+        { "step": 2, "title": "PMJJBY चुनें", "desc": "PMJJBY योजना के लिए आवेदन करें" },
+        { "step": 3, "title": "फॉर्म भरें", "desc": "सहमति फॉर्म भरें" },
+        { "step": 4, "title": "प्रीमियम", "desc": "₹436 बैंक से ऑटो डेबिट होगा" }
+      ],
+      "commonMistakes": ["बैंक में पर्याप्त राशि न होना", "नॉमिनी का नाम न भरना"],
+      "faq": [
+        { "q": "प्रीमियम कब कटता है?", "a": "हर साल जून में ₹436 बैंक से कटता है।" },
+        { "q": "क्लेम कैसे मिलेगा?", "a": "मृत्यु के बाद परिवार बैंक में क्लेम फॉर्म भरे।" }
+      ],
+      "helplineNumber": "1800-180-1111",
+      "youtubeVideos": [{ "title": "PMJJBY Apply 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "pm-suraksha-bima",
+      "slug": "pm-suraksha-bima-yojana",
+      "name": "PM Suraksha Bima Yojana",
+      "nameEn": "Pradhan Mantri Suraksha Bima Yojana",
+      "icon": "⚕️",
+      "category": ["labour", "bpl"],
+      "tag": "दुर्घटना बीमा",
+      "benefit": "₹2 लाख दुर्घटना बीमा",
+      "ministry": "वित्त मंत्रालय",
+      "launchYear": 2015,
+      "officialUrl": "https://jansuraksha.gov.in",
+      "metaTitle": "PM Suraksha Bima Yojana 2026 - दुर्घटना बीमा",
+      "metaDesc": "सिर्फ ₹20/वर्ष में ₹2 लाख का दुर्घटना बीमा पाएं।",
+      "shortDesc": "मात्र ₹20 प्रति वर्ष में ₹2 लाख का दुर्घटना बीमा कवर मिलता है।",
+      "fullDesc": "प्रधानमंत्री सुरक्षा बीमा योजना में 18-70 वर्ष के लोग सिर्फ ₹20/वर्ष में ₹2 लाख का दुर्घटना बीमा ले सकते हैं। दुर्घटना में मृत्यु या पूर्ण विकलांगता पर ₹2 लाख मिलते हैं।",
+      "eligibility": ["18-70 वर्ष आयु", "बैंक अकाउंट हो", "आधार कार्ड हो"],
+      "notEligible": ["70 वर्ष से अधिक आयु"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "मोबाइल नंबर", "mandatory": true }
+      ],
+      "benefits": ["₹2 लाख दुर्घटना बीमा", "मात्र ₹20/वर्ष प्रीमियम", "आंशिक विकलांगता पर ₹1 लाख"],
+      "applicationSteps": [
+        { "step": 1, "title": "बैंक जाएं", "desc": "अपने बैंक में जाएं" },
+        { "step": 2, "title": "PMSBY चुनें", "desc": "PMSBY योजना के लिए आवेदन करें" },
+        { "step": 3, "title": "फॉर्म भरें", "desc": "सहमति फॉर्म भरें" },
+        { "step": 4, "title": "प्रीमियम", "desc": "₹20 बैंक से ऑटो डेबिट होगा" }
+      ],
+      "commonMistakes": ["बैंक में ₹20 से कम राशि होना", "नॉमिनी न भरना"],
+      "faq": [
+        { "q": "यह E-Shram से अलग कैसे है?", "a": "यह बैंक आधारित बीमा है, E-Shram श्रम मंत्रालय का है।" },
+        { "q": "क्लेम कैसे करें?", "a": "दुर्घटना के बाद 30 दिन में बैंक में क्लेम फॉर्म भरें।" }
+      ],
+      "helplineNumber": "1800-180-1111",
+      "youtubeVideos": [{ "title": "PMSBY Apply 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "vridha-pension",
+      "slug": "vridha-pension-yojana",
+      "name": "वृद्धा पेंशन योजना",
+      "nameEn": "Old Age Pension Yojana",
+      "icon": "🧓",
+      "category": ["pension", "bpl"],
+      "tag": "पेंशन",
+      "benefit": "₹200-1000/माह",
+      "ministry": "सामाजिक न्याय एवं अधिकारिता मंत्रालय",
+      "launchYear": 1995,
+      "officialUrl": "https://nsap.nic.in",
+      "metaTitle": "Vridha Pension Yojana 2026 - बुजुर्गों के लिए पेंशन",
+      "metaDesc": "60 साल से अधिक बुजुर्गों को हर महीने पेंशन पाएं।",
+      "shortDesc": "60 वर्ष से अधिक आयु के BPL बुजुर्गों को मासिक पेंशन दी जाती है।",
+      "fullDesc": "इंदिरा गांधी राष्ट्रीय वृद्धावस्था पेंशन योजना के तहत 60-79 वर्ष के बुजुर्गों को ₹200 और 80+ को ₹500 केंद्र सरकार देती है। राज्य सरकार अतिरिक्त देती है।",
+      "eligibility": ["60 वर्ष या अधिक आयु", "BPL परिवार", "राज्य का स्थायी निवासी"],
+      "notEligible": ["सरकारी पेंशनर", "आयकर दाता"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "आयु प्रमाण पत्र", "mandatory": true },
+        { "name": "BPL राशन कार्ड", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "पासपोर्ट साइज फोटो", "mandatory": true }
+      ],
+      "benefits": ["₹200-1000 प्रति माह पेंशन", "सीधे बैंक में DBT", "राज्य की अतिरिक्त राशि"],
+      "applicationSteps": [
+        { "step": 1, "title": "तहसील/ब्लॉक जाएं", "desc": "नजदीकी तहसील कार्यालय जाएं" },
+        { "step": 2, "title": "फॉर्म लें", "desc": "वृद्धा पेंशन आवेदन फॉर्म लें" },
+        { "step": 3, "title": "फॉर्म भरें", "desc": "सभी जानकारी भरें" },
+        { "step": 4, "title": "दस्तावेज लगाएं", "desc": "सभी दस्तावेज संलग्न करें" },
+        { "step": 5, "title": "पेंशन शुरू", "desc": "वेरिफिकेशन के बाद पेंशन शुरू होगी" }
+      ],
+      "commonMistakes": ["आयु प्रमाण न होना", "बैंक खाता न होना"],
+      "faq": [
+        { "q": "पेंशन कब से मिलती है?", "a": "आवेदन के 2-3 महीने बाद पेंशन शुरू होती है।" },
+        { "q": "कितनी राशि मिलती है?", "a": "राज्य के अनुसार ₹200 से ₹1000 प्रति माह।" }
+      ],
+      "helplineNumber": "1800-111-555",
+      "youtubeVideos": [{ "title": "Vridha Pension Apply 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "kisan-credit-card",
+      "slug": "kisan-credit-card",
+      "name": "Kisan Credit Card",
+      "nameEn": "Kisan Credit Card Scheme",
+      "icon": "💳",
+      "category": ["farmer"],
+      "tag": "किसान",
+      "benefit": "₹3 लाख तक लोन",
+      "ministry": "कृषि एवं किसान कल्याण मंत्रालय",
+      "launchYear": 1998,
+      "officialUrl": "https://pmkisan.gov.in",
+      "metaTitle": "Kisan Credit Card 2026 - किसानों के लिए लोन",
+      "metaDesc": "Kisan Credit Card से ₹3 लाख तक कम ब्याज पर लोन पाएं।",
+      "shortDesc": "किसानों को खेती के लिए ₹3 लाख तक का लोन 4% ब्याज दर पर मिलता है।",
+      "fullDesc": "किसान क्रेडिट कार्ड योजना के तहत किसानों को फसल की बुवाई से कटाई तक के खर्च के लिए कम ब्याज दर पर लोन मिलता है। PM Kisan लाभार्थियों को प्राथमिकता।",
+      "eligibility": ["किसान जिसके पास खेती की जमीन हो", "18-75 वर्ष आयु", "खेती योग्य जमीन का मालिक हो"],
+      "notEligible": ["भूमिहीन मजदूर", "बैंक डिफॉल्टर"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "खसरा/खतौनी", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "पासपोर्ट साइज फोटो", "mandatory": true },
+        { "name": "जमीन का नक्शा", "mandatory": false }
+      ],
+      "benefits": ["₹3 लाख तक लोन", "4% ब्याज दर (सब्सिडी के बाद)", "ATM कार्ड सुविधा", "फसल बीमा भी"],
+      "applicationSteps": [
+        { "step": 1, "title": "बैंक जाएं", "desc": "नजदीकी बैंक या CSC केंद्र जाएं" },
+        { "step": 2, "title": "KCC फॉर्म लें", "desc": "Kisan Credit Card फॉर्म लें" },
+        { "step": 3, "title": "फॉर्म भरें", "desc": "खेती और जमीन की जानकारी भरें" },
+        { "step": 4, "title": "दस्तावेज दें", "desc": "खसरा/खतौनी और आधार दें" },
+        { "step": 5, "title": "KCC पाएं", "desc": "अप्रूवल के बाद KCC मिलेगा" }
+      ],
+      "commonMistakes": ["जमीन के कागज पुराने होना", "बैंक खाता अलग बैंक में होना"],
+      "faq": [
+        { "q": "ब्याज दर क्या होगी?", "a": "7% पर 3% सरकारी सब्सिडी, नेट 4% प्रति वर्ष।" },
+        { "q": "कितना लोन मिलेगा?", "a": "जमीन और फसल के हिसाब से ₹3 लाख तक।" }
+      ],
+      "helplineNumber": "1800-180-1551",
+      "youtubeVideos": [{ "title": "Kisan Credit Card Apply 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "pm-fasal-bima",
+      "slug": "pm-fasal-bima-yojana",
+      "name": "PM Fasal Bima Yojana",
+      "nameEn": "Pradhan Mantri Fasal Bima Yojana",
+      "icon": "🌱",
+      "category": ["farmer"],
+      "tag": "फसल बीमा",
+      "benefit": "फसल नुकसान पर मुआवजा",
+      "ministry": "कृषि एवं किसान कल्याण मंत्रालय",
+      "launchYear": 2016,
+      "officialUrl": "https://pmfby.gov.in",
+      "metaTitle": "PM Fasal Bima Yojana 2026 - फसल बीमा",
+      "metaDesc": "PM Fasal Bima Yojana में फसल खराब होने पर मुआवजा पाएं।",
+      "shortDesc": "प्राकृतिक आपदा से फसल नुकसान होने पर किसानों को मुआवजा दिया जाता है।",
+      "fullDesc": "प्रधानमंत्री फसल बीमा योजना में खरीफ फसल पर 2%, रबी पर 1.5% और बागवानी पर 5% प्रीमियम देकर किसान अपनी फसल का बीमा करा सकते हैं।",
+      "eligibility": ["सभी किसान (ऋणी और गैर-ऋणी)", "खेती योग्य जमीन हो", "अधिसूचित फसल उगाता हो"],
+      "notEligible": ["जिन्होंने लास्ट डेट के बाद आवेदन किया"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "खसरा/खतौनी", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "बुवाई प्रमाण पत्र", "mandatory": true }
+      ],
+      "benefits": ["फसल नुकसान पर पूरा मुआवजा", "कम प्रीमियम दर", "बुवाई से कटाई तक कवर", "प्राकृतिक आपदा कवर"],
+      "applicationSteps": [
+        { "step": 1, "title": "बैंक या CSC जाएं", "desc": "नजदीकी बैंक या CSC केंद्र जाएं" },
+        { "step": 2, "title": "फॉर्म लें", "desc": "फसल बीमा आवेदन फॉर्म लें" },
+        { "step": 3, "title": "फसल की जानकारी दें", "desc": "कौन सी फसल, कितनी जमीन बताएं" },
+        { "step": 4, "title": "प्रीमियम भरें", "desc": "कम प्रीमियम राशि जमा करें" },
+        { "step": 5, "title": "पॉलिसी लें", "desc": "बीमा पॉलिसी नंबर नोट करें" }
+      ],
+      "commonMistakes": ["लास्ट डेट के बाद आवेदन", "गलत फसल का नाम भरना"],
+      "faq": [
+        { "q": "क्लेम कब मिलेगा?", "a": "फसल खराब होने के 2 महीने के अंदर।" },
+        { "q": "कौन सी आपदाएं कवर हैं?", "a": "बाढ़, सूखा, ओलावृष्टि, आंधी सभी कवर हैं।" }
+      ],
+      "helplineNumber": "1800-200-7710",
+      "youtubeVideos": [{ "title": "PM Fasal Bima Apply 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "pm-svanidhi",
+      "slug": "pm-svanidhi-yojana",
+      "name": "PM SVANidhi Yojana",
+      "nameEn": "PM Street Vendor's AtmaNirbhar Nidhi",
+      "icon": "🛺",
+      "category": ["labour"],
+      "tag": "रेहड़ी-पटरी",
+      "benefit": "₹10,000 - ₹50,000 लोन",
+      "ministry": "आवास एवं शहरी कार्य मंत्रालय",
+      "launchYear": 2020,
+      "officialUrl": "https://pmsvanidhi.mohua.gov.in",
+      "metaTitle": "PM SVANidhi Yojana 2026 - रेहड़ी वालों के लिए लोन",
+      "metaDesc": "PM SVANidhi में ₹50,000 तक का लोन पाएं। ठेला, रेहड़ी वालों के लिए।",
+      "shortDesc": "रेहड़ी, ठेला और सड़क किनारे दुकान लगाने वाले विक्रेताओं को ₹10,000 से ₹50,000 तक लोन।",
+      "fullDesc": "PM SVANidhi योजना में स्ट्रीट वेंडर्स को पहली बार ₹10,000, दूसरी बार ₹20,000 और तीसरी बार ₹50,000 का लोन मिलता है। डिजिटल पेमेंट पर कैशबैक भी मिलता है।",
+      "eligibility": ["सड़क पर सामान बेचने वाले", "18 वर्ष से अधिक आयु", "शहरी क्षेत्र में काम करते हों"],
+      "notEligible": ["ग्रामीण क्षेत्र के विक्रेता (कुछ राज्यों में)"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "वेंडिंग सर्टिफिकेट/पहचान पत्र", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "मोबाइल नंबर", "mandatory": true }
+      ],
+      "benefits": ["₹10,000 से शुरुआत", "7% ब्याज सब्सिडी", "डिजिटल पेमेंट पर कैशबैक", "क्रेडिट स्कोर बनेगा"],
+      "applicationSteps": [
+        { "step": 1, "title": "वेबसाइट खोलें", "desc": "pmsvanidhi.mohua.gov.in पर जाएं" },
+        { "step": 2, "title": "Apply for Loan", "desc": "Apply for Loan पर क्लिक करें" },
+        { "step": 3, "title": "मोबाइल OTP", "desc": "मोबाइल से लॉगिन करें" },
+        { "step": 4, "title": "फॉर्म भरें", "desc": "व्यवसाय की जानकारी भरें" },
+        { "step": 5, "title": "लोन पाएं", "desc": "अप्रूवल के बाद लोन बैंक में आएगा" }
+      ],
+      "commonMistakes": ["वेंडिंग सर्टिफिकेट न होना", "बैंक खाता न होना"],
+      "faq": [
+        { "q": "क्या ठेला वाले आवेदन कर सकते हैं?", "a": "हाँ, सभी स्ट्रीट वेंडर आवेदन कर सकते हैं।" },
+        { "q": "दूसरा लोन कब मिलेगा?", "a": "पहला लोन चुकाने के बाद ₹20,000 का दूसरा लोन।" }
+      ],
+      "helplineNumber": "1800-11-1979",
+      "youtubeVideos": [{ "title": "PM SVANidhi Apply 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "pmmvy",
+      "slug": "pradhan-mantri-matru-vandana-yojana",
+      "name": "PM Matru Vandana Yojana",
+      "nameEn": "Pradhan Mantri Matru Vandana Yojana",
+      "icon": "🤱",
+      "category": ["female"],
+      "tag": "मातृत्व",
+      "benefit": "₹5,000 सहायता",
+      "ministry": "महिला एवं बाल विकास मंत्रालय",
+      "launchYear": 2017,
+      "officialUrl": "https://wcd.nic.in",
+      "metaTitle": "PM Matru Vandana Yojana 2026 - गर्भवती महिलाओं के लिए",
+      "metaDesc": "गर्भवती और स्तनपान कराने वाली महिलाओं को ₹5000 की सहायता पाएं।",
+      "shortDesc": "गर्भवती और स्तनपान कराने वाली महिलाओं को ₹5,000 की आर्थिक सहायता तीन किस्तों में दी जाती है।",
+      "fullDesc": "प्रधानमंत्री मातृ वंदना योजना में पहले जीवित बच्चे के जन्म पर महिला को ₹5,000 तीन किस्तों में मिलते हैं। इससे गर्भवती महिला को पोषण और आराम मिल सकता है।",
+      "eligibility": ["गर्भवती और स्तनपान कराने वाली महिला", "पहले जीवित बच्चे पर (दूसरे के लिए अलग शर्तें)", "19 वर्ष या अधिक आयु"],
+      "notEligible": ["सरकारी कर्मचारी महिला (अन्य लाभ मिलते हैं)"],
+      "documents": [
+        { "name": "आधार कार्ड (महिला और पति)", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "MCP कार्ड (मातृ शिशु सुरक्षा कार्ड)", "mandatory": true },
+        { "name": "राशन कार्ड", "mandatory": false }
+      ],
+      "benefits": ["₹5,000 तीन किस्तों में", "पहली किस्त ₹1000 गर्भधारण पर", "दूसरी ₹2000 6 माह पर", "तीसरी ₹2000 बच्चे के जन्म पर"],
+      "applicationSteps": [
+        { "step": 1, "title": "आंगनवाड़ी जाएं", "desc": "नजदीकी आंगनवाड़ी केंद्र जाएं" },
+        { "step": 2, "title": "फॉर्म 1A भरें", "desc": "पहली किस्त के लिए फॉर्म भरें" },
+        { "step": 3, "title": "दस्तावेज दें", "desc": "आधार और बैंक पासबुक दें" },
+        { "step": 4, "title": "MCP कार्ड दिखाएं", "desc": "मातृ शिशु सुरक्षा कार्ड दिखाएं" },
+        { "step": 5, "title": "किस्त पाएं", "desc": "बैंक में सीधे राशि आएगी" }
+      ],
+      "commonMistakes": ["देर से आवेदन करना", "MCP कार्ड न बनवाना"],
+      "faq": [
+        { "q": "कितनी किस्तें मिलती हैं?", "a": "तीन किस्तें — ₹1000, ₹2000, ₹2000।" },
+        { "q": "कहाँ आवेदन करें?", "a": "नजदीकी आंगनवाड़ी केंद्र या स्वास्थ्य केंद्र पर।" }
+      ],
+      "helplineNumber": "1800-111-800",
+      "youtubeVideos": [{ "title": "PMMVY Apply 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "divyang-pension",
+      "slug": "divyang-pension-yojana",
+      "name": "दिव्यांग पेंशन योजना",
+      "nameEn": "Disability Pension Yojana",
+      "icon": "♿",
+      "category": ["pension", "bpl"],
+      "tag": "दिव्यांग",
+      "benefit": "₹300-500/माह",
+      "ministry": "सामाजिक न्याय एवं अधिकारिता मंत्रालय",
+      "launchYear": 1995,
+      "officialUrl": "https://nsap.nic.in",
+      "metaTitle": "Divyang Pension Yojana 2026 - दिव्यांगों के लिए पेंशन",
+      "metaDesc": "दिव्यांग पेंशन योजना में हर महीने पेंशन पाएं।",
+      "shortDesc": "80% या अधिक विकलांगता वाले BPL व्यक्तियों को मासिक पेंशन दी जाती है।",
+      "fullDesc": "इंदिरा गांधी राष्ट्रीय विकलांगता पेंशन योजना के तहत 18-79 वर्ष के 80% या अधिक विकलांग BPL व्यक्तियों को ₹300 प्रति माह और 80+ को ₹500 केंद्र सरकार देती है।",
+      "eligibility": ["18-79 वर्ष आयु", "80% या अधिक विकलांगता", "BPL परिवार", "राज्य का स्थायी निवासी"],
+      "notEligible": ["80% से कम विकलांगता (IGNDPS के लिए)", "सरकारी पेंशनर"],
+      "documents": [
+        { "name": "दिव्यांगता प्रमाण पत्र", "mandatory": true },
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "BPL राशन कार्ड", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "पासपोर्ट साइज फोटो", "mandatory": true }
+      ],
+      "benefits": ["₹300-500 प्रति माह केंद्र से", "राज्य की अतिरिक्त पेंशन", "DBT से सीधे बैंक में"],
+      "applicationSteps": [
+        { "step": 1, "title": "CMHO/अस्पताल जाएं", "desc": "दिव्यांगता प्रमाण पत्र बनवाएं" },
+        { "step": 2, "title": "तहसील जाएं", "desc": "तहसील या ब्लॉक कार्यालय जाएं" },
+        { "step": 3, "title": "फॉर्म भरें", "desc": "दिव्यांग पेंशन फॉर्म भरें" },
+        { "step": 4, "title": "दस्तावेज दें", "desc": "दिव्यांगता प्रमाण पत्र समेत सभी दस्तावेज दें" },
+        { "step": 5, "title": "पेंशन शुरू", "desc": "वेरिफिकेशन के बाद पेंशन शुरू होगी" }
+      ],
+      "commonMistakes": ["दिव्यांगता प्रमाण पत्र पुराना होना", "विकलांगता % कम होना"],
+      "faq": [
+        { "q": "दिव्यांगता प्रमाण पत्र कहाँ बनेगा?", "a": "सरकारी अस्पताल के CMHO से।" },
+        { "q": "कितना मिलता है?", "a": "₹300-500 केंद्र से + राज्य की अतिरिक्त राशि।" }
+      ],
+      "helplineNumber": "1800-111-555",
+      "youtubeVideos": [{ "title": "Divyang Pension Apply 2026", "videoId": "dQw4w9WgXcQ" }],
       "lastUpdated": "2026-05-01",
       "active": true
     }
