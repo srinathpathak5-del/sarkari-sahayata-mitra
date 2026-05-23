@@ -1,0 +1,339 @@
+{
+  "schemes": [
+    {
+      "id": "pm-kisan",
+      "slug": "pm-kisan-yojana",
+      "name": "PM Kisan Samman Nidhi",
+      "nameEn": "PM Kisan Samman Nidhi Yojana",
+      "icon": "🌾",
+      "category": ["farmer"],
+      "tag": "किसान",
+      "benefit": "₹6,000/वर्ष",
+      "ministry": "कृषि एवं किसान कल्याण मंत्रालय",
+      "launchYear": 2019,
+      "officialUrl": "https://pmkisan.gov.in",
+      "metaTitle": "PM Kisan Yojana 2026 - पात्रता, दस्तावेज, आवेदन प्रक्रिया",
+      "metaDesc": "PM Kisan Samman Nidhi Yojana में ₹6000 सालाना पाएं। पात्रता और आवेदन की पूरी जानकारी।",
+      "shortDesc": "छोटे और सीमांत किसानों को सालाना ₹6000 की आर्थिक सहायता तीन किस्तों में दी जाती है।",
+      "fullDesc": "PM-KISAN योजना के अंतर्गत पात्र किसान परिवारों को प्रति वर्ष ₹6000 की राशि तीन समान किस्तों में सीधे बैंक खाते में ट्रांसफर की जाती है।",
+      "eligibility": ["भारतीय नागरिक किसान", "जमीन 2 हेक्टेयर तक", "बैंक अकाउंट आधार से लिंक हो", "आयकर दाता न हो"],
+      "notEligible": ["संस्थागत भूमि धारक", "आयकर देने वाले परिवार", "सरकारी नौकरीपेशा"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "खसरा / खतौनी", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "मोबाइल नंबर (आधार से जुड़ा)", "mandatory": true },
+        { "name": "पासपोर्ट साइज फोटो", "mandatory": false }
+      ],
+      "benefits": [
+        "₹2000 की तीन किस्तें — अप्रैल, अगस्त, दिसम्बर",
+        "राशि सीधे बैंक खाते में",
+        "कोई बिचौलिया नहीं"
+      ],
+      "applicationSteps": [
+        { "step": 1, "title": "वेबसाइट खोलें", "desc": "pmkisan.gov.in पर जाएं" },
+        { "step": 2, "title": "New Farmer Registration", "desc": "Farmers Corner में New Farmer Registration क्लिक करें" },
+        { "step": 3, "title": "आधार नंबर डालें", "desc": "आधार नंबर और राज्य चुनकर OTP वेरिफाई करें" },
+        { "step": 4, "title": "फॉर्म भरें", "desc": "सभी जानकारी सही-सही भरें" },
+        { "step": 5, "title": "दस्तावेज अपलोड करें", "desc": "खसरा/खतौनी की स्कैन कॉपी अपलोड करें" },
+        { "step": 6, "title": "Submit करें", "desc": "फॉर्म सबमिट करें और Registration नंबर नोट करें" }
+      ],
+      "commonMistakes": [
+        "बैंक अकाउंट नंबर गलत भरना",
+        "आधार से बैंक लिंक न होना",
+        "जमीन का रिकॉर्ड नाम से मैच न करना"
+      ],
+      "faq": [
+        { "q": "PM Kisan की किस्त कब आती है?", "a": "हर 4 महीने में ₹2000 की किस्त आती है।" },
+        { "q": "आवेदन कहाँ करें?", "a": "नजदीकी CSC केंद्र या pmkisan.gov.in पर।" }
+      ],
+      "helplineNumber": "155261",
+      "youtubeVideos": [{ "title": "PM Kisan Registration 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "ayushman-bharat",
+      "slug": "ayushman-card-kaise-banaye",
+      "name": "Ayushman Bharat Card",
+      "nameEn": "Pradhan Mantri Jan Arogya Yojana",
+      "icon": "🏥",
+      "category": ["health", "bpl"],
+      "tag": "स्वास्थ्य",
+      "benefit": "₹5 लाख/वर्ष",
+      "ministry": "स्वास्थ्य एवं परिवार कल्याण मंत्रालय",
+      "launchYear": 2018,
+      "officialUrl": "https://pmjay.gov.in",
+      "metaTitle": "Ayushman Card Kaise Banaye 2026 - पूरी जानकारी",
+      "metaDesc": "Ayushman Bharat Card बनाएं और ₹5 लाख तक मुफ्त इलाज पाएं।",
+      "shortDesc": "गरीब परिवारों को ₹5 लाख तक का मुफ्त इलाज मिलता है।",
+      "fullDesc": "आयुष्मान भारत PM-JAY विश्व की सबसे बड़ी स्वास्थ्य बीमा योजना है। पात्र परिवारों को ₹5 लाख तक का स्वास्थ्य बीमा कवर मिलता है।",
+      "eligibility": [
+        "SECC-2011 सूची में नाम हो",
+        "BPL परिवार",
+        "ग्रामीण वंचित परिवार",
+        "70+ आयु के सभी नागरिक"
+      ],
+      "notEligible": ["CGHS लाभार्थी सरकारी कर्मचारी", "ESI लाभार्थी"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "राशन कार्ड", "mandatory": true },
+        { "name": "मोबाइल नंबर", "mandatory": true }
+      ],
+      "benefits": [
+        "₹5 लाख तक मुफ्त इलाज",
+        "1500+ बीमारियों का कवर",
+        "कैशलेस इलाज"
+      ],
+      "applicationSteps": [
+        { "step": 1, "title": "पात्रता जांचें", "desc": "pmjay.gov.in पर Am I Eligible चेक करें" },
+        { "step": 2, "title": "CSC केंद्र जाएं", "desc": "नजदीकी Common Service Centre पर जाएं" },
+        { "step": 3, "title": "दस्तावेज दें", "desc": "आधार और राशन कार्ड दें" },
+        { "step": 4, "title": "बायोमेट्रिक वेरिफिकेशन", "desc": "अंगूठे की पहचान होगी" },
+        { "step": 5, "title": "Card लें", "desc": "Ayushman Card तुरंत मिलेगा" }
+      ],
+      "commonMistakes": [
+        "SECC लिस्ट में नाम न होने पर apply करना",
+        "पुराना राशन कार्ड लाना"
+      ],
+      "faq": [
+        { "q": "Ayushman Card कौन बना सकता है?", "a": "SECC-2011 में शामिल परिवार और 70+ नागरिक।" },
+        { "q": "कौन से अस्पताल में इलाज होगा?", "a": "Empanelled सरकारी और निजी अस्पताल।" }
+      ],
+      "helplineNumber": "14555",
+      "youtubeVideos": [{ "title": "Ayushman Card Kaise Banaye", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-10",
+      "active": true
+    },
+    {
+      "id": "e-shram",
+      "slug": "e-shram-card-benefits",
+      "name": "E-Shram Card",
+      "nameEn": "e-SHRAM Portal",
+      "icon": "👷",
+      "category": ["labour", "bpl"],
+      "tag": "मजदूर",
+      "benefit": "₹2 लाख बीमा",
+      "ministry": "श्रम एवं रोजगार मंत्रालय",
+      "launchYear": 2021,
+      "officialUrl": "https://eshram.gov.in",
+      "metaTitle": "E-Shram Card 2026 - रजिस्ट्रेशन और फायदे",
+      "metaDesc": "E-Shram Card बनाएं और ₹2 लाख का दुर्घटना बीमा पाएं।",
+      "shortDesc": "असंगठित मजदूरों को ₹2 लाख बीमा और सरकारी योजनाओं का लाभ मिलता है।",
+      "fullDesc": "ई-श्रम पोर्टल असंगठित मजदूरों का राष्ट्रीय डेटाबेस है। रजिस्ट्रेशन पर UAN मिलता है और कई सरकारी योजनाओं का लाभ मिलता है।",
+      "eligibility": [
+        "16–59 वर्ष आयु",
+        "असंगठित मजदूर",
+        "EPF/ESIC सदस्य न हों",
+        "आयकर दाता न हों"
+      ],
+      "notEligible": ["EPF/ESIC के सक्रिय सदस्य", "आयकर भरने वाले"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "आधार से जुड़ा मोबाइल नंबर", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true }
+      ],
+      "benefits": [
+        "₹2 लाख दुर्घटना बीमा",
+        "UAN नंबर",
+        "सरकारी योजनाओं में प्राथमिकता"
+      ],
+      "applicationSteps": [
+        { "step": 1, "title": "वेबसाइट खोलें", "desc": "eshram.gov.in पर जाएं" },
+        { "step": 2, "title": "Register करें", "desc": "Register on e-Shram बटन दबाएं" },
+        { "step": 3, "title": "OTP वेरिफाई करें", "desc": "आधार नंबर से OTP वेरिफाई करें" },
+        { "step": 4, "title": "जानकारी भरें", "desc": "नाम, पता, काम का प्रकार भरें" },
+        { "step": 5, "title": "Card डाउनलोड करें", "desc": "UAN Card डाउनलोड करें" }
+      ],
+      "commonMistakes": [
+        "मोबाइल आधार से लिंक न होना",
+        "गलत काम का प्रकार चुनना"
+      ],
+      "faq": [
+        { "q": "E-Shram Card के क्या फायदे हैं?", "a": "₹2 लाख दुर्घटना बीमा और सरकारी योजनाओं में प्राथमिकता।" },
+        { "q": "कौन बना सकता है?", "a": "दिहाड़ी, ठेला, रिक्शा, घरेलू कामगार, निर्माण मजदूर।" }
+      ],
+      "helplineNumber": "14434",
+      "youtubeVideos": [{ "title": "E-Shram Card Kaise Banaye", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    }
+  ],
+  "categories": [
+    { "id": "farmer", "label": "किसान योजना", "icon": "🌾" },
+    { "id": "health", "label": "स्वास्थ्य योजना", "icon": "🏥" },
+    { "id": "labour", "label": "मजदूर योजना", "icon": "👷" },
+    { "id": "student", "label": "छात्र योजना", "icon": "🎓" },
+    { "id": "female", "label": "महिला योजना", "icon": "👩" },
+    { "id": "bpl", "label": "BPL योजना", "icon": "📋" }
+  ]
+}{
+  "schemes": [
+    {
+      "id": "pm-kisan",
+      "slug": "pm-kisan-yojana",
+      "name": "PM Kisan Samman Nidhi",
+      "nameEn": "PM Kisan Samman Nidhi Yojana",
+      "icon": "🌾",
+      "category": ["farmer"],
+      "tag": "किसान",
+      "benefit": "₹6,000/वर्ष",
+      "ministry": "कृषि एवं किसान कल्याण मंत्रालय",
+      "launchYear": 2019,
+      "officialUrl": "https://pmkisan.gov.in",
+      "metaTitle": "PM Kisan Yojana 2026 - पात्रता, दस्तावेज, आवेदन प्रक्रिया",
+      "metaDesc": "PM Kisan Samman Nidhi Yojana में ₹6000 सालाना पाएं। पात्रता और आवेदन की पूरी जानकारी।",
+      "shortDesc": "छोटे और सीमांत किसानों को सालाना ₹6000 की आर्थिक सहायता तीन किस्तों में दी जाती है।",
+      "fullDesc": "PM-KISAN योजना के अंतर्गत पात्र किसान परिवारों को प्रति वर्ष ₹6000 की राशि तीन समान किस्तों में सीधे बैंक खाते में ट्रांसफर की जाती है।",
+      "eligibility": ["भारतीय नागरिक किसान", "जमीन 2 हेक्टेयर तक", "बैंक अकाउंट आधार से लिंक हो", "आयकर दाता न हो"],
+      "notEligible": ["संस्थागत भूमि धारक", "आयकर देने वाले परिवार", "सरकारी नौकरीपेशा"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "खसरा / खतौनी", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true },
+        { "name": "मोबाइल नंबर (आधार से जुड़ा)", "mandatory": true },
+        { "name": "पासपोर्ट साइज फोटो", "mandatory": false }
+      ],
+      "benefits": [
+        "₹2000 की तीन किस्तें — अप्रैल, अगस्त, दिसम्बर",
+        "राशि सीधे बैंक खाते में",
+        "कोई बिचौलिया नहीं"
+      ],
+      "applicationSteps": [
+        { "step": 1, "title": "वेबसाइट खोलें", "desc": "pmkisan.gov.in पर जाएं" },
+        { "step": 2, "title": "New Farmer Registration", "desc": "Farmers Corner में New Farmer Registration क्लिक करें" },
+        { "step": 3, "title": "आधार नंबर डालें", "desc": "आधार नंबर और राज्य चुनकर OTP वेरिफाई करें" },
+        { "step": 4, "title": "फॉर्म भरें", "desc": "सभी जानकारी सही-सही भरें" },
+        { "step": 5, "title": "दस्तावेज अपलोड करें", "desc": "खसरा/खतौनी की स्कैन कॉपी अपलोड करें" },
+        { "step": 6, "title": "Submit करें", "desc": "फॉर्म सबमिट करें और Registration नंबर नोट करें" }
+      ],
+      "commonMistakes": [
+        "बैंक अकाउंट नंबर गलत भरना",
+        "आधार से बैंक लिंक न होना",
+        "जमीन का रिकॉर्ड नाम से मैच न करना"
+      ],
+      "faq": [
+        { "q": "PM Kisan की किस्त कब आती है?", "a": "हर 4 महीने में ₹2000 की किस्त आती है।" },
+        { "q": "आवेदन कहाँ करें?", "a": "नजदीकी CSC केंद्र या pmkisan.gov.in पर।" }
+      ],
+      "helplineNumber": "155261",
+      "youtubeVideos": [{ "title": "PM Kisan Registration 2026", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    },
+    {
+      "id": "ayushman-bharat",
+      "slug": "ayushman-card-kaise-banaye",
+      "name": "Ayushman Bharat Card",
+      "nameEn": "Pradhan Mantri Jan Arogya Yojana",
+      "icon": "🏥",
+      "category": ["health", "bpl"],
+      "tag": "स्वास्थ्य",
+      "benefit": "₹5 लाख/वर्ष",
+      "ministry": "स्वास्थ्य एवं परिवार कल्याण मंत्रालय",
+      "launchYear": 2018,
+      "officialUrl": "https://pmjay.gov.in",
+      "metaTitle": "Ayushman Card Kaise Banaye 2026 - पूरी जानकारी",
+      "metaDesc": "Ayushman Bharat Card बनाएं और ₹5 लाख तक मुफ्त इलाज पाएं।",
+      "shortDesc": "गरीब परिवारों को ₹5 लाख तक का मुफ्त इलाज मिलता है।",
+      "fullDesc": "आयुष्मान भारत PM-JAY विश्व की सबसे बड़ी स्वास्थ्य बीमा योजना है। पात्र परिवारों को ₹5 लाख तक का स्वास्थ्य बीमा कवर मिलता है।",
+      "eligibility": [
+        "SECC-2011 सूची में नाम हो",
+        "BPL परिवार",
+        "ग्रामीण वंचित परिवार",
+        "70+ आयु के सभी नागरिक"
+      ],
+      "notEligible": ["CGHS लाभार्थी सरकारी कर्मचारी", "ESI लाभार्थी"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "राशन कार्ड", "mandatory": true },
+        { "name": "मोबाइल नंबर", "mandatory": true }
+      ],
+      "benefits": [
+        "₹5 लाख तक मुफ्त इलाज",
+        "1500+ बीमारियों का कवर",
+        "कैशलेस इलाज"
+      ],
+      "applicationSteps": [
+        { "step": 1, "title": "पात्रता जांचें", "desc": "pmjay.gov.in पर Am I Eligible चेक करें" },
+        { "step": 2, "title": "CSC केंद्र जाएं", "desc": "नजदीकी Common Service Centre पर जाएं" },
+        { "step": 3, "title": "दस्तावेज दें", "desc": "आधार और राशन कार्ड दें" },
+        { "step": 4, "title": "बायोमेट्रिक वेरिफिकेशन", "desc": "अंगूठे की पहचान होगी" },
+        { "step": 5, "title": "Card लें", "desc": "Ayushman Card तुरंत मिलेगा" }
+      ],
+      "commonMistakes": [
+        "SECC लिस्ट में नाम न होने पर apply करना",
+        "पुराना राशन कार्ड लाना"
+      ],
+      "faq": [
+        { "q": "Ayushman Card कौन बना सकता है?", "a": "SECC-2011 में शामिल परिवार और 70+ नागरिक।" },
+        { "q": "कौन से अस्पताल में इलाज होगा?", "a": "Empanelled सरकारी और निजी अस्पताल।" }
+      ],
+      "helplineNumber": "14555",
+      "youtubeVideos": [{ "title": "Ayushman Card Kaise Banaye", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-10",
+      "active": true
+    },
+    {
+      "id": "e-shram",
+      "slug": "e-shram-card-benefits",
+      "name": "E-Shram Card",
+      "nameEn": "e-SHRAM Portal",
+      "icon": "👷",
+      "category": ["labour", "bpl"],
+      "tag": "मजदूर",
+      "benefit": "₹2 लाख बीमा",
+      "ministry": "श्रम एवं रोजगार मंत्रालय",
+      "launchYear": 2021,
+      "officialUrl": "https://eshram.gov.in",
+      "metaTitle": "E-Shram Card 2026 - रजिस्ट्रेशन और फायदे",
+      "metaDesc": "E-Shram Card बनाएं और ₹2 लाख का दुर्घटना बीमा पाएं।",
+      "shortDesc": "असंगठित मजदूरों को ₹2 लाख बीमा और सरकारी योजनाओं का लाभ मिलता है।",
+      "fullDesc": "ई-श्रम पोर्टल असंगठित मजदूरों का राष्ट्रीय डेटाबेस है। रजिस्ट्रेशन पर UAN मिलता है और कई सरकारी योजनाओं का लाभ मिलता है।",
+      "eligibility": [
+        "16–59 वर्ष आयु",
+        "असंगठित मजदूर",
+        "EPF/ESIC सदस्य न हों",
+        "आयकर दाता न हों"
+      ],
+      "notEligible": ["EPF/ESIC के सक्रिय सदस्य", "आयकर भरने वाले"],
+      "documents": [
+        { "name": "आधार कार्ड", "mandatory": true },
+        { "name": "आधार से जुड़ा मोबाइल नंबर", "mandatory": true },
+        { "name": "बैंक पासबुक", "mandatory": true }
+      ],
+      "benefits": [
+        "₹2 लाख दुर्घटना बीमा",
+        "UAN नंबर",
+        "सरकारी योजनाओं में प्राथमिकता"
+      ],
+      "applicationSteps": [
+        { "step": 1, "title": "वेबसाइट खोलें", "desc": "eshram.gov.in पर जाएं" },
+        { "step": 2, "title": "Register करें", "desc": "Register on e-Shram बटन दबाएं" },
+        { "step": 3, "title": "OTP वेरिफाई करें", "desc": "आधार नंबर से OTP वेरिफाई करें" },
+        { "step": 4, "title": "जानकारी भरें", "desc": "नाम, पता, काम का प्रकार भरें" },
+        { "step": 5, "title": "Card डाउनलोड करें", "desc": "UAN Card डाउनलोड करें" }
+      ],
+      "commonMistakes": [
+        "मोबाइल आधार से लिंक न होना",
+        "गलत काम का प्रकार चुनना"
+      ],
+      "faq": [
+        { "q": "E-Shram Card के क्या फायदे हैं?", "a": "₹2 लाख दुर्घटना बीमा और सरकारी योजनाओं में प्राथमिकता।" },
+        { "q": "कौन बना सकता है?", "a": "दिहाड़ी, ठेला, रिक्शा, घरेलू कामगार, निर्माण मजदूर।" }
+      ],
+      "helplineNumber": "14434",
+      "youtubeVideos": [{ "title": "E-Shram Card Kaise Banaye", "videoId": "dQw4w9WgXcQ" }],
+      "lastUpdated": "2026-05-01",
+      "active": true
+    }
+  ],
+  "categories": [
+    { "id": "farmer", "label": "किसान योजना", "icon": "🌾" },
+    { "id": "health", "label": "स्वास्थ्य योजना", "icon": "🏥" },
+    { "id": "labour", "label": "मजदूर योजना", "icon": "👷" },
+    { "id": "student", "label": "छात्र योजना", "icon": "🎓" },
+    { "id": "female", "label": "महिला योजना", "icon": "👩" },
+    { "id": "bpl", "label": "BPL योजना", "icon": "📋" }
+  ]
+}
