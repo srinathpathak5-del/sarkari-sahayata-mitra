@@ -3,15 +3,19 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
-import WhatsAppButton from '../components/layout/WhatsAppButton'
 import Ticker from '../components/layout/Ticker'
-import MobileEntry from '../components/MobileEntry'
+import dynamic from 'next/dynamic'
+
+// Load MobileEntry only on client side — fixes the loading issue
+const MobileEntry = dynamic(() => import('../components/MobileEntry'), {
+  ssr: false,
+})
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'सरकारी सहायता मित्र - Sarkari Yojana Guide',
-  description: 'PM Kisan, Ayushman Card, E-Shram की पूरी जानकारी हिंदी में। पात्रता, दस्तावेज और आवेदन प्रक्रिया।',
+  description: 'PM Kisan, Ayushman Card, E-Shram की पूरी जानकारी हिंदी में।',
   keywords: 'PM Kisan, Ayushman Card, E-Shram, सरकारी योजना',
 }
 
@@ -24,7 +28,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <main>{children}</main>
           <Footer />
-          <WhatsAppButton />
         </MobileEntry>
       </body>
     </html>
