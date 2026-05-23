@@ -15,7 +15,7 @@ const QUESTIONS = [
 ]
 
 function computeEligibility(a: Record<string, string>) {
-  const schemes = schemesData.schemes
+  const schemes = (schemesData as any).schemes
   const lowIncome = a.income === '₹1 लाख से कम' || a.income === '₹1–2.5 लाख'
   const hasBPL = a.bpl === 'हाँ, है'
   const results: Array<typeof schemes[0] & { reason: string }> = []
