@@ -1,7 +1,66 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import schemesData from '../../data/schemes.json'
+
+interface Scheme {
+  id: string
+  slug: string
+  name: string
+  icon: string
+  benefit: string
+  shortDesc: string
+  tag: string
+  category: string[]
+  eligibility: string[]
+  notEligible: string[]
+  active: boolean
+}
+
+interface SchemeWithReason extends Scheme {
+  reason: string
+}
+
+const SCHEMES: Scheme[] = [
+  {
+    id: 'pm-kisan',
+    slug: 'pm-kisan-yojana',
+    name: 'PM Kisan Samman Nidhi',
+    icon: '🌾',
+    benefit: '₹6,000/वर्ष',
+    shortDesc: 'छोटे किसानों को सालाना ₹6000 की सहायता।',
+    tag: 'किसान',
+    category: ['farmer'],
+    eligibility: ['भारतीय नागरिक किसान', 'जमीन 2 हेक्टेयर तक'],
+    notEligible: ['आयकर दाता'],
+    active: true,
+  },
+  {
+    id: 'ayushman-bharat',
+    slug: 'ayushman-card-kaise-banaye',
+    name: 'Ayushman Bharat Card',
+    icon: '🏥',
+    benefit: '₹5 लाख/वर्ष',
+    shortDesc: 'गरीब परिवारों को ₹5 लाख तक मुफ्त इलाज।',
+    tag: 'स्वास्थ्य',
+    category: ['health', 'bpl'],
+    eligibility: ['BPL परिवार', 'SECC-2011 सूची में नाम'],
+    notEligible: ['CGHS लाभार्थी'],
+    active: true,
+  },
+  {
+    id: 'e-shram',
+    slug: 'e-shram-card-benefits',
+    name: 'E-Shram Card',
+    icon: '👷',
+    benefit: '₹2 लाख बीमा',
+    shortDesc: 'असंगठित मजदूरों को ₹2 लाख बीमा।',
+    tag: 'मजदूर',
+    category: ['labour', 'bpl'],
+    eligibility: ['16-59 वर्ष आयु', 'असंगठित मजदूर'],
+    notEligible: ['EPF/ESIC सदस्य'],
+    active: true,
+  },
+]
 
 const QUESTIONS = [
   { key: 'age',      label: '👤 आपकी आयु क्या है?',        opts: ['18 से कम','18–30','31–45','46–60','60+'] },
@@ -14,15 +73,16 @@ const QUESTIONS = [
   { key: 'disabled', label: '♿ क्या आप दिव्यांग हैं?',     opts: ['हाँ','नहीं'] },
 ]
 
-function computeEligibility(a: Record<string, string>) {
-  const schemes = (schemesData as any).schemes
+function computeEligibility(a: Record<string, string>): SchemeWithReason[] {
   const lowIncome = a.income === '₹1 लाख से कम' || a.income === '₹1–2.5 लाख'
   const hasBPL = a.bpl === 'हाँ, है'
-  const results: Array<typeof schemes[0] & { reason: string }> = []
+  const results: SchemeWithReason[] = []
 
   const add = (id: string, reason: string) => {
-    const s = schemes.find(x => x.id === id)
-    if (s && !results.find(r => r.id === id)) results.push({ ...s, reason })
+    const s = SCHEMES.find((x: Scheme) => x.id === id)
+    if (s && !results.find((r: SchemeWithReason) => r.id === id)) {
+      results.push({ ...s, reason })
+    }
   }
 
   if (a.type === 'किसान' && a.land !== 'नहीं') add('pm-kisan', 'आप किसान हैं और जमीन है')
@@ -35,7 +95,7 @@ function computeEligibility(a: Record<string, string>) {
 export default function EligibilityPage() {
   const [step, setStep]     = useState(0)
   const [ans, setAns]       = useState<Record<string, string>>({})
-  const [result, setResult] = useState<ReturnType<typeof computeEligibility> | null>(null)
+  const [result, setResult] = useState<SchemeWithReason[] | null>(null)
 
   function handleOption(val: string) {
     const newAns = { ...ans, [QUESTIONS[step].key]: val }
@@ -62,7 +122,7 @@ export default function EligibilityPage() {
         </div>
       ) : (
         <div className="space-y-4 mb-6">
-          {result.map(s => (
+          {result.map((s: SchemeWithReason) => (
             <Link key={s.id} href={`/yojana/${s.slug}`}
               className="flex items-center gap-4 bg-white border-2 border-blue-200 rounded-2xl p-4 hover:border-blue-500 hover:shadow-md transition group">
               <span className="text-4xl">{s.icon}</span>
@@ -103,7 +163,7 @@ export default function EligibilityPage() {
       <div className="bg-white border-2 border-blue-200 rounded-2xl p-6 shadow-sm mb-4">
         <h2 className="text-lg font-bold text-gray-800 mb-5">{q.label}</h2>
         <div className="grid grid-cols-2 gap-3">
-          {q.opts.map(opt => (
+          {q.opts.map((opt: string) => (
             <button key={opt} onClick={() => handleOption(opt)}
               className="bg-blue-50 hover:bg-blue-700 hover:text-white border-2 border-blue-200 hover:border-blue-700 text-gray-800 py-3 px-3 rounded-xl text-sm font-medium transition-all active:scale-95">
               {opt}
