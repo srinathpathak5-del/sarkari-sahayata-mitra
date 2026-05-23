@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyjC8QDnyuJHt3JMhzdlvLI3HXHSo7o91UCOIfdfMd-6Slyd8ZqOzMn0MZuQ6h4JGc1Mw/exec'
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxFMhSM4d2gD83-7CjksaV8NaFCuUK_F_9wOZj2HSrxC4BTxuLEnEDjgEuSOz0jTGHWEQ/exec'
 
 export default function MobileEntry({ children }: { children: React.ReactNode }) {
   const [mobile, setMobile]   = useState('')
@@ -12,9 +12,7 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
   const [saving, setSaving]   = useState(false)
   const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  useEffect(() => { setMounted(true) }, [])
 
   useEffect(() => {
     if (!mounted) return
@@ -24,6 +22,26 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
     } catch {}
     setLoading(false)
   }, [mounted])
+
+  async function saveToSheet(mobileNum: string) {
+    try {
+      const url = `${SHEET_URL}?mobile=${mobileNum}&date=${encodeURIComponent(new Date().toLocaleDateString('en-IN'))}`
+      await fetch(url, { method: 'GET', mode: 'no-cors' })
+    } catch {}
+
+    try {
+      await fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mobile: mobileNum,
+          date: new Date().toLocaleDateString('en-IN'),
+          time: new Date().toLocaleTimeString('en-IN'),
+        }),
+      })
+    } catch {}
+  }
 
   async function handleSubmit() {
     if (mobile.trim().length !== 10 || isNaN(Number(mobile))) {
@@ -36,31 +54,17 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
     }
 
     setSaving(true)
+    saveToSheet(mobile)
 
-    // Save to Google Sheets using GET request (no CORS issues!)
-    try {
-      const date = new Date().toLocaleDateString('en-IN')
-      const url = `${GOOGLE_SHEET_URL}?mobile=${mobile}&date=${encodeURIComponent(date)}`
-      
-      // Use image trick to avoid CORS
-      const img = document.createElement('img')
-      img.src = url
-      img.style.display = 'none'
-      document.body.appendChild(img)
-      setTimeout(() => document.body.removeChild(img), 3000)
-      
-    } catch {
-      // Silent fail
-    }
-
-    // Save to localStorage
     try {
       localStorage.setItem('ssm_mobile', mobile)
       localStorage.setItem('ssm_joined', new Date().toISOString())
     } catch {}
 
-    setSaving(false)
-    setEntered(true)
+    setTimeout(() => {
+      setSaving(false)
+      setEntered(true)
+    }, 1000)
   }
 
   if (!mounted) return null
