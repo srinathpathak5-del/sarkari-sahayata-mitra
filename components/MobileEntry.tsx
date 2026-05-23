@@ -4,28 +4,24 @@ import { useState, useEffect } from 'react'
 const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyjC8QDnyuJHt3JMhzdlvLI3HXHSo7o91UCOIfdfMd-6Slyd8ZqOzMn0MZuQ6h4JGc1Mw/exec'
 
 export default function MobileEntry({ children }: { children: React.ReactNode }) {
-  const [mobile, setMobile]     = useState('')
-  const [agreed, setAgreed]     = useState(false)
-  const [error, setError]       = useState('')
-  const [entered, setEntered]   = useState(false)
-  const [loading, setLoading]   = useState(true)
-  const [saving, setSaving]     = useState(false)
-  const [mounted, setMounted]   = useState(false)
+  const [mobile, setMobile]   = useState('')
+  const [agreed, setAgreed]   = useState(false)
+  const [error, setError]     = useState('')
+  const [entered, setEntered] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [saving, setSaving]   = useState(false)
+  const [mounted, setMounted] = useState(false)
 
-  // Step 1: Mark as mounted (runs only in browser)
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  // Step 2: Check localStorage only after mounted
   useEffect(() => {
     if (!mounted) return
     try {
       const saved = localStorage.getItem('ssm_mobile')
       if (saved) setEntered(true)
-    } catch {
-      // localStorage not available
-    }
+    } catch {}
     setLoading(false)
   }, [mounted])
 
@@ -41,18 +37,18 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
 
     setSaving(true)
 
-    // Send to Google Sheets
+    // Save to Google Sheets using GET request (no CORS issues!)
     try {
-      fetch(GOOGLE_SHEET_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          mobile: mobile,
-          date: new Date().toLocaleDateString('en-IN'),
-          time: new Date().toLocaleTimeString('en-IN'),
-        }),
-        mode: 'no-cors'
-      })
+      const date = new Date().toLocaleDateString('en-IN')
+      const url = `${GOOGLE_SHEET_URL}?mobile=${mobile}&date=${encodeURIComponent(date)}`
+      
+      // Use image trick to avoid CORS
+      const img = document.createElement('img')
+      img.src = url
+      img.style.display = 'none'
+      document.body.appendChild(img)
+      setTimeout(() => document.body.removeChild(img), 3000)
+      
     } catch {
       // Silent fail
     }
@@ -61,28 +57,22 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
     try {
       localStorage.setItem('ssm_mobile', mobile)
       localStorage.setItem('ssm_joined', new Date().toISOString())
-    } catch {
-      // Silent fail
-    }
+    } catch {}
 
     setSaving(false)
     setEntered(true)
   }
 
-  // Don't render anything until mounted in browser
   if (!mounted) return null
 
-  // Show loading spinner
   if (loading) return (
     <div className="min-h-screen bg-blue-800 flex items-center justify-center">
       <div className="text-white text-xl animate-pulse">🇮🇳 लोड हो रहा है...</div>
     </div>
   )
 
-  // User already entered number — show website
   if (entered) return <>{children}</>
 
-  // Show mobile entry screen
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center px-4 py-8">
       <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden">
