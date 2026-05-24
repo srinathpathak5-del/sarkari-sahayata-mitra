@@ -7,6 +7,8 @@ const UPDATES = [
   '🌟 E-Shram Card धारकों को ₹1000 मिले',
   '📋 Scholarship 2026 Last Date: 30 जून 2026',
   '🏠 PM Awas Yojana 2.0 शुरू — जल्दी आवेदन करें',
+  '💰 Mudra Loan अब ₹20 लाख तक मिलेगा',
+  '🛡️ PM Suraksha Bima — सिर्फ ₹20 में ₹2 लाख बीमा',
 ]
 
 export default function Ticker() {

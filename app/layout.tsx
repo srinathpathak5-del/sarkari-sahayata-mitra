@@ -6,9 +6,9 @@ import ClientWrapper from '../components/ClientWrapper'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'सरकारी सहायता मित्र - Sarkari Yojana Guide',
-  description: 'PM Kisan, Ayushman Card, E-Shram की पूरी जानकारी हिंदी में।',
-  keywords: 'PM Kisan, Ayushman Card, E-Shram, सरकारी योजना',
+  title: 'सहायता मित्र - Sarkari Yojana Guide',
+  description: 'PM Kisan, Ayushman Card, E-Shram की पूरी जानकारी हिंदी में। पात्रता, दस्तावेज और आवेदन प्रक्रिया।',
+  keywords: 'PM Kisan, Ayushman Card, E-Shram, सरकारी योजना, sahayata mitra',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -5,19 +5,19 @@ import { usePathname, useRouter } from 'next/navigation'
 import schemesData from '../../data/schemes.json'
 
 const NAV_LINKS = [
-  { href: '/',              label: '🏠 होम' },
-  { href: '/yojanaen',     label: '📋 योजनाएं' },
-  { href: '/loan',         label: '🏦 लोन' },
-  { href: '/insurance',    label: '🛡️ बीमा' },
-  { href: '/patrata-janch',label: '✅ पात्रता' },
-  { href: '/dastavej',     label: '📄 दस्तावेज' },
-  { href: '/about',        label: 'ℹ️ हमारे बारे में' },
+  { href: '/',               label: '🏠 होम' },
+  { href: '/yojanaen',       label: '📋 योजनाएं' },
+  { href: '/loan',           label: '🏦 लोन' },
+  { href: '/insurance',      label: '🛡️ बीमा' },
+  { href: '/patrata-janch',  label: '✅ पात्रता' },
+  { href: '/dastavej',       label: '📄 दस्तावेज' },
+  { href: '/about',          label: 'ℹ️ हमारे बारे में' },
 ]
 
 export default function Navbar() {
-  const [open, setOpen]           = useState(false)
-  const [search, setSearch]       = useState('')
-  const [results, setResults]     = useState<typeof schemesData.schemes>([])
+  const [open, setOpen]             = useState(false)
+  const [search, setSearch]         = useState('')
+  const [results, setResults]       = useState<typeof schemesData.schemes>([])
   const [showSearch, setShowSearch] = useState(false)
   const path   = usePathname()
   const router = useRouter()
@@ -56,8 +56,8 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <span className="text-2xl">🇮🇳</span>
           <div>
-            <div className="font-bold text-sm leading-tight">सरकारी सहायता मित्र</div>
-            <div className="text-xs text-blue-300 hidden sm:block">Sarkari Sahayata Mitra</div>
+            <div className="font-bold text-sm leading-tight">सहायता मित्र</div>
+            <div className="text-xs text-blue-300 hidden sm:block">Sahayata Mitra</div>
           </div>
         </Link>
 
