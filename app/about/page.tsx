@@ -12,6 +12,20 @@ export default function AboutPage() {
         </p>
       </div>
 
+      {/* Stats */}
+      <div className="grid grid-cols-3 gap-3 mb-6">
+        {[
+          ['50,000+', 'लाभार्थी'],
+          ['18+', 'योजनाएं'],
+          ['100%', 'मुफ्त'],
+        ].map(([n, l]) => (
+          <div key={l} className="bg-white border border-gray-200 rounded-xl p-3 text-center">
+            <div className="text-xl font-bold text-blue-800">{n}</div>
+            <div className="text-xs text-gray-500">{l}</div>
+          </div>
+        ))}
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         {[
           ['🎯', 'हमारा उद्देश्य', 'सरकारी योजनाओं की जानकारी हर नागरिक तक पहुँचाना'],
@@ -40,11 +54,17 @@ export default function AboutPage() {
         <div className="space-y-3 text-sm">
           <div className="flex items-center gap-3">
             <span className="text-2xl">💬</span>
-            <span>WhatsApp: +91 99999 99999</span>
+            <a href="https://wa.me/917903742317" target="_blank" rel="noopener noreferrer"
+              className="text-green-600 font-medium hover:underline">
+              WhatsApp: +91 79037 42317
+            </a>
           </div>
           <div className="flex items-center gap-3">
             <span className="text-2xl">📧</span>
-            <span>help@sahayatamitra.com</span>
+            <a href="mailto:help@sahayatamitra.com"
+              className="text-blue-600 hover:underline">
+              help@sahayatamitra.com
+            </a>
           </div>
           <div className="flex items-center gap-3">
             <span className="text-2xl">⏰</span>
