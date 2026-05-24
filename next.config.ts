@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  experimental: {
+    serverActions: {
+      allowedOrigins: ["sahayatamitra.com", "www.sahayatamitra.com"],
+    },
+  },
 };
 
 export default nextConfig;
