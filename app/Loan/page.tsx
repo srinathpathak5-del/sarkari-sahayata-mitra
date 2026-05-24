@@ -168,12 +168,10 @@ export default function LoanPage() {
           ))}
         </div>
       </div>
-
       <div className="bg-white border border-gray-200 rounded-2xl p-4 mb-4">
         <h2 className="font-bold text-blue-900 mb-2">👥 कौन ले सकता है?</h2>
         <p className="text-sm text-gray-700">{selected.who}</p>
       </div>
-
       <div className="bg-white border border-gray-200 rounded-2xl p-4 mb-4">
         <h2 className="font-bold text-blue-900 mb-3">📄 जरूरी दस्तावेज</h2>
         {selected.docs.map((d,i) => (
@@ -182,7 +180,6 @@ export default function LoanPage() {
           </div>
         ))}
       </div>
-
       <div className="bg-white border border-gray-200 rounded-2xl p-4 mb-4">
         <h2 className="font-bold text-blue-900 mb-3">👣 आवेदन कैसे करें</h2>
         {selected.steps.map((s,i) => (
@@ -192,7 +189,6 @@ export default function LoanPage() {
           </div>
         ))}
       </div>
-
       <div className="flex gap-3">
         <a href={selected.url} target="_blank" rel="noopener noreferrer"
           className="flex-1 bg-blue-700 hover:bg-blue-800 text-white text-center py-3 rounded-2xl font-bold text-sm transition">
@@ -213,7 +209,6 @@ export default function LoanPage() {
         <h1 className="text-2xl font-bold mb-1">सरकारी लोन योजनाएं</h1>
         <p className="text-blue-200 text-sm">बिना गारंटी या कम गारंटी पर सरकारी लोन पाएं</p>
       </div>
-
       <div className="flex gap-2 flex-wrap mb-6">
         {filters.map(f => (
           <button key={f} onClick={() => setFilter(f)}
@@ -224,7 +219,6 @@ export default function LoanPage() {
           </button>
         ))}
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {filtered.map(s => (
           <div key={s.id} onClick={() => setSelected(s)}
@@ -252,7 +246,6 @@ export default function LoanPage() {
           </div>
         ))}
       </div>
-
       <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mt-6 text-xs text-gray-600 text-center">
         ⚠️ लोन की शर्तें बैंक के अनुसार बदल सकती हैं। आवेदन से पहले बैंक से पुष्टि करें।
       </div>

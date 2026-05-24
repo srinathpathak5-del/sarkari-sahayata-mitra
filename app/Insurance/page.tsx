@@ -49,7 +49,7 @@ const INSURANCE_SCHEMES = [
     age: '18-50 वर्ष',
     type: 'दुर्घटना बीमा',
     who: 'सभी बैंक खाताधारक',
-    desc: 'दोनों बीमा साथ लें। सिर्फ ₹456/वर्ष में ₹4 लाख का कवर। सबसे किफायती।',
+    desc: 'दोनों बीमा साथ लें। सिर्फ ₹456/वर्ष में ₹4 लाख का कवर।',
     claim: 'मृत्यु पर ₹4 लाख, दुर्घटना पर ₹2 लाख',
     steps: ['बैंक जाएं', 'दोनों योजनाओं के लिए एक साथ आवेदन करें', 'दोनों फॉर्म भरें', '₹456 ऑटो डेबिट होगा'],
     docs: ['आधार कार्ड', 'बैंक पासबुक', 'मोबाइल नंबर', 'नॉमिनी की जानकारी'],
@@ -67,7 +67,7 @@ const INSURANCE_SCHEMES = [
     age: 'सभी किसान',
     type: 'फसल बीमा',
     who: 'सभी किसान — ऋणी और गैर-ऋणी',
-    desc: 'बाढ़, सूखा, ओलावृष्टि से फसल खराब होने पर पूरा मुआवजा। बहुत कम प्रीमियम।',
+    desc: 'बाढ़, सूखा, ओलावृष्टि से फसल खराब होने पर पूरा मुआवजा।',
     claim: 'फसल नुकसान पर बीमित राशि',
     steps: ['बैंक या CSC केंद्र जाएं', 'फसल बीमा फॉर्म भरें', 'फसल और जमीन की जानकारी दें', 'प्रीमियम जमा करें'],
     docs: ['आधार कार्ड', 'खसरा/खतौनी', 'बैंक पासबुक', 'बुवाई प्रमाण'],
@@ -85,7 +85,7 @@ const INSURANCE_SCHEMES = [
     age: 'सभी परिवार सदस्य',
     type: 'स्वास्थ्य बीमा',
     who: 'BPL और SECC-2011 में शामिल परिवार',
-    desc: '₹5 लाख तक का मुफ्त इलाज। 1500+ बीमारियाँ कवर। सरकारी और निजी अस्पताल में।',
+    desc: '₹5 लाख तक का मुफ्त इलाज। 1500+ बीमारियाँ कवर।',
     claim: 'अस्पताल में ₹5 लाख तक मुफ्त इलाज',
     steps: ['pmjay.gov.in पर पात्रता जांचें', 'नजदीकी CSC केंद्र जाएं', 'आधार और राशन कार्ड दें', 'Ayushman Card लें'],
     docs: ['आधार कार्ड', 'राशन कार्ड', 'मोबाइल नंबर'],
@@ -103,9 +103,9 @@ const INSURANCE_SCHEMES = [
     age: '16-59 वर्ष',
     type: 'दुर्घटना बीमा',
     who: 'असंगठित मजदूर — दिहाड़ी, ठेला, घरेलू कामगार',
-    desc: 'E-Shram Card बनाते ही ₹2 लाख का मुफ्त दुर्घटना बीमा। कोई प्रीमियम नहीं।',
+    desc: 'E-Shram Card बनाते ही ₹2 लाख का मुफ्त दुर्घटना बीमा।',
     claim: 'दुर्घटना मृत्यु/विकलांगता पर ₹1-2 लाख',
-    steps: ['eshram.gov.in पर जाएं', 'Register on e-Shram क्लिक करें', 'आधार OTP से वेरिफाई करें', 'Card डाउनलोड करें — बीमा शुरू'],
+    steps: ['eshram.gov.in पर जाएं', 'Register on e-Shram क्लिक करें', 'आधार OTP से वेरिफाई करें', 'Card डाउनलोड करें'],
     docs: ['आधार कार्ड', 'मोबाइल नंबर (आधार से जुड़ा)', 'बैंक पासबुक'],
     url: 'https://eshram.gov.in',
     helpline: '14434',
@@ -121,7 +121,7 @@ const INSURANCE_SCHEMES = [
     age: '60+ वर्ष',
     type: 'स्वास्थ्य बीमा',
     who: '60 वर्ष से अधिक बुजुर्ग नागरिक',
-    desc: '60+ वरिष्ठ नागरिकों के लिए पेंशन योजना। एकमुश्त निवेश पर हर महीने गारंटीड पेंशन।',
+    desc: 'एकमुश्त निवेश पर हर महीने गारंटीड पेंशन 10 साल तक।',
     claim: 'हर महीने गारंटीड पेंशन 10 साल तक',
     steps: ['LIC की नजदीकी शाखा जाएं', 'PMVVY फॉर्म भरें', 'एकमुश्त राशि जमा करें', 'पेंशन हर महीने बैंक में आएगी'],
     docs: ['आधार कार्ड', 'आयु प्रमाण पत्र', 'बैंक पासबुक', 'पैन कार्ड'],
@@ -139,9 +139,9 @@ const INSURANCE_SCHEMES = [
     age: 'सभी पशुपालक',
     type: 'फसल बीमा',
     who: 'गाय, भैंस, बकरी पालने वाले किसान',
-    desc: 'दुधारू पशुओं का बीमा। बीमार होने या मरने पर पशु के बाजार मूल्य तक मुआवजा।',
+    desc: 'दुधारू पशुओं का बीमा। मरने पर बाजार मूल्य तक मुआवजा।',
     claim: 'पशु मृत्यु पर बाजार मूल्य तक',
-    steps: ['नजदीकी पशु चिकित्सालय जाएं', 'पशु का स्वास्थ्य प्रमाण पत्र बनवाएं', 'बैंक/बीमा कंपनी में आवेदन करें', 'पशु की टैगिंग होगी'],
+    steps: ['नजदीकी पशु चिकित्सालय जाएं', 'पशु का स्वास्थ्य प्रमाण पत्र बनवाएं', 'बैंक में आवेदन करें', 'पशु की टैगिंग होगी'],
     docs: ['आधार कार्ड', 'पशु स्वास्थ्य प्रमाण पत्र', 'बैंक पासबुक', 'पशु की फोटो'],
     url: 'https://dahd.nic.in',
     helpline: '1800-180-1551',
@@ -161,7 +161,6 @@ export default function InsurancePage() {
   if (selected) return (
     <div className="max-w-2xl mx-auto px-4 py-6">
       <button onClick={() => setSelected(null)} className="text-green-700 text-sm mb-4">← वापस जाएं</button>
-
       <div className="bg-green-50 border-2 border-green-300 rounded-2xl p-5 mb-4">
         <div className="flex items-start gap-4 mb-3">
           <span className="text-5xl">{selected.icon}</span>
@@ -180,12 +179,10 @@ export default function InsurancePage() {
           ))}
         </div>
       </div>
-
       <div className="bg-white border border-gray-200 rounded-2xl p-4 mb-4">
         <h2 className="font-bold text-blue-900 mb-2">👥 कौन ले सकता है?</h2>
         <p className="text-sm text-gray-700">{selected.who}</p>
       </div>
-
       <div className="bg-white border border-gray-200 rounded-2xl p-4 mb-4">
         <h2 className="font-bold text-blue-900 mb-3">📄 जरूरी दस्तावेज</h2>
         {selected.docs.map((d,i) => (
@@ -194,7 +191,6 @@ export default function InsurancePage() {
           </div>
         ))}
       </div>
-
       <div className="bg-white border border-gray-200 rounded-2xl p-4 mb-4">
         <h2 className="font-bold text-blue-900 mb-3">👣 आवेदन कैसे करें</h2>
         {selected.steps.map((s,i) => (
@@ -204,7 +200,6 @@ export default function InsurancePage() {
           </div>
         ))}
       </div>
-
       <div className="flex gap-3">
         <a href={selected.url} target="_blank" rel="noopener noreferrer"
           className="flex-1 bg-green-700 hover:bg-green-800 text-white text-center py-3 rounded-2xl font-bold text-sm transition">
@@ -225,7 +220,6 @@ export default function InsurancePage() {
         <h1 className="text-2xl font-bold mb-1">सरकारी बीमा योजनाएं</h1>
         <p className="text-green-200 text-sm">मुफ्त या बहुत कम प्रीमियम पर सरकारी बीमा</p>
       </div>
-
       <div className="flex gap-2 flex-wrap mb-6">
         {FILTER_TAGS.map(f => (
           <button key={f} onClick={() => setFilter(f)}
@@ -236,7 +230,6 @@ export default function InsurancePage() {
           </button>
         ))}
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {filtered.map(s => (
           <div key={s.id} onClick={() => setSelected(s)}
@@ -264,7 +257,6 @@ export default function InsurancePage() {
           </div>
         ))}
       </div>
-
       <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mt-6 text-xs text-gray-600 text-center">
         ⚠️ बीमा की शर्तें बदल सकती हैं। आवेदन से पहले बैंक या बीमा कंपनी से पुष्टि करें।
       </div>
