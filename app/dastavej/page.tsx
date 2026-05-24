@@ -20,7 +20,6 @@ export default function DastavejPage() {
       <h1 className="text-2xl font-bold text-blue-900 mb-2">📄 दस्तावेज चेकलिस्ट</h1>
       <p className="text-sm text-gray-500 mb-6">योजना चुनें और देखें कौन से दस्तावेज चाहिए</p>
 
-      {/* Scheme selector — scrollable grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-6">
         {SCHEMES.map(s => (
           <button
@@ -38,7 +37,6 @@ export default function DastavejPage() {
         ))}
       </div>
 
-      {/* Selected scheme header */}
       <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-4 mb-5">
         <div className="flex items-center gap-3 mb-3">
           <span className="text-3xl">{sel.icon}</span>
@@ -47,7 +45,6 @@ export default function DastavejPage() {
             <p className="text-xs text-gray-500">{sel.ministry}</p>
           </div>
         </div>
-        {/* Progress bar */}
         <div className="flex justify-between text-xs text-gray-600 mb-1.5">
           <span>दस्तावेज तैयार: {done}/{total}</span>
           <span>{pct}%</span>
@@ -60,7 +57,6 @@ export default function DastavejPage() {
         </div>
       </div>
 
-      {/* Checklist */}
       <div className="space-y-3 mb-6">
         {sel.documents.map((doc, i) => (
           <label
@@ -94,12 +90,10 @@ export default function DastavejPage() {
         ))}
       </div>
 
-      {/* All done message */}
       {done === total && total > 0 && (
         <div className="bg-green-50 border-2 border-green-400 rounded-2xl p-4 text-center mb-4">
           <div className="text-3xl mb-1">🎉</div>
           <p className="font-bold text-green-800">बधाई! सभी दस्तावेज तैयार हैं</p>
-          <p className="text-sm text-gray-600 mt-1">अब आवेदन करने के लिए तैयार हैं</p>
           <a
             href={sel.officialUrl}
             target="_blank"

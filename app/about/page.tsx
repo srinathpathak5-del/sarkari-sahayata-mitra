@@ -5,7 +5,7 @@ export default function AboutPage() {
 
       <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 mb-5 text-center">
         <div className="text-3xl mb-3">🇮🇳</div>
-        <h2 className="font-bold text-blue-900 text-lg mb-2">सरकारी सहायता मित्र</h2>
+        <h2 className="font-bold text-blue-900 text-lg mb-2">सहायता मित्र</h2>
         <p className="text-sm text-gray-700">
           हम एक शैक्षिक पोर्टल हैं जो ग्रामीण और अर्ध-शहरी नागरिकों को
           सरकारी योजनाओं की जानकारी आसान हिंदी में देते हैं।
@@ -44,7 +44,7 @@ export default function AboutPage() {
           </div>
           <div className="flex items-center gap-3">
             <span className="text-2xl">📧</span>
-            <span>help@sarkarisahayatamitra.in</span>
+            <span>help@sahayatamitra.com</span>
           </div>
           <div className="flex items-center gap-3">
             <span className="text-2xl">⏰</span>
