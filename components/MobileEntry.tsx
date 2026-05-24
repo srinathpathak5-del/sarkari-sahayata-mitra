@@ -20,7 +20,7 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
         setTimeout(() => setShowForm(true), 300)
       }
     } catch {
-      setEntered(true) // If localStorage fails just show website
+      setEntered(true)
     }
   }, [])
 
@@ -40,15 +40,12 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
       setError('आगे बढ़ने के लिए नियम और शर्तें स्वीकार करें।')
       return
     }
-
     setSaving(true)
     saveToSheet(mobile)
-
     try {
       localStorage.setItem('ssm_mobile', mobile)
       localStorage.setItem('ssm_joined', new Date().toISOString())
     } catch {}
-
     setTimeout(() => {
       setSaving(false)
       setShowForm(false)
@@ -58,10 +55,7 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
 
   return (
     <>
-      {/* Always render website in background */}
       {children}
-
-      {/* Mobile entry overlay */}
       {showForm && !entered && (
         <div className="fixed inset-0 z-[9999] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center px-4 py-8">
           <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden">
@@ -133,8 +127,7 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
                     className="text-blue-600 underline font-medium">
                     नियम एवं शर्तें
                   </a>{' '}
-                  से सहमत हूँ। मेरा मोबाइल नंबर मार्केटिंग
-                  उद्देश्यों के लिए उपयोग किया जा सकता है।
+                  से सहमत हूँ। मेरा मोबाइल नंबर मार्केटिंग उद्देश्यों के लिए उपयोग किया जा सकता है।
                 </span>
               </label>
 
