@@ -4,26 +4,23 @@ import { useState, useEffect } from 'react'
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxFMhSM4d2gD83-7CjksaV8NaFCuUK_F_9wOZj2HSrxC4BTxuLEnEDjgEuSOz0jTGHWEQ/exec'
 
 export default function MobileEntry({ children }: { children: React.ReactNode }) {
-  const [mobile, setMobile]   = useState('')
-  const [agreed, setAgreed]   = useState(false)
-  const [error, setError]     = useState('')
-  const [entered, setEntered] = useState(true) // ← Start as true to show website first
-  const [saving, setSaving]   = useState(false)
+  const [mobile, setMobile]     = useState('')
+  const [agreed, setAgreed]     = useState(false)
+  const [error, setError]       = useState('')
+  const [saving, setSaving]     = useState(false)
   const [showForm, setShowForm] = useState(false)
+  const [entered, setEntered]   = useState(false)
 
   useEffect(() => {
-    // Check if user already entered number
     try {
       const saved = localStorage.getItem('ssm_mobile')
-      if (!saved) {
-        // No number saved — show form after small delay
-        setTimeout(() => {
-          setEntered(false)
-          setShowForm(true)
-        }, 500)
+      if (saved) {
+        setEntered(true)
+      } else {
+        setTimeout(() => setShowForm(true), 300)
       }
     } catch {
-      // If localStorage fails, just show website
+      setEntered(true) // If localStorage fails just show website
     }
   }, [])
 
@@ -54,20 +51,17 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
 
     setTimeout(() => {
       setSaving(false)
-      setEntered(true)
       setShowForm(false)
+      setEntered(true)
     }, 800)
   }
 
-  // Show website immediately, then overlay form if needed
   return (
     <>
-      {/* Always render children (website) */}
-      <div style={{ display: entered ? 'block' : 'none' }}>
-        {children}
-      </div>
+      {/* Always render website in background */}
+      {children}
 
-      {/* Show mobile entry form as overlay */}
+      {/* Mobile entry overlay */}
       {showForm && !entered && (
         <div className="fixed inset-0 z-[9999] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center px-4 py-8">
           <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden">
@@ -76,8 +70,8 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
 
             <div className="bg-blue-800 text-white text-center py-6 px-4">
               <div className="text-5xl mb-2">🇮🇳</div>
-              <h1 className="text-xl font-bold">सरकारी सहायता मित्र</h1>
-              <p className="text-blue-200 text-sm mt-1">Sarkari Sahayata Mitra</p>
+              <h1 className="text-xl font-bold">सहायता मित्र</h1>
+              <p className="text-blue-200 text-sm mt-1">Sahayata Mitra</p>
             </div>
 
             <div className="px-6 py-7">
@@ -139,7 +133,8 @@ export default function MobileEntry({ children }: { children: React.ReactNode })
                     className="text-blue-600 underline font-medium">
                     नियम एवं शर्तें
                   </a>{' '}
-                  से सहमत हूँ। मेरा मोबाइल नंबर मार्केटिंग उद्देश्यों के लिए उपयोग किया जा सकता है।
+                  से सहमत हूँ। मेरा मोबाइल नंबर मार्केटिंग
+                  उद्देश्यों के लिए उपयोग किया जा सकता है।
                 </span>
               </label>
 
