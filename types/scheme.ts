@@ -1,3 +1,6 @@
+// File location: types/scheme.ts
+// CHANGE: Added "type" field to Scheme interface (line 28)
+
 export interface SchemeDocument {
   name: string
   mandatory: boolean
@@ -21,6 +24,7 @@ export interface YoutubeVideo {
 
 export interface Scheme {
   id: string
+  type: 'yojana' | 'loan' | 'insurance'
   slug: string
   name: string
   nameEn: string
