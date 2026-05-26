@@ -1,6 +1,10 @@
+// File location: app/patrata-janch/page.tsx
+// CHANGE: Added UserInfoModal popup BEFORE the eligibility quiz starts
+
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import UserInfoModal, { hasUserInfo } from '../../components/UserInfoModal'
 
 interface Scheme {
   id: string
@@ -96,6 +100,24 @@ export default function EligibilityPage() {
   const [step, setStep]     = useState(0)
   const [ans, setAns]       = useState<Record<string, string>>({})
   const [result, setResult] = useState<SchemeWithReason[] | null>(null)
+  
+  // Modal state — show on page load if user hasn't submitted info yet
+  const [modalOpen, setModalOpen] = useState(false)
+  const [quizUnlocked, setQuizUnlocked] = useState(false)
+
+  useEffect(() => {
+    // On page load, check if user already submitted info this session
+    if (hasUserInfo()) {
+      setQuizUnlocked(true)
+    } else {
+      setModalOpen(true)
+    }
+  }, [])
+
+  function handleModalSuccess() {
+    setModalOpen(false)
+    setQuizUnlocked(true)
+  }
 
   function handleOption(val: string) {
     const newAns = { ...ans, [QUESTIONS[step].key]: val }
@@ -107,6 +129,31 @@ export default function EligibilityPage() {
   function reset() { setStep(0); setAns({}); setResult(null) }
 
   const pct = Math.round((step / QUESTIONS.length) * 100)
+
+  // If quiz is locked (user hasn't submitted info), show waiting screen + modal
+  if (!quizUnlocked) {
+    return (
+      <>
+        <div className="max-w-xl mx-auto px-4 py-16 text-center">
+          <div className="text-6xl mb-4">🎯</div>
+          <h1 className="text-2xl font-bold text-blue-900 mb-2">पात्रता जांच</h1>
+          <p className="text-gray-600 mb-6">कुछ सवालों के जवाब दें — जानें कौन सी योजनाएं आपके लिए हैं</p>
+          <button
+            onClick={() => setModalOpen(true)}
+            className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-xl font-bold transition"
+          >
+            शुरू करें →
+          </button>
+        </div>
+        <UserInfoModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          onSuccess={handleModalSuccess}
+          productName="पात्रता जाँच"
+        />
+      </>
+    )
+  }
 
   if (result) return (
     <div className="max-w-2xl mx-auto px-4 py-8">

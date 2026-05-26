@@ -1,12 +1,36 @@
 // File location: app/yojanaen/page.tsx
-// CHANGE: Now filters to show ONLY items with type === "yojana"
+// CHANGE: Added UserInfoModal popup before showing scheme details
 
-import Link from 'next/link'
-import { getAllSchemes } from '../../lib/schemes'
+'use client'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import schemesData from '../../data/schemes.json'
+import UserInfoModal, { hasUserInfo } from '../../components/UserInfoModal'
 
 export default function YojanaenPage() {
-  // Filter to show only schemes (yojana type), not loans or insurance
-  const schemes = getAllSchemes().filter(s => s.type === 'yojana')
+  const router = useRouter()
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedScheme, setSelectedScheme] = useState<{ slug: string; name: string } | null>(null)
+  
+  const schemes = schemesData.schemes.filter((s: any) => s.type === 'yojana')
+
+  const handleJankariClick = (scheme: any) => {
+    if (hasUserInfo()) {
+      // User already submitted info this session — go directly
+      router.push(`/yojana/${scheme.slug}`)
+    } else {
+      // Show modal first
+      setSelectedScheme({ slug: scheme.slug, name: scheme.name })
+      setModalOpen(true)
+    }
+  }
+
+  const handleModalSuccess = () => {
+    setModalOpen(false)
+    if (selectedScheme) {
+      router.push(`/yojana/${selectedScheme.slug}`)
+    }
+  }
   
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
@@ -14,11 +38,11 @@ export default function YojanaenPage() {
       <p className="text-sm text-gray-500 mb-6">सभी योजनाओं की जानकारी एक जगह — कुल {schemes.length} योजनाएं</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {schemes.map(s => (
-          <Link
+        {schemes.map((s: any) => (
+          <button
             key={s.id}
-            href={`/yojana/${s.slug}`}
-            className="bg-white border-2 border-gray-200 hover:border-blue-400 rounded-2xl p-4 hover:shadow-lg transition group"
+            onClick={() => handleJankariClick(s)}
+            className="bg-white border-2 border-gray-200 hover:border-blue-400 rounded-2xl p-4 hover:shadow-lg transition group text-left"
           >
             <div className="flex items-start justify-between mb-2">
               <span className="text-3xl">{s.icon}</span>
@@ -32,9 +56,16 @@ export default function YojanaenPage() {
               <span className="text-green-700 font-bold text-sm">{s.benefit}</span>
               <span className="text-blue-600 text-xs group-hover:underline">जानकारी →</span>
             </div>
-          </Link>
+          </button>
         ))}
       </div>
+
+      <UserInfoModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onSuccess={handleModalSuccess}
+        productName={selectedScheme?.name || ''}
+      />
     </div>
   )
 }

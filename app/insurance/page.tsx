@@ -1,11 +1,34 @@
 // File location: app/insurance/page.tsx
-// Shows ONLY 8 insurance items (filtered by type === "insurance")
+// CHANGE: Added UserInfoModal popup before showing insurance details
 
-import Link from 'next/link'
-import { getAllSchemes } from '../../lib/schemes'
+'use client'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import schemesData from '../../data/schemes.json'
+import UserInfoModal, { hasUserInfo } from '../../components/UserInfoModal'
 
 export default function InsurancePage() {
-  const insurances = getAllSchemes().filter(s => s.type === 'insurance')
+  const router = useRouter()
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedItem, setSelectedItem] = useState<{ slug: string; name: string } | null>(null)
+  
+  const insurances = schemesData.schemes.filter((s: any) => s.type === 'insurance')
+
+  const handleJankariClick = (item: any) => {
+    if (hasUserInfo()) {
+      router.push(`/yojana/${item.slug}`)
+    } else {
+      setSelectedItem({ slug: item.slug, name: item.name })
+      setModalOpen(true)
+    }
+  }
+
+  const handleModalSuccess = () => {
+    setModalOpen(false)
+    if (selectedItem) {
+      router.push(`/yojana/${selectedItem.slug}`)
+    }
+  }
   
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
@@ -13,11 +36,11 @@ export default function InsurancePage() {
       <p className="text-sm text-gray-500 mb-6">कम प्रीमियम पर पूरी सुरक्षा — कुल {insurances.length} बीमा विकल्प</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {insurances.map(s => (
-          <Link
+        {insurances.map((s: any) => (
+          <button
             key={s.id}
-            href={`/yojana/${s.slug}`}
-            className="bg-white border-2 border-gray-200 hover:border-green-400 rounded-2xl p-4 hover:shadow-lg transition group"
+            onClick={() => handleJankariClick(s)}
+            className="bg-white border-2 border-gray-200 hover:border-green-400 rounded-2xl p-4 hover:shadow-lg transition group text-left"
           >
             <div className="flex items-start justify-between mb-2">
               <span className="text-3xl">{s.icon}</span>
@@ -31,9 +54,16 @@ export default function InsurancePage() {
               <span className="text-green-700 font-bold text-sm">{s.benefit}</span>
               <span className="text-green-600 text-xs group-hover:underline">जानकारी →</span>
             </div>
-          </Link>
+          </button>
         ))}
       </div>
+
+      <UserInfoModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onSuccess={handleModalSuccess}
+        productName={selectedItem?.name || ''}
+      />
     </div>
   )
 }
