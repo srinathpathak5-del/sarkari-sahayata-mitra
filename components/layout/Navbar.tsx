@@ -54,9 +54,13 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="text-2xl">🇮🇳</span>
+          <img 
+            src="/logo.png" 
+            alt="सहायता मित्र" 
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+          />
           <div>
-            <div className="font-bold text-sm leading-tight">सहायता मित्र</div>
+            <div className="font-bold text-sm sm:text-base leading-tight">सहायता मित्र</div>
             <div className="text-xs text-blue-300 hidden sm:block">Sahayata Mitra</div>
           </div>
         </Link>
