@@ -1,3 +1,6 @@
+// File location: app/terms/page.tsx
+// CHANGES: Fixed email and WhatsApp number in 2 places — now uses real contact details
+
 export default function TermsPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
@@ -9,7 +12,7 @@ export default function TermsPage() {
         <section className="bg-red-50 border border-red-200 rounded-2xl p-5">
           <h2 className="font-bold text-red-800 text-base mb-3">⚠️ महत्वपूर्ण अस्वीकरण</h2>
           <p>
-            सरकारी सहायता मित्र एक <strong>स्वतंत्र शैक्षिक पोर्टल</strong> है।
+            सहायता मित्र एक <strong>स्वतंत्र शैक्षिक पोर्टल</strong> है।
             यह भारत सरकार या किसी सरकारी विभाग की आधिकारिक वेबसाइट नहीं है।
             यहाँ दी गई जानकारी केवल शैक्षिक उद्देश्य के लिए है।
           </p>
@@ -37,7 +40,7 @@ export default function TermsPage() {
             2. मार्केटिंग और संचार सहमति
           </h2>
           <p className="mb-3">
-            वेबसाइट में अपना मोबाइल नंबर दर्ज करके आप सहमति देते हैं कि:
+            वेबसाइट में अपना नाम, मोबाइल नंबर और पिनकोड दर्ज करके आप सहमति देते हैं कि:
           </p>
           <ul className="space-y-2">
             {[
@@ -53,8 +56,14 @@ export default function TermsPage() {
             ))}
           </ul>
           <p className="mt-3 text-xs text-orange-700">
-            आप किसी भी समय help@sarkarisahayatamitra.in पर लिखकर इन संचारों
-            से बाहर निकल सकते हैं।
+            आप किसी भी समय{' '}
+            <a 
+              href="mailto:help@sahayatamitra.com" 
+              className="font-semibold text-orange-800 hover:underline"
+            >
+              help@sahayatamitra.com
+            </a>
+            {' '}पर लिखकर इन संचारों से बाहर निकल सकते हैं।
           </p>
         </section>
 
@@ -70,15 +79,35 @@ export default function TermsPage() {
         <section className="bg-white border border-gray-200 rounded-2xl p-5">
           <h2 className="font-bold text-gray-800 text-base mb-3">4. दायित्व की सीमा</h2>
           <p>
-            सरकारी सहायता मित्र किसी भी आवेदन के परिणाम के लिए उत्तरदायी
+            सहायता मित्र किसी भी आवेदन के परिणाम के लिए उत्तरदायी
             नहीं है। यह पोर्टल केवल जानकारी देता है, आवेदन नहीं करता।
           </p>
         </section>
 
         <section className="bg-white border border-gray-200 rounded-2xl p-5">
           <h2 className="font-bold text-gray-800 text-base mb-3">5. संपर्क</h2>
-          <p>📧 help@sarkarisahayatamitra.in</p>
-          <p className="mt-1">💬 WhatsApp: +91 99999 99999</p>
+          <div className="space-y-2">
+            <p>
+              📧{' '}
+              <a 
+                href="mailto:help@sahayatamitra.com" 
+                className="text-blue-600 hover:underline font-medium"
+              >
+                help@sahayatamitra.com
+              </a>
+            </p>
+            <p>
+              💬{' '}
+              <a 
+                href="https://wa.me/917903742317" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-green-600 hover:underline font-medium"
+              >
+                WhatsApp: +91 79037 42317
+              </a>
+            </p>
+          </div>
         </section>
 
       </div>

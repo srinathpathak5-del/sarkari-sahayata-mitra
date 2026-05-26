@@ -1,3 +1,6 @@
+// File location: app/privacy-policy/page.tsx
+// CHANGES: Fixed email and WhatsApp number — now uses real contact details
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
@@ -9,7 +12,7 @@ export default function PrivacyPolicyPage() {
         <section className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
           <h2 className="font-bold text-blue-900 text-base mb-3">1. हम कौन हैं?</h2>
           <p>
-            सरकारी सहायता मित्र एक निजी शैक्षिक पोर्टल है जो ग्रामीण और
+            सहायता मित्र एक निजी शैक्षिक पोर्टल है जो ग्रामीण और
             अर्ध-शहरी भारतीय नागरिकों को सरकारी योजनाओं की जानकारी सरल
             हिंदी में उपलब्ध कराता है। यह किसी भी सरकारी संस्था से संबद्ध नहीं है।
           </p>
@@ -19,7 +22,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="font-bold text-gray-800 text-base mb-3">2. हम क्या जानकारी एकत्र करते हैं?</h2>
           <ul className="space-y-2">
             {[
-              'मोबाइल नंबर — जो आप वेबसाइट में प्रवेश के समय देते हैं',
+              'नाम, मोबाइल नंबर और पिनकोड — जो आप जानकारी पाने के समय देते हैं',
               'वेबसाइट उपयोग की जानकारी — कौन से पेज देखे, कितनी देर',
               'डिवाइस की जानकारी — मोबाइल/कंप्यूटर, ब्राउज़र प्रकार',
               'पात्रता जांच के दौरान दी गई जानकारी',
@@ -73,8 +76,28 @@ export default function PrivacyPolicyPage() {
 
         <section className="bg-white border border-gray-200 rounded-2xl p-5">
           <h2 className="font-bold text-gray-800 text-base mb-3">5. संपर्क करें</h2>
-          <p>📧 help@sarkarisahayatamitra.in</p>
-          <p className="mt-1">💬 WhatsApp: +91 99999 99999</p>
+          <div className="space-y-2">
+            <p>
+              📧{' '}
+              <a 
+                href="mailto:help@sahayatamitra.com" 
+                className="text-blue-600 hover:underline font-medium"
+              >
+                help@sahayatamitra.com
+              </a>
+            </p>
+            <p>
+              💬{' '}
+              <a 
+                href="https://wa.me/917903742317" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-green-600 hover:underline font-medium"
+              >
+                WhatsApp: +91 79037 42317
+              </a>
+            </p>
+          </div>
         </section>
 
         <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 text-xs text-gray-600">
