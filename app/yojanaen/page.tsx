@@ -1,12 +1,17 @@
+// File location: app/yojanaen/page.tsx
+// CHANGE: Now filters to show ONLY items with type === "yojana"
+
 import Link from 'next/link'
 import { getAllSchemes } from '../../lib/schemes'
 
 export default function YojanaenPage() {
-  const schemes = getAllSchemes()
+  // Filter to show only schemes (yojana type), not loans or insurance
+  const schemes = getAllSchemes().filter(s => s.type === 'yojana')
+  
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold text-blue-900 mb-2">📋 सभी सरकारी योजनाएं</h1>
-      <p className="text-sm text-gray-500 mb-6">सभी योजनाओं की जानकारी एक जगह</p>
+      <p className="text-sm text-gray-500 mb-6">सभी योजनाओं की जानकारी एक जगह — कुल {schemes.length} योजनाएं</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {schemes.map(s => (
