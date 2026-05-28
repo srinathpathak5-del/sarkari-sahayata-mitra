@@ -1,5 +1,5 @@
 // File location: app/layout.tsx
-// CHANGE: Added GoogleAnalytics component to track visitors on every page
+// CHANGE: Added Google Search Console verification code
 
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'सहायता मित्र - Sarkari Yojana Guide',
   description: 'PM Kisan, Ayushman Card, E-Shram की पूरी जानकारी हिंदी में। पात्रता, दस्तावेज और आवेदन प्रक्रिया।',
   keywords: 'PM Kisan, Ayushman Card, E-Shram, सरकारी योजना, sahayata mitra',
+  verification: {
+    google: 'amhCSHc5Qq-qRLjcV6oVg_SvqIKWWsXHhz9Cc9oSgDM',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
