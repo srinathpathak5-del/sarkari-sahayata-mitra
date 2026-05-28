@@ -1,10 +1,17 @@
 // File location: components/UserInfoModal.tsx
-// Reusable modal that asks Name + Mobile + Pincode before user proceeds
+// CHANGE: Added Google Analytics conversion tracking when user submits the form
 
 'use client'
 import { useState } from 'react'
 
 const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxFMhSM4d2gD83-7CjksaV8NaFCuUK_F_9wOZj2HSrxC4BTxuLEnEDjgEuSOz0jTGHWEQ/exec'
+
+// TypeScript: tell it gtag exists on window
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void
+  }
+}
 
 interface UserInfoModalProps {
   isOpen: boolean
@@ -57,6 +64,16 @@ export default function UserInfoModal({ isOpen, onClose, onSuccess, productName 
         body: formData,
         mode: 'no-cors',  // Required for Google Apps Script
       })
+
+      // ===== GOOGLE ANALYTICS CONVERSION TRACKING =====
+      // Fires a "generate_lead" event so GA knows this user became a lead
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'generate_lead', {
+          product_name: productName,
+          pincode: pincode,
+        })
+      }
+      // =================================================
 
       // Save in session so we don't ask again
       sessionStorage.setItem('userInfo', JSON.stringify({
