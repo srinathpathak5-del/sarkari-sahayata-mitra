@@ -1,6 +1,6 @@
-// File location: src/app/page.tsx
-// Tagline: गाँव-गाँव तक सरकारी हक़
-// IMPORTANT: Save the farmer-family.jpg image at: public/farmer-family.jpg
+// File location: app/page.tsx
+// CHANGE: Added video section at the very top of the home page (above hero)
+// Video: https://youtu.be/LLvoEEsjjDw
 
 import Link from 'next/link';
 
@@ -12,6 +12,37 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
+      
+      {/* ======================== */}
+      {/* 0. VIDEO SECTION (NEW)   */}
+      {/* ======================== */}
+      <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-10 sm:py-12 border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-6">
+            <div className="inline-block px-4 py-1.5 bg-red-100 text-red-700 rounded-full text-xs sm:text-sm font-bold mb-3">
+              🎬 देखें वीडियो
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+              जानें कैसे करता है <span className="text-orange-600">सहायता मित्र</span> मदद
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600">
+              सिर्फ कुछ मिनटों में पाएं सरकारी योजनाओं की पूरी जानकारी
+            </p>
+          </div>
+
+          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black border-4 border-white">
+            <iframe
+              src="https://www.youtube.com/embed/LLvoEEsjjDw?rel=0&modestbranding=1"
+              title="सहायता मित्र - सरकारी योजनाओं की जानकारी"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            ></iframe>
+          </div>
+
+        </div>
+      </section>
       
       {/* ======================== */}
       {/* 1. HERO SECTION          */}
