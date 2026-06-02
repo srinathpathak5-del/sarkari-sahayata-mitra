@@ -1,6 +1,7 @@
 // File location: app/page.tsx
-// CHANGE: Added video section at the very top of the home page (above hero)
-// Video: https://youtu.be/LLvoEEsjjDw
+// CHANGE: Added TWO video section at the very top (side by side on desktop, stacked on mobile)
+// Video 1: https://youtu.be/LLvoEEsjjDw — How Sahayata Mitra helps
+// Video 2: https://youtu.be/NU2z6q3fN_I — Happy family after government scheme
 
 import Link from 'next/link';
 
@@ -17,28 +18,65 @@ export default function Home() {
       {/* 0. VIDEO SECTION (NEW)   */}
       {/* ======================== */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-10 sm:py-12 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center mb-6">
+          <div className="text-center mb-8">
             <div className="inline-block px-4 py-1.5 bg-red-100 text-red-700 rounded-full text-xs sm:text-sm font-bold mb-3">
               🎬 देखें वीडियो
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-              जानें कैसे करता है <span className="text-orange-600">सहायता मित्र</span> मदद
+              जानें कैसे <span className="text-orange-600">सहायता मित्र</span> आपकी ज़िन्दगी बदल सकता है
             </h2>
             <p className="text-sm sm:text-base text-gray-600">
-              सिर्फ कुछ मिनटों में पाएं सरकारी योजनाओं की पूरी जानकारी
+              असली कहानियाँ, असली बदलाव — देखें कैसे सरकारी योजनाएं लाखों परिवारों की मदद कर रही हैं
             </p>
           </div>
 
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black border-4 border-white">
-            <iframe
-              src="https://www.youtube.com/embed/LLvoEEsjjDw?rel=0&modestbranding=1"
-              title="सहायता मित्र - सरकारी योजनाओं की जानकारी"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            ></iframe>
+          {/* Two videos side by side on desktop, stacked on mobile */}
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            
+            {/* Video 1: How it works */}
+            <div>
+              <div className="text-center mb-3">
+                <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full mb-2">
+                  📋 कैसे काम करता है
+                </span>
+                <h3 className="text-base sm:text-lg font-bold text-gray-800">
+                  सहायता मित्र की मदद से सरकारी योजनाओं की जानकारी
+                </h3>
+              </div>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black border-4 border-white">
+                <iframe
+                  src="https://www.youtube.com/embed/LLvoEEsjjDw?rel=0&modestbranding=1"
+                  title="सहायता मित्र - सरकारी योजनाओं की जानकारी"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+
+            {/* Video 2: Happy family success story */}
+            <div>
+              <div className="text-center mb-3">
+                <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full mb-2">
+                  😊 खुश परिवार
+                </span>
+                <h3 className="text-base sm:text-lg font-bold text-gray-800">
+                  सरकारी योजना से मिली खुशियाँ — एक परिवार की कहानी
+                </h3>
+              </div>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black border-4 border-white">
+                <iframe
+                  src="https://www.youtube.com/embed/NU2z6q3fN_I?rel=0&modestbranding=1"
+                  title="सहायता मित्र - खुश परिवार की कहानी"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+
           </div>
 
         </div>
