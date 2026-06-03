@@ -1,7 +1,9 @@
 // File location: app/page.tsx
-// CHANGE: Added TWO video section at the very top (side by side on desktop, stacked on mobile)
-// Video 1: https://youtu.be/LLvoEEsjjDw — How Sahayata Mitra helps
-// Video 2: https://youtu.be/NU2z6q3fN_I — Happy family after government scheme
+// CHANGE: Replaced the 3 colorful gradient cards with the new illustrated creatives
+// - scheme-creative.png for सरकारी योजनाएं
+// - loan-creative.png for सरकारी लोन  
+// - insurance-creative.png for सुरक्षा बीमा
+// Two YouTube videos remain at the top
 
 import Link from 'next/link';
 
@@ -15,7 +17,7 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       
       {/* ======================== */}
-      {/* 0. VIDEO SECTION (NEW)   */}
+      {/* 0. VIDEO SECTION         */}
       {/* ======================== */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-10 sm:py-12 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,7 +37,7 @@ export default function Home() {
           {/* Two videos side by side on desktop, stacked on mobile */}
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
             
-            {/* Video 1: How it works */}
+            {/* Video 1 */}
             <div>
               <div className="text-center mb-3">
                 <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full mb-2">
@@ -56,7 +58,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Video 2: Happy family success story */}
+            {/* Video 2 */}
             <div>
               <div className="text-center mb-3">
                 <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full mb-2">
@@ -93,7 +95,6 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             
-            {/* Left: Text */}
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm mb-6 border border-orange-100">
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
@@ -143,7 +144,6 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Right: Farmer Family Image */}
             <div className="relative">
               <div className="aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-orange-100 to-amber-100">
                 <img 
@@ -153,7 +153,6 @@ export default function Home() {
                 />
               </div>
               
-              {/* Floating stat card */}
               <div className="absolute -bottom-6 -left-6 lg:-left-12 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-gray-100">
                 <div className="w-14 h-14 bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl flex items-center justify-center text-3xl">🌾</div>
                 <div>
@@ -201,9 +200,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ======================== */}
-      {/* 3. 3 PRODUCTS SECTION    */}
-      {/* ======================== */}
+      {/* ============================== */}
+      {/* 3. 3 PRODUCTS SECTION (NEW)    */}
+      {/* ============================== */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -221,21 +220,15 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             
-            {/* Scheme Card */}
+            {/* Scheme Card with new illustration */}
             <Link href="/yojanaen" className="group">
               <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full">
-                <div className="aspect-[16/10] bg-gradient-to-br from-orange-400 via-orange-500 to-red-500 relative overflow-hidden flex items-center justify-center">
-                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
-                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-300/20 rounded-full"></div>
-                  <div className="absolute top-4 left-4 text-2xl opacity-30">🌾</div>
-                  <div className="absolute bottom-4 right-4 text-2xl opacity-30">🌾</div>
-                  
-                  <div className="relative text-center text-white">
-                    <div className="text-6xl sm:text-7xl mb-2 drop-shadow-lg">🏛️</div>
-                    <div className="text-sm font-semibold opacity-95 px-3 py-1 bg-white/20 rounded-full backdrop-blur-sm">
-                      केंद्र व राज्य सरकार
-                    </div>
-                  </div>
+                <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
+                  <img 
+                    src="/scheme-creative.png"
+                    alt="सरकारी योजनाएं - PM Kisan, Scholarship, Pension Programs"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 
                 <div className="p-6 sm:p-7">
@@ -255,21 +248,15 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Loan Card */}
+            {/* Loan Card with new illustration */}
             <Link href="/loan" className="group">
               <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full">
-                <div className="aspect-[16/10] bg-gradient-to-br from-blue-500 via-indigo-500 to-blue-700 relative overflow-hidden flex items-center justify-center">
-                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
-                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-300/20 rounded-full"></div>
-                  <div className="absolute top-4 left-4 text-2xl opacity-30">₹</div>
-                  <div className="absolute bottom-4 right-4 text-2xl opacity-30">₹</div>
-                  
-                  <div className="relative text-center text-white">
-                    <div className="text-6xl sm:text-7xl mb-2 drop-shadow-lg">💰</div>
-                    <div className="text-sm font-semibold opacity-95 px-3 py-1 bg-white/20 rounded-full backdrop-blur-sm">
-                      कम ब्याज दर
-                    </div>
-                  </div>
+                <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
+                  <img 
+                    src="/loan-creative.png"
+                    alt="सरकारी लोन - Easy Loans for Rural India"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 
                 <div className="p-6 sm:p-7">
@@ -289,21 +276,15 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Insurance Card */}
+            {/* Insurance Card with new illustration */}
             <Link href="/insurance" className="group">
               <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full">
-                <div className="aspect-[16/10] bg-gradient-to-br from-green-500 via-emerald-500 to-teal-600 relative overflow-hidden flex items-center justify-center">
-                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
-                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-lime-300/20 rounded-full"></div>
-                  <div className="absolute top-4 left-4 text-2xl opacity-30">❤️</div>
-                  <div className="absolute bottom-4 right-4 text-2xl opacity-30">❤️</div>
-                  
-                  <div className="relative text-center text-white">
-                    <div className="text-6xl sm:text-7xl mb-2 drop-shadow-lg">🛡️</div>
-                    <div className="text-sm font-semibold opacity-95 px-3 py-1 bg-white/20 rounded-full backdrop-blur-sm">
-                      परिवार की सुरक्षा
-                    </div>
-                  </div>
+                <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
+                  <img 
+                    src="/insurance-creative.png"
+                    alt="सुरक्षा बीमा - Crop, Health, Life Insurance"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 
                 <div className="p-6 sm:p-7">
