@@ -1,9 +1,6 @@
 // File location: app/page.tsx
-// CHANGE: Replaced the 3 colorful gradient cards with the new illustrated creatives
-// - scheme-creative.png for सरकारी योजनाएं
-// - loan-creative.png for सरकारी लोन  
-// - insurance-creative.png for सुरक्षा बीमा
-// Two YouTube videos remain at the top
+// CHANGE: Added "मुफ्त टूल्स" section after 3 products section
+// Showcases photo resizer + placeholders for future tools
 
 import Link from 'next/link';
 
@@ -34,10 +31,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Two videos side by side on desktop, stacked on mobile */}
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            
-            {/* Video 1 */}
             <div>
               <div className="text-center mb-3">
                 <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full mb-2">
@@ -57,8 +51,6 @@ export default function Home() {
                 ></iframe>
               </div>
             </div>
-
-            {/* Video 2 */}
             <div>
               <div className="text-center mb-3">
                 <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full mb-2">
@@ -78,9 +70,7 @@ export default function Home() {
                 ></iframe>
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
       
@@ -200,9 +190,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============================== */}
-      {/* 3. 3 PRODUCTS SECTION (NEW)    */}
-      {/* ============================== */}
+      {/* ======================== */}
+      {/* 3. 3 PRODUCTS SECTION    */}
+      {/* ======================== */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -220,24 +210,20 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             
-            {/* Scheme Card with new illustration */}
             <Link href="/yojanaen" className="group">
               <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full">
                 <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
                   <img 
                     src="/scheme-creative.png"
-                    alt="सरकारी योजनाएं - PM Kisan, Scholarship, Pension Programs"
+                    alt="सरकारी योजनाएं"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                
                 <div className="p-6 sm:p-7">
                   <div className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full mb-3">
                     18+ योजनाएं
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    🌾 सरकारी योजनाएं
-                  </h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">🌾 सरकारी योजनाएं</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     PM-KISAN, आवास योजना, उज्ज्वला सहित केंद्र और राज्य सरकार की 18+ योजनाएं
                   </p>
@@ -248,24 +234,20 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Loan Card with new illustration */}
             <Link href="/loan" className="group">
               <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full">
                 <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
                   <img 
                     src="/loan-creative.png"
-                    alt="सरकारी लोन - Easy Loans for Rural India"
+                    alt="सरकारी लोन"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                
                 <div className="p-6 sm:p-7">
                   <div className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full mb-3">
                     8 लोन विकल्प
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    💰 सरकारी लोन
-                  </h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">💰 सरकारी लोन</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     किसान क्रेडिट कार्ड, मुद्रा लोन, स्व-निधि सहित 8 कम ब्याज वाले लोन विकल्प
                   </p>
@@ -276,24 +258,20 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Insurance Card with new illustration */}
             <Link href="/insurance" className="group">
               <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full">
                 <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
                   <img 
                     src="/insurance-creative.png"
-                    alt="सुरक्षा बीमा - Crop, Health, Life Insurance"
+                    alt="सुरक्षा बीमा"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                
                 <div className="p-6 sm:p-7">
                   <div className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full mb-3">
                     8 बीमा योजनाएं
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    🛡️ सुरक्षा बीमा
-                  </h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">🛡️ सुरक्षा बीमा</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     फसल बीमा, जीवन बीमा, स्वास्थ्य बीमा सहित 8 बीमा योजनाएं आपकी सुरक्षा के लिए
                   </p>
@@ -305,6 +283,123 @@ export default function Home() {
             </Link>
 
           </div>
+        </div>
+      </section>
+
+      {/* ======================== */}
+      {/* 3.5 NEW TOOLS SECTION    */}
+      {/* ======================== */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-cyan-50 via-blue-50 to-teal-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-12">
+            <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
+              🛠️ मुफ्त टूल्स
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              सरकारी आवेदन के लिए <span className="text-blue-600">मुफ्त टूल्स</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              आवेदन भरने में मदद के लिए आसान और मुफ्त डिजिटल टूल्स
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            
+            {/* Photo Resizer - Active */}
+            <Link href="/photo-resize" className="group">
+              <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full border-2 border-blue-200 hover:border-blue-500 relative overflow-hidden">
+                <div className="absolute top-4 right-4">
+                  <span className="inline-block px-2.5 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">
+                    ✓ उपलब्ध
+                  </span>
+                </div>
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-3xl mb-5 shadow-lg">
+                  📸
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  फोटो साइज़ बदलें
+                </h3>
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  सरकारी फॉर्म के लिए फोटो का KB में आकार बदलें — 20KB, 50KB, 100KB तक
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  <span className="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium">आधार</span>
+                  <span className="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium">PAN</span>
+                  <span className="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium">PM Kisan</span>
+                  <span className="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium">वोटर कार्ड</span>
+                </div>
+                <div className="flex items-center text-blue-600 font-bold group-hover:gap-3 transition-all gap-2">
+                  टूल इस्तेमाल करें <span>→</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Coming Soon - Signature Resizer */}
+            <div className="group cursor-not-allowed">
+              <div className="bg-white/60 rounded-3xl p-6 sm:p-7 h-full border-2 border-gray-200 relative overflow-hidden opacity-75">
+                <div className="absolute top-4 right-4">
+                  <span className="inline-block px-2.5 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">
+                    🚧 जल्द आ रहा है
+                  </span>
+                </div>
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-300 to-gray-400 rounded-2xl flex items-center justify-center text-3xl mb-5">
+                  ✍️
+                </div>
+                <h3 className="text-xl font-bold text-gray-700 mb-2">
+                  सिग्नेचर रिसाइज़र
+                </h3>
+                <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+                  सरकारी फॉर्म के लिए सिग्नेचर का सही साइज़ बनाएं
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">10KB</span>
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">20KB</span>
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">PDF</span>
+                </div>
+                <div className="flex items-center text-gray-400 font-bold gap-2">
+                  जल्द उपलब्ध
+                </div>
+              </div>
+            </div>
+
+            {/* Coming Soon - Image to PDF */}
+            <div className="group cursor-not-allowed">
+              <div className="bg-white/60 rounded-3xl p-6 sm:p-7 h-full border-2 border-gray-200 relative overflow-hidden opacity-75">
+                <div className="absolute top-4 right-4">
+                  <span className="inline-block px-2.5 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">
+                    🚧 जल्द आ रहा है
+                  </span>
+                </div>
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-300 to-gray-400 rounded-2xl flex items-center justify-center text-3xl mb-5">
+                  📄
+                </div>
+                <h3 className="text-xl font-bold text-gray-700 mb-2">
+                  फोटो को PDF बनाएं
+                </h3>
+                <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+                  कई फोटो को एक PDF में बदलें — दस्तावेज अपलोड के लिए
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">मुफ्त</span>
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">तेज़</span>
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">सुरक्षित</span>
+                </div>
+                <div className="flex items-center text-gray-400 font-bold gap-2">
+                  जल्द उपलब्ध
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="text-center mt-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-blue-100 text-sm text-gray-700">
+              <span className="text-green-600 font-bold">🔒</span>
+              <span>सभी टूल्स 100% सुरक्षित — आपकी फाइल आपके फोन में ही रहती है</span>
+            </div>
+          </div>
+
         </div>
       </section>
 
