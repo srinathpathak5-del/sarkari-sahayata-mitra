@@ -1,556 +1,504 @@
-// File location: app/sarkari-kaam/page.tsx
-// Government Services / सरकारी काम section with state-wise filter
-// Shows 15 important documents (Aadhaar, PAN, DL, Voter, Domicile, etc.)
-// Each card → modal → official govt URL after lead capture
+// File location: app/page.tsx
+// CHANGE: Expanded 3 products to 4 (added सरकारी काम), updated trust strip
 
-'use client'
-import { useState } from 'react'
-import UserInfoModal, { hasUserInfo } from '../../components/UserInfoModal'
+import Link from 'next/link';
 
-interface GovService {
-  id: string
-  emoji: string
-  name: string
-  nameHindi: string
-  category: 'central' | 'state'
-  shortDesc: string
-  documents: string[]
-  centralUrl?: string  // For central documents (same URL all states)
-  stateUrls?: Record<string, string>  // For state-specific documents
-}
+export const metadata = {
+  title: 'सहायता मित्र — गाँव-गाँव तक सरकारी हक़ | सरकारी योजनाएं, लोन, बीमा, दस्तावेज़',
+  description: 'सरकारी योजनाएं, लोन, बीमा और दस्तावेज़ की पूरी जानकारी आसान हिंदी में। PM-KISAN, KCC, Aadhaar, PAN सहित सभी सरकारी सेवाएं। 100% मुफ़्त।',
+};
 
-const STATES = [
-  { code: 'UP', name: 'उत्तर प्रदेश', english: 'Uttar Pradesh' },
-  { code: 'BR', name: 'बिहार', english: 'Bihar' },
-  { code: 'MP', name: 'मध्य प्रदेश', english: 'Madhya Pradesh' },
-  { code: 'RJ', name: 'राजस्थान', english: 'Rajasthan' },
-  { code: 'JH', name: 'झारखंड', english: 'Jharkhand' },
-  { code: 'HR', name: 'हरियाणा', english: 'Haryana' },
-  { code: 'CG', name: 'छत्तीसगढ़', english: 'Chhattisgarh' },
-  { code: 'UK', name: 'उत्तराखंड', english: 'Uttarakhand' },
-]
-
-const SERVICES: GovService[] = [
-  // Central documents (same URL for all states)
-  {
-    id: 'aadhaar',
-    emoji: '🆔',
-    name: 'Aadhaar Card',
-    nameHindi: 'आधार कार्ड',
-    category: 'central',
-    shortDesc: '12-अंकों का यूनिक पहचान नंबर',
-    documents: [
-      'पहचान प्रमाण (Voter ID/Passport/राशन कार्ड)',
-      'पता प्रमाण (बिजली बिल/बैंक स्टेटमेंट)',
-      'जन्म तिथि प्रमाण',
-      'मोबाइल नंबर',
-      'पासपोर्ट साइज़ फोटो',
-    ],
-    centralUrl: 'https://uidai.gov.in/',
-  },
-  {
-    id: 'pan',
-    emoji: '💳',
-    name: 'PAN Card',
-    nameHindi: 'पैन कार्ड',
-    category: 'central',
-    shortDesc: 'इनकम टैक्स के लिए जरूरी 10-अंकों का नंबर',
-    documents: [
-      'आधार कार्ड',
-      'पहचान प्रमाण',
-      'पता प्रमाण',
-      'जन्म तिथि प्रमाण',
-      'पासपोर्ट साइज़ फोटो (50KB)',
-    ],
-    centralUrl: 'https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html',
-  },
-  {
-    id: 'passport',
-    emoji: '🛂',
-    name: 'Passport',
-    nameHindi: 'पासपोर्ट',
-    category: 'central',
-    shortDesc: 'विदेश यात्रा के लिए जरूरी दस्तावेज',
-    documents: [
-      'आधार कार्ड',
-      'PAN कार्ड',
-      'जन्म प्रमाण पत्र',
-      'पता प्रमाण (3 दस्तावेज)',
-      'पुराना पासपोर्ट (renewal के लिए)',
-      'पासपोर्ट साइज़ फोटो',
-    ],
-    centralUrl: 'https://www.passportindia.gov.in/',
-  },
-  {
-    id: 'voter',
-    emoji: '🗳️',
-    name: 'Voter ID',
-    nameHindi: 'वोटर कार्ड',
-    category: 'central',
-    shortDesc: 'मतदान के लिए जरूरी पहचान पत्र',
-    documents: [
-      'आधार कार्ड',
-      'पता प्रमाण',
-      'जन्म तिथि प्रमाण',
-      'पासपोर्ट साइज़ फोटो (50KB)',
-    ],
-    centralUrl: 'https://voters.eci.gov.in/',
-  },
-  {
-    id: 'ration',
-    emoji: '🍚',
-    name: 'Ration Card',
-    nameHindi: 'राशन कार्ड',
-    category: 'state',
-    shortDesc: 'सस्ता राशन पाने के लिए जरूरी',
-    documents: [
-      'आधार कार्ड (सभी सदस्यों का)',
-      'पता प्रमाण',
-      'आय प्रमाण पत्र',
-      'पासपोर्ट साइज़ फोटो',
-      'मुखिया का बैंक पासबुक',
-    ],
-    stateUrls: {
-      UP: 'https://fcs.up.gov.in/FoodPortal.aspx',
-      BR: 'https://epds.bihar.gov.in/',
-      MP: 'https://nfsa.mp.gov.in/',
-      RJ: 'https://food.rajasthan.gov.in/',
-      JH: 'https://aahar.jharkhand.gov.in/',
-      HR: 'https://haryanafood.gov.in/',
-      CG: 'https://khadya.cg.nic.in/',
-      UK: 'https://fcs.uk.gov.in/',
-    },
-  },
-  {
-    id: 'eshram',
-    emoji: '👷',
-    name: 'E-Shram Card',
-    nameHindi: 'ई-श्रम कार्ड',
-    category: 'central',
-    shortDesc: 'असंगठित मजदूरों के लिए — ₹2 लाख बीमा',
-    documents: [
-      'आधार कार्ड',
-      'आधार से लिंक मोबाइल नंबर',
-      'बैंक खाता विवरण',
-      'व्यवसाय की जानकारी',
-    ],
-    centralUrl: 'https://eshram.gov.in/',
-  },
-  {
-    id: 'ayushman',
-    emoji: '🏥',
-    name: 'Ayushman Card',
-    nameHindi: 'आयुष्मान कार्ड',
-    category: 'central',
-    shortDesc: '₹5 लाख तक मुफ्त इलाज (BPL परिवारों के लिए)',
-    documents: [
-      'आधार कार्ड',
-      'राशन कार्ड',
-      'मोबाइल नंबर',
-      'SECC-2011 सूची में नाम',
-    ],
-    centralUrl: 'https://beneficiary.nha.gov.in/',
-  },
-  // State-specific documents
-  {
-    id: 'dl',
-    emoji: '🚗',
-    name: 'Driving License',
-    nameHindi: 'ड्राइविंग लाइसेंस',
-    category: 'state',
-    shortDesc: 'गाड़ी चलाने के लिए कानूनी लाइसेंस',
-    documents: [
-      'आधार कार्ड',
-      'पता प्रमाण',
-      'जन्म तिथि प्रमाण',
-      'मेडिकल प्रमाण पत्र (Form 1-A)',
-      'पासपोर्ट साइज़ फोटो (30KB)',
-      'लर्निंग लाइसेंस (LL)',
-    ],
-    stateUrls: {
-      UP: 'https://parivahan.gov.in/parivahan/',
-      BR: 'https://parivahan.gov.in/parivahan/',
-      MP: 'https://parivahan.gov.in/parivahan/',
-      RJ: 'https://parivahan.gov.in/parivahan/',
-      JH: 'https://parivahan.gov.in/parivahan/',
-      HR: 'https://parivahan.gov.in/parivahan/',
-      CG: 'https://parivahan.gov.in/parivahan/',
-      UK: 'https://parivahan.gov.in/parivahan/',
-    },
-  },
-  {
-    id: 'll',
-    emoji: '📜',
-    name: 'Learning License',
-    nameHindi: 'लर्निंग लाइसेंस',
-    category: 'state',
-    shortDesc: 'DL से पहले लर्निंग लाइसेंस जरूरी',
-    documents: [
-      'आधार कार्ड',
-      'पता प्रमाण',
-      'जन्म तिथि प्रमाण (18+ आयु)',
-      'पासपोर्ट साइज़ फोटो',
-      'मेडिकल प्रमाण पत्र',
-    ],
-    stateUrls: {
-      UP: 'https://parivahan.gov.in/parivahan/',
-      BR: 'https://parivahan.gov.in/parivahan/',
-      MP: 'https://parivahan.gov.in/parivahan/',
-      RJ: 'https://parivahan.gov.in/parivahan/',
-      JH: 'https://parivahan.gov.in/parivahan/',
-      HR: 'https://parivahan.gov.in/parivahan/',
-      CG: 'https://parivahan.gov.in/parivahan/',
-      UK: 'https://parivahan.gov.in/parivahan/',
-    },
-  },
-  {
-    id: 'rc',
-    emoji: '🚙',
-    name: 'Vehicle RC',
-    nameHindi: 'वाहन RC',
-    category: 'state',
-    shortDesc: 'वाहन रजिस्ट्रेशन सर्टिफिकेट',
-    documents: [
-      'गाड़ी की रसीद (Invoice)',
-      'बीमा कागज़',
-      'PUC सर्टिफिकेट',
-      'पता प्रमाण',
-      'आधार कार्ड',
-      'पासपोर्ट साइज़ फोटो',
-    ],
-    stateUrls: {
-      UP: 'https://parivahan.gov.in/parivahan/',
-      BR: 'https://parivahan.gov.in/parivahan/',
-      MP: 'https://parivahan.gov.in/parivahan/',
-      RJ: 'https://parivahan.gov.in/parivahan/',
-      JH: 'https://parivahan.gov.in/parivahan/',
-      HR: 'https://parivahan.gov.in/parivahan/',
-      CG: 'https://parivahan.gov.in/parivahan/',
-      UK: 'https://parivahan.gov.in/parivahan/',
-    },
-  },
-  {
-    id: 'caste',
-    emoji: '📜',
-    name: 'Caste Certificate',
-    nameHindi: 'जाति प्रमाण पत्र',
-    category: 'state',
-    shortDesc: 'SC/ST/OBC आरक्षण के लिए जरूरी',
-    documents: [
-      'आधार कार्ड',
-      'पता प्रमाण',
-      'माता-पिता का जाति प्रमाण पत्र',
-      'स्कूल/कॉलेज सर्टिफिकेट',
-      'राशन कार्ड',
-      'पासपोर्ट साइज़ फोटो',
-    ],
-    stateUrls: {
-      UP: 'https://edistrict.up.gov.in/',
-      BR: 'https://serviceonline.bihar.gov.in/',
-      MP: 'https://mpedistrict.gov.in/',
-      RJ: 'https://emitra.rajasthan.gov.in/',
-      JH: 'https://jharsewa.jharkhand.gov.in/',
-      HR: 'https://saralharyana.gov.in/',
-      CG: 'https://edistrict.cgstate.gov.in/',
-      UK: 'https://eservices.uk.gov.in/',
-    },
-  },
-  {
-    id: 'income',
-    emoji: '💰',
-    name: 'Income Certificate',
-    nameHindi: 'आय प्रमाण पत्र',
-    category: 'state',
-    shortDesc: 'छात्रवृत्ति और आरक्षण के लिए जरूरी',
-    documents: [
-      'आधार कार्ड',
-      'पता प्रमाण',
-      'राशन कार्ड',
-      'आय का प्रमाण (Salary slip/ITR)',
-      'बैंक स्टेटमेंट',
-      'पासपोर्ट साइज़ फोटो',
-    ],
-    stateUrls: {
-      UP: 'https://edistrict.up.gov.in/',
-      BR: 'https://serviceonline.bihar.gov.in/',
-      MP: 'https://mpedistrict.gov.in/',
-      RJ: 'https://emitra.rajasthan.gov.in/',
-      JH: 'https://jharsewa.jharkhand.gov.in/',
-      HR: 'https://saralharyana.gov.in/',
-      CG: 'https://edistrict.cgstate.gov.in/',
-      UK: 'https://eservices.uk.gov.in/',
-    },
-  },
-  {
-    id: 'domicile',
-    emoji: '🏠',
-    name: 'Domicile Certificate',
-    nameHindi: 'निवास प्रमाण पत्र',
-    category: 'state',
-    shortDesc: 'राज्य का स्थायी निवासी होने का प्रमाण',
-    documents: [
-      'आधार कार्ड',
-      'जन्म प्रमाण पत्र',
-      'स्कूल छोड़ने का सर्टिफिकेट',
-      '15+ साल के पता प्रमाण',
-      'राशन कार्ड',
-      'पासपोर्ट साइज़ फोटो',
-    ],
-    stateUrls: {
-      UP: 'https://edistrict.up.gov.in/',
-      BR: 'https://serviceonline.bihar.gov.in/',
-      MP: 'https://mpedistrict.gov.in/',
-      RJ: 'https://emitra.rajasthan.gov.in/',
-      JH: 'https://jharsewa.jharkhand.gov.in/',
-      HR: 'https://saralharyana.gov.in/',
-      CG: 'https://edistrict.cgstate.gov.in/',
-      UK: 'https://eservices.uk.gov.in/',
-    },
-  },
-  {
-    id: 'birth',
-    emoji: '👶',
-    name: 'Birth Certificate',
-    nameHindi: 'जन्म प्रमाण पत्र',
-    category: 'state',
-    shortDesc: 'सभी सरकारी आवेदनों के लिए जरूरी',
-    documents: [
-      'अस्पताल का डिस्चार्ज प्रमाण पत्र',
-      'माता-पिता का आधार कार्ड',
-      'विवाह प्रमाण पत्र (अगर है)',
-      'पता प्रमाण',
-    ],
-    stateUrls: {
-      UP: 'https://e-nagarsewaup.gov.in/',
-      BR: 'https://serviceonline.bihar.gov.in/',
-      MP: 'https://mpedistrict.gov.in/',
-      RJ: 'https://emitra.rajasthan.gov.in/',
-      JH: 'https://jharsewa.jharkhand.gov.in/',
-      HR: 'https://saralharyana.gov.in/',
-      CG: 'https://edistrict.cgstate.gov.in/',
-      UK: 'https://eservices.uk.gov.in/',
-    },
-  },
-  {
-    id: 'bhulekh',
-    emoji: '🌾',
-    name: 'Land Records',
-    nameHindi: 'भूलेख / जमीन रिकॉर्ड',
-    category: 'state',
-    shortDesc: 'जमीन का खसरा-खतौनी रिकॉर्ड',
-    documents: [
-      'जमीन की पुरानी रसीद',
-      'आधार कार्ड',
-      'खाता नंबर / खसरा नंबर',
-      'पता प्रमाण',
-    ],
-    stateUrls: {
-      UP: 'https://upbhulekh.gov.in/',
-      BR: 'https://bhumijankari.bihar.gov.in/',
-      MP: 'https://mpbhulekh.gov.in/',
-      RJ: 'https://apnakhata.rajasthan.gov.in/',
-      JH: 'https://jharbhoomi.jharkhand.gov.in/',
-      HR: 'https://jamabandi.nic.in/',
-      CG: 'https://bhuiyan.cg.nic.in/',
-      UK: 'https://bhulekh.uk.gov.in/',
-    },
-  },
-]
-
-export default function SarkariKaamPage() {
-  const [selectedState, setSelectedState] = useState<string>('UP')
-  const [modalOpen, setModalOpen] = useState(false)
-  const [pendingService, setPendingService] = useState<GovService | null>(null)
-  const [expandedCard, setExpandedCard] = useState<string | null>(null)
-
-  function handleApply(service: GovService) {
-    setPendingService(service)
-    
-    if (hasUserInfo()) {
-      // User has already given info this session, go directly
-      redirectToOfficial(service)
-    } else {
-      setModalOpen(true)
-    }
-  }
-
-  function redirectToOfficial(service: GovService) {
-    const url = service.category === 'central'
-      ? service.centralUrl
-      : service.stateUrls?.[selectedState]
-    
-    if (url) {
-      window.open(url, '_blank', 'noopener,noreferrer')
-    }
-  }
-
-  function handleModalSuccess() {
-    setModalOpen(false)
-    if (pendingService) {
-      setTimeout(() => {
-        redirectToOfficial(pendingService)
-        setPendingService(null)
-      }, 300)
-    }
-  }
-
-  function toggleCard(id: string) {
-    setExpandedCard(expandedCard === id ? null : id)
-  }
-
-  const selectedStateName = STATES.find(s => s.code === selectedState)?.name || ''
-
+export default function Home() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <main className="min-h-screen bg-white">
       
-      {/* Header */}
-      <div className="text-center mb-8">
-        <div className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mb-3">
-          📋 सरकारी काम
-        </div>
-        <h1 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-2">
-          सरकारी दस्तावेज़ बनवाएं
-        </h1>
-        <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
-          आधार, PAN, DL, राशन कार्ड और सभी जरूरी सरकारी दस्तावेज़ों के लिए जानकारी और आवेदन लिंक
-        </p>
-      </div>
-
-      {/* State Filter */}
-      <div className="bg-white border-2 border-blue-200 rounded-2xl p-5 mb-8 shadow-sm">
-        <label className="block text-sm font-semibold text-gray-700 mb-2">
-          📍 अपना राज्य चुनें (राज्य-विशिष्ट दस्तावेज़ों के लिए)
-        </label>
-        <select
-          value={selectedState}
-          onChange={(e) => setSelectedState(e.target.value)}
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none text-base font-medium text-gray-800 bg-white"
-        >
-          {STATES.map(state => (
-            <option key={state.code} value={state.code}>
-              {state.name} ({state.english})
-            </option>
-          ))}
-        </select>
-        <p className="text-xs text-gray-500 mt-2">
-          💡 आधार, PAN, पासपोर्ट जैसे केंद्रीय दस्तावेज़ सभी राज्यों के लिए समान हैं
-        </p>
-      </div>
-
-      {/* Services Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-        {SERVICES.map((service) => {
-          const isExpanded = expandedCard === service.id
-          const isAvailable = service.category === 'central' || (service.stateUrls && service.stateUrls[selectedState])
+      {/* ======================== */}
+      {/* 0. VIDEO SECTION         */}
+      {/* ======================== */}
+      <section className="bg-gradient-to-br from-blue-50 via-white to-orange-50 py-10 sm:py-12 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          return (
-            <div
-              key={service.id}
-              className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-blue-400 hover:shadow-lg transition-all"
-            >
-              {/* Card Header */}
-              <div className="p-5">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="text-4xl shrink-0">{service.emoji}</div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-gray-900 text-base sm:text-lg">
-                      {service.nameHindi}
-                    </h3>
-                    <p className="text-xs text-gray-500">{service.name}</p>
-                  </div>
-                  {service.category === 'central' ? (
-                    <span className="text-[10px] bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-semibold whitespace-nowrap">
-                      केंद्रीय
-                    </span>
-                  ) : (
-                    <span className="text-[10px] bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full font-semibold whitespace-nowrap">
-                      राज्य
-                    </span>
-                  )}
-                </div>
-                
-                <p className="text-sm text-gray-600 mb-3 leading-snug">
-                  {service.shortDesc}
-                </p>
+          <div className="text-center mb-8">
+            <div className="inline-block px-4 py-1.5 bg-red-100 text-red-700 rounded-full text-xs sm:text-sm font-bold mb-3">
+              🎬 देखें वीडियो
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+              जानें कैसे <span className="text-orange-600">सहायता मित्र</span> आपकी ज़िन्दगी बदल सकता है
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600">
+              असली कहानियाँ, असली बदलाव — देखें कैसे सरकारी योजनाएं लाखों परिवारों की मदद कर रही हैं
+            </p>
+          </div>
 
-                {/* Documents Toggle */}
-                <button
-                  onClick={() => toggleCard(service.id)}
-                  className="w-full text-left bg-gray-50 hover:bg-gray-100 rounded-xl px-3 py-2 transition flex items-center justify-between mb-3"
-                >
-                  <span className="text-sm font-semibold text-gray-700">
-                    📄 जरूरी दस्तावेज़ ({service.documents.length})
-                  </span>
-                  <span className="text-blue-600 text-lg">
-                    {isExpanded ? '−' : '+'}
-                  </span>
-                </button>
-
-                {/* Documents List - Collapsible */}
-                {isExpanded && (
-                  <ul className="bg-blue-50 border-2 border-blue-100 rounded-xl p-3 mb-3 space-y-1.5 animate-in fade-in duration-200">
-                    {service.documents.map((doc, idx) => (
-                      <li key={idx} className="text-sm text-gray-700 flex items-start gap-2">
-                        <span className="text-blue-600 font-bold shrink-0">{idx + 1}.</span>
-                        <span>{doc}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                {/* Apply Button */}
-                <button
-                  onClick={() => handleApply(service)}
-                  disabled={!isAvailable}
-                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2"
-                >
-                  {isAvailable ? (
-                    <>आवेदन करें →</>
-                  ) : (
-                    <>जल्द उपलब्ध</>
-                  )}
-                </button>
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            <div>
+              <div className="text-center mb-3">
+                <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full mb-2">
+                  📋 कैसे काम करता है
+                </span>
+                <h3 className="text-base sm:text-lg font-bold text-gray-800">
+                  सहायता मित्र की मदद से सरकारी योजनाओं की जानकारी
+                </h3>
+              </div>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black border-4 border-white">
+                <iframe
+                  src="https://www.youtube.com/embed/LLvoEEsjjDw?rel=0&modestbranding=1"
+                  title="सहायता मित्र - सरकारी योजनाओं की जानकारी"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                ></iframe>
               </div>
             </div>
-          )
-        })}
-      </div>
+            <div>
+              <div className="text-center mb-3">
+                <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full mb-2">
+                  😊 खुश परिवार
+                </span>
+                <h3 className="text-base sm:text-lg font-bold text-gray-800">
+                  सरकारी योजना से मिली खुशियाँ — एक परिवार की कहानी
+                </h3>
+              </div>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black border-4 border-white">
+                <iframe
+                  src="https://www.youtube.com/embed/NU2z6q3fN_I?rel=0&modestbranding=1"
+                  title="सहायता मित्र - खुश परिवार की कहानी"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* ======================== */}
+      {/* 1. HERO SECTION          */}
+      {/* ======================== */}
+      <section className="relative bg-gradient-to-br from-orange-50 via-amber-50 to-green-50 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4h-4zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-24">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm mb-6 border border-orange-100">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span className="text-sm font-medium text-gray-700">🇮🇳 सहायता मित्र</span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                  गाँव-गाँव तक
+                </span><br />
+                सरकारी हक़
+              </h1>
+              
+              <p className="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                सरकारी योजनाएं, लोन, बीमा और दस्तावेज़ की पूरी जानकारी अब आसान हिंदी में।
+                हर किसान और परिवार के लिए — सही जानकारी, सही समय पर।
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link 
+                  href="/yojanaen"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white font-semibold rounded-xl hover:bg-orange-700 transition shadow-lg text-lg"
+                >
+                  योजनाएं देखें →
+                </Link>
+                <Link 
+                  href="/patrata-janch"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl border-2 border-gray-200 hover:border-orange-600 transition text-lg"
+                >
+                  पात्रता जाँचें
+                </Link>
+              </div>
+              
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-gray-600 justify-center lg:justify-start">
+                <div className="flex items-center gap-2">
+                  <span className="w-5 h-5 bg-green-100 text-green-700 rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                  100% मुफ़्त
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-5 h-5 bg-green-100 text-green-700 rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                  सरकारी स्रोत
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-5 h-5 bg-green-100 text-green-700 rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                  WhatsApp सहायता
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-orange-100 to-amber-100">
+                <img 
+                  src="/farmer-family.jpg"
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <div className="absolute -bottom-6 -left-6 lg:-left-12 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-gray-100">
+                <div className="w-14 h-14 bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl flex items-center justify-center text-3xl">🌾</div>
+                <div>
+                  <div className="text-2xl font-bold text-gray-900">34+</div>
+                  <div className="text-sm text-gray-600">सरकारी सहायता</div>
+                </div>
+              </div>
+              
+              <div className="absolute -top-6 -right-6 lg:-right-12 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-gray-100">
+                <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl flex items-center justify-center text-3xl">💚</div>
+                <div>
+                  <div className="text-2xl font-bold text-gray-900">हिंदी</div>
+                  <div className="text-sm text-gray-600">में जानकारी</div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
 
-      {/* Info Box */}
-      <div className="bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-5 text-center mb-8">
-        <p className="text-sm text-yellow-900">
-          ⚠️ <strong>नोट:</strong> ये सभी आवेदन लिंक आधिकारिक सरकारी वेबसाइटों पर खुलते हैं। 
-          सहायता मित्र केवल जानकारी देता है — कोई शुल्क नहीं लेता।
-        </p>
-      </div>
+      {/* ======================== */}
+      {/* 2. TRUST STRIP (UPDATED) */}
+      {/* ======================== */}
+      <section className="bg-white py-12 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+            <div>
+              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-1">18+</div>
+              <div className="text-sm text-gray-600">सरकारी योजनाएं</div>
+            </div>
+            <div>
+              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-1">8</div>
+              <div className="text-sm text-gray-600">लोन विकल्प</div>
+            </div>
+            <div>
+              <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-1">8</div>
+              <div className="text-sm text-gray-600">बीमा योजनाएं</div>
+            </div>
+            <div>
+              <div className="text-3xl sm:text-4xl font-bold text-purple-600 mb-1">15+</div>
+              <div className="text-sm text-gray-600">सरकारी दस्तावेज़</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* WhatsApp Help */}
-      <div className="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-2xl p-6 text-center">
-        <div className="text-3xl mb-2">💬</div>
-        <h3 className="font-bold text-lg mb-2">मदद चाहिए?</h3>
-        <p className="text-sm text-white/90 mb-4">
-          आवेदन करने में परेशानी हो तो WhatsApp पर हमसे जुड़ें
-        </p>
-        <a
-          href="https://wa.me/917903742317?text=Hello,%20मुझे%20सरकारी%20दस्तावेज़%20बनवाने%20में%20मदद%20चाहिए"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-white text-green-600 font-bold px-6 py-2.5 rounded-xl hover:bg-gray-100 transition"
-        >
-          📱 WhatsApp पर मदद लें
-        </a>
-      </div>
+      {/* ====================================== */}
+      {/* 3. 4 PRODUCTS SECTION (UPDATED)        */}
+      {/* ====================================== */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-4">
+              हमारी सेवाएं
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              हम आपकी कैसे मदद करते हैं?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              चार सरल तरीकों से सरकारी सहायता तक आपकी पहुँच
+            </p>
+          </div>
 
-      {/* Modal */}
-      <UserInfoModal
-        isOpen={modalOpen}
-        onClose={() => {
-          setModalOpen(false)
-          setPendingService(null)
-        }}
-        onSuccess={handleModalSuccess}
-        productName={pendingService ? `${pendingService.nameHindi} (${selectedStateName})` : ''}
-      />
-    </div>
-  )
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+            
+            {/* Schemes Card */}
+            <Link href="/yojanaen" className="group">
+              <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full">
+                <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
+                  <img 
+                    src="/scheme-creative.png"
+                    alt="सरकारी योजनाएं"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-5 sm:p-6">
+                  <div className="inline-block px-2.5 py-0.5 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full mb-3">
+                    18+ योजनाएं
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">🌾 सरकारी योजनाएं</h3>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                    PM-KISAN, आवास योजना, उज्ज्वला सहित 18+ योजनाएं
+                  </p>
+                  <div className="flex items-center text-orange-600 font-semibold group-hover:gap-3 transition-all gap-2 text-sm">
+                    देखें <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Loan Card */}
+            <Link href="/loan" className="group">
+              <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full">
+                <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
+                  <img 
+                    src="/loan-creative.png"
+                    alt="सरकारी लोन"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-5 sm:p-6">
+                  <div className="inline-block px-2.5 py-0.5 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full mb-3">
+                    8 विकल्प
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">💰 सरकारी लोन</h3>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                    KCC, मुद्रा, स्व-निधि — 8 कम ब्याज वाले लोन
+                  </p>
+                  <div className="flex items-center text-blue-600 font-semibold group-hover:gap-3 transition-all gap-2 text-sm">
+                    देखें <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Insurance Card */}
+            <Link href="/insurance" className="group">
+              <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full">
+                <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
+                  <img 
+                    src="/insurance-creative.png"
+                    alt="सुरक्षा बीमा"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-5 sm:p-6">
+                  <div className="inline-block px-2.5 py-0.5 bg-green-100 text-green-700 text-xs font-semibold rounded-full mb-3">
+                    8 योजनाएं
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">🛡️ सुरक्षा बीमा</h3>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                    फसल, जीवन, स्वास्थ्य — 8 बीमा योजनाएं
+                  </p>
+                  <div className="flex items-center text-green-600 font-semibold group-hover:gap-3 transition-all gap-2 text-sm">
+                    देखें <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Sarkari Kaam Card (NEW - 4th product) */}
+            <Link href="/sarkari-kaam" className="group">
+              <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full">
+                <div className="aspect-[16/10] relative overflow-hidden bg-gradient-to-br from-purple-500 via-indigo-500 to-blue-600 flex items-center justify-center">
+                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
+                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-300/20 rounded-full"></div>
+                  <div className="absolute top-3 left-3 text-2xl opacity-30">📋</div>
+                  <div className="absolute bottom-3 right-3 text-2xl opacity-30">🆔</div>
+                  
+                  <div className="relative text-center text-white px-4">
+                    <div className="text-5xl sm:text-6xl mb-2 drop-shadow-lg">📋</div>
+                    <div className="flex items-center justify-center gap-2 flex-wrap mb-2">
+                      <span className="text-2xl">🆔</span>
+                      <span className="text-2xl">💳</span>
+                      <span className="text-2xl">🚗</span>
+                      <span className="text-2xl">🏠</span>
+                    </div>
+                    <div className="text-xs font-semibold opacity-95 px-3 py-1 bg-white/20 rounded-full backdrop-blur-sm">
+                      Aadhaar · PAN · DL · और भी
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5 sm:p-6">
+                  <div className="inline-block px-2.5 py-0.5 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full mb-3">
+                    15+ दस्तावेज़
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">📋 सरकारी काम</h3>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                    Aadhaar, PAN, DL, राशन कार्ड — राज्यवार आवेदन
+                  </p>
+                  <div className="flex items-center text-purple-600 font-semibold group-hover:gap-3 transition-all gap-2 text-sm">
+                    देखें <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ======================== */}
+      {/* 3.5 TOOLS SECTION        */}
+      {/* ======================== */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-cyan-50 via-blue-50 to-teal-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-12">
+            <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
+              🛠️ मुफ्त टूल्स
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              सरकारी आवेदन के लिए <span className="text-blue-600">मुफ्त टूल्स</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              आवेदन भरने में मदद के लिए आसान और मुफ्त डिजिटल टूल्स
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            
+            <Link href="/photo-resize" className="group">
+              <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-md hover:shadow-2xl transition-all hover:-translate-y-2 h-full border-2 border-blue-200 hover:border-blue-500 relative overflow-hidden">
+                <div className="absolute top-4 right-4">
+                  <span className="inline-block px-2.5 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">
+                    ✓ उपलब्ध
+                  </span>
+                </div>
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-3xl mb-5 shadow-lg">
+                  📸
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">फोटो साइज़ बदलें</h3>
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  सरकारी फॉर्म के लिए फोटो का KB में आकार बदलें — 20KB, 50KB, 100KB तक
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  <span className="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium">आधार</span>
+                  <span className="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium">PAN</span>
+                  <span className="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium">PM Kisan</span>
+                  <span className="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium">वोटर कार्ड</span>
+                </div>
+                <div className="flex items-center text-blue-600 font-bold group-hover:gap-3 transition-all gap-2">
+                  टूल इस्तेमाल करें <span>→</span>
+                </div>
+              </div>
+            </Link>
+
+            <div className="group cursor-not-allowed">
+              <div className="bg-white/60 rounded-3xl p-6 sm:p-7 h-full border-2 border-gray-200 relative overflow-hidden opacity-75">
+                <div className="absolute top-4 right-4">
+                  <span className="inline-block px-2.5 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">
+                    🚧 जल्द आ रहा है
+                  </span>
+                </div>
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-300 to-gray-400 rounded-2xl flex items-center justify-center text-3xl mb-5">
+                  ✍️
+                </div>
+                <h3 className="text-xl font-bold text-gray-700 mb-2">सिग्नेचर रिसाइज़र</h3>
+                <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+                  सरकारी फॉर्म के लिए सिग्नेचर का सही साइज़ बनाएं
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">10KB</span>
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">20KB</span>
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">PDF</span>
+                </div>
+                <div className="flex items-center text-gray-400 font-bold gap-2">जल्द उपलब्ध</div>
+              </div>
+            </div>
+
+            <div className="group cursor-not-allowed">
+              <div className="bg-white/60 rounded-3xl p-6 sm:p-7 h-full border-2 border-gray-200 relative overflow-hidden opacity-75">
+                <div className="absolute top-4 right-4">
+                  <span className="inline-block px-2.5 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full">
+                    🚧 जल्द आ रहा है
+                  </span>
+                </div>
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-300 to-gray-400 rounded-2xl flex items-center justify-center text-3xl mb-5">
+                  📄
+                </div>
+                <h3 className="text-xl font-bold text-gray-700 mb-2">फोटो को PDF बनाएं</h3>
+                <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+                  कई फोटो को एक PDF में बदलें — दस्तावेज अपलोड के लिए
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">मुफ्त</span>
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">तेज़</span>
+                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">सुरक्षित</span>
+                </div>
+                <div className="flex items-center text-gray-400 font-bold gap-2">जल्द उपलब्ध</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="text-center mt-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-blue-100 text-sm text-gray-700">
+              <span className="text-green-600 font-bold">🔒</span>
+              <span>सभी टूल्स 100% सुरक्षित — आपकी फाइल आपके फोन में ही रहती है</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ======================== */}
+      {/* 4. HOW IT WORKS          */}
+      {/* ======================== */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-orange-50 to-amber-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              कैसे काम करता है?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              सिर्फ़ 3 आसान कदम और सरकारी मदद आपके हाथ में
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              { num: '१', emoji: '🔍', title: 'योजना ढूँढें', desc: 'अपने काम की सरकारी योजना ब्राउज़ करें — किसान, महिला, बुज़ुर्ग, छात्र सबके लिए' },
+              { num: '२', emoji: '✅', title: 'पात्रता जाँचें', desc: 'देखें आप योजना के लिए योग्य हैं या नहीं — सिर्फ़ 2 मिनट में' },
+              { num: '३', emoji: '📝', title: 'आवेदन की मदद लें', desc: 'ज़रूरी दस्तावेज़ की लिस्ट और आवेदन के स्टेप्स — सब आसान हिंदी में' }
+            ].map((step, idx) => (
+              <div key={idx} className="bg-white rounded-3xl p-7 sm:p-8 shadow-lg hover:shadow-xl transition-shadow relative">
+                <div className="absolute -top-4 -right-4 w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
+                  {step.num}
+                </div>
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl flex items-center justify-center text-3xl mb-6">
+                  {step.emoji}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ======================== */}
+      {/* 5. FINAL CTA             */}
+      {/* ======================== */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-orange-600 via-red-600 to-pink-600 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")`,
+        }}></div>
+        
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+            अभी शुरू करें अपनी सरकारी मदद की यात्रा
+          </h2>
+          <p className="text-lg sm:text-xl mb-8 opacity-95 max-w-2xl mx-auto">
+            हज़ारों किसान, महिलाएँ और परिवार पहले से ही हमारे साथ हैं
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/yojanaen"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-orange-600 font-bold rounded-xl hover:bg-gray-100 transition shadow-xl text-lg"
+            >
+              योजनाएं देखें →
+            </Link>
+            <a 
+              href="https://wa.me/917903742317"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 transition shadow-xl gap-2 text-lg"
+            >
+              📱 WhatsApp पर मदद
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  );
 }
